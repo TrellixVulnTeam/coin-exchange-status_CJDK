@@ -1,0 +1,24 @@
+{
+  "name": "coin-exchange-status",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "autosuggest-highlight": "^3.1.1",
+    "firebase": "^4.8.2",
+    "firebase-admin": "^5.8.0",
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-autosuggest": "^9.3.2",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
