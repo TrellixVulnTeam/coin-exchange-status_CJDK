@@ -39,12 +39,12 @@ class TypeSelect extends Component {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'Fees'}>Fees</MenuItem>
-          <MenuItem value={'Deposits'}>Deposits</MenuItem>
-          <MenuItem value={'Withdrawals'}>Withdrawals</MenuItem>
-          <MenuItem value={'Trade'}>Trade</MenuItem>
-          <MenuItem value={'Support'}>Support</MenuItem>
-          <MenuItem value={'Other'}>Other</MenuItem>
+          <MenuItem value={'fees'}>Fees</MenuItem>
+          <MenuItem value={'deposits'}>Deposits</MenuItem>
+          <MenuItem value={'withdrawals'}>Withdrawals</MenuItem>
+          <MenuItem value={'trades'}>Trades</MenuItem>
+          <MenuItem value={'support'}>Support</MenuItem>
+          <MenuItem value={'other'}>Other</MenuItem>
         </Select>
       </FormControl>
     );
