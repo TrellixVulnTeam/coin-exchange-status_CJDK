@@ -1,30 +1,51 @@
-[
-  {
+{
+  "a": {
+    "exchangeKey": "binance",
+    "type": "withdrawals",
+    "market": "ETH/USD",
+    "details": "Been waiting all day for withdrawal to clear but still hasn't.",
+    "delay": "4-12 hours"
+  },
+  "4e": {
     "exchangeKey": "binance",
     "type": "deposits",
     "market": "STAK/BTC",
     "details": "Deposited this morning, still waiting.",
     "delay": "4-12 hours"
   },
-  {
+  "iwo": {
     "exchangeKey": "binance",
     "type": "trades",
     "market": "BTC/USD",
     "details": "Stuck in pending state, waiting to clear.",
     "delay": "1-2 hours"
   },
-  {
+  "85d": {
+    "exchangeKey": "bittrex",
+    "type": "withdrawals",
+    "market": "ETH/USD",
+    "details": "Been waiting a couple days.",
+    "delay": "2 days"
+  },
+  "d32": {
     "exchangeKey": "coinbase",
     "type": "support",
     "market": "ETH/USD",
     "details": "Still waiting to hear back.",
     "delay": "2 days"
   },
-  {
-    "exchangeKey": "bittrex",
-    "type": "withdrawals",
+  "s20": {
+    "exchangeKey": "coinsmarkets",
+    "type": "deposits",
     "market": "BTC/USD",
-    "details": "Been waiting all day.",
-    "delay": "12-24 hours"
+    "details": "Deposited BTC but nothing showed up. It's been days.",
+    "delay": "2 days"
+  },
+  "20d": {
+    "exchangeKey": "coinsmarkets",
+    "type": "deposits",
+    "market": "ETH/USD",
+    "details": "Still waiting to hear back.",
+    "delay": "Several days"
   }
-]
+}

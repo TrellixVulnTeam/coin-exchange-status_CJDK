@@ -19,8 +19,10 @@ class ExchangeCards extends Component {
     const exchanges = this.props.exchanges;
     let exchangeCards = [];
     for (const exchange in exchanges) {
+      let exchangeWithKey = exchanges[exchange];
+      exchangeWithKey['key'] = exchange;
       exchangeCards.push(
-        <ExchangeCard exchange={exchanges[exchange]} key={Math.random()} />,
+        <ExchangeCard exchange={exchangeWithKey} key={Math.random()} />,
       );
     }
     return (
