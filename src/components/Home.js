@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import fire from '../fire';
-import ExchangePapers from './ExchangePapers';
+import ExchangeCards from './ExchangeCards';
 import Add from './Add';
 
 class Home extends Component {
@@ -28,7 +28,7 @@ class Home extends Component {
     return (
       <div>
         <div>
-          <ExchangePapers exchanges={exchanges} />
+          <ExchangeCards exchanges={exchanges} />
         </div>
         <Add />
       </div>

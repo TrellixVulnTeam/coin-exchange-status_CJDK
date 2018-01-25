@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import ExchangePaper from './ExchangePaper';
+import ExchangeCard from './ExchangeCard';
 import NotificationPaper from './NotificationPaper';
 
 const styles = theme => ({
@@ -13,14 +13,14 @@ const styles = theme => ({
   },
 });
 
-class ExchangePapers extends Component {
+class ExchangeCards extends Component {
   render() {
     const {classes} = this.props;
     const exchanges = this.props.exchanges;
     let exchangeCards = [];
     for (const exchange in exchanges) {
       exchangeCards.push(
-        <ExchangePaper exchange={exchanges[exchange]} key={Math.random()} />,
+        <ExchangeCard exchange={exchanges[exchange]} key={Math.random()} />,
       );
     }
     return (
@@ -32,4 +32,4 @@ class ExchangePapers extends Component {
   }
 }
 
-export default withStyles(styles)(ExchangePapers);
+export default withStyles(styles)(ExchangeCards);
