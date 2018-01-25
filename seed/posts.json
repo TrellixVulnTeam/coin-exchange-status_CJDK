@@ -1,0 +1,30 @@
+[
+  {
+    "exchangeKey": "binance",
+    "type": "deposits",
+    "market": "STAK/BTC",
+    "details": "Deposited this morning, still waiting.",
+    "delay": "4-12 hours"
+  },
+  {
+    "exchangeKey": "binance",
+    "type": "trades",
+    "market": "BTC/USD",
+    "details": "Stuck in pending state, waiting to clear.",
+    "delay": "1-2 hours"
+  },
+  {
+    "exchangeKey": "coinbase",
+    "type": "support",
+    "market": "ETH/USD",
+    "details": "Still waiting to hear back.",
+    "delay": "2 days"
+  },
+  {
+    "exchangeKey": "bittrex",
+    "type": "withdrawals",
+    "market": "BTC/USD",
+    "details": "Been waiting all day.",
+    "delay": "12-24 hours"
+  }
+]
