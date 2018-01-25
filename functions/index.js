@@ -7,13 +7,12 @@ admin.initializeApp(functions.config().firebase);
 
 /*
  * By using a wildcard in the path with the onCreate event, we ensure
- * the function triggers whenver a new /status is written to the db
+ * the function triggers whenver a new /post is created in the db
  *
  */
-exports.updateExchangeStatusCount = functions.database
-  .ref('/status/{id}')
+exports.updateExchangePostsCount = functions.database
+  .ref('/posts/{id}')
   .onCreate(event => {
-
     /*
      * event.data is an instance of DeltaSnapshot
      *
@@ -21,17 +20,25 @@ exports.updateExchangeStatusCount = functions.database
      *
      */
 
-    const status = event.data.val();
-    const exchangeName = status.exchangeName;
+    const post = event.data.val();
+    const exchangeKey = post.exchangeKey;
 
     return event.data.ref.parent
-      .orderByChild('exchangeName')
-      .equalTo(exchangeName)
+      .orderByChild('exchangeKey')
+      .equalTo(exchangeKey)
       .once('value')
       .then(snapshot => {
-	// snapshot.val() will be an Object containing all the /status objects matching the query
-	let count = snapshot.val() ? Object.keys(snapshot.val()).length : 0;
-	// finally, update the status count for the exchange
-	event.data.ref.parent.parent.child('/exchanges/' + exchangeName).update({statusCount: count});
+        // snapshot.val() will be an Object containing all the /status objects matching the query
+        let count = snapshot.val() ? Object.keys(snapshot.val()).length : 0;
+        // finally, update the posts count for the exchange
+        event.data.ref.parent.parent
+          .child('/exchanges/' + exchangeKey)
+          .update({postsCount: count});
       });
   });
+
+// add onDelete so it decrements
+//
+// add timestamps to posts?
+//
+// us once instead of on for /exchanges home so it automatically updates when back endjkj

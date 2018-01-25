@@ -2,8 +2,8 @@
   "rules": {
     ".read": true,
     ".write": true,
-    "status": {
-      ".indexOn": "exchangeName"
+    "posts": {
+      ".indexOn": "exchangeKey"
     }
   }
 }

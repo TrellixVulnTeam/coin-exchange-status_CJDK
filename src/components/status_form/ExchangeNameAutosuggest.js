@@ -51,8 +51,11 @@ class ExchangeNameAutosuggest extends React.Component {
     // load exchanges from db
     const exchangeRef = fire.database().ref('/exchanges');
     exchangeRef.once('value').then(snapshot => {
-      Object.values(snapshot.val()).map(exchange => {
-        return exchanges.push({label: exchange.name});
+      const entries = Object.entries(snapshot.val());
+      entries.map(entry => {
+        const exchangeKey = entry[0]; // the exchange's key
+        const exchangeName = entry[1].name; // the exchange's name
+        return exchanges.push({label: exchangeName, key: exchangeKey});
       });
       this.setState({exchanges: exchanges});
     });
@@ -150,7 +153,14 @@ class ExchangeNameAutosuggest extends React.Component {
     this.setState({
       value: newValue,
     });
-    this.props.handleExchangeNameChange(newValue);
+    // newValue is the name (what's displayed) but we want to save against the exchange's key / id
+    // this.state.exchanges is an array of objects like [{label: 'exchangeName', key: 'exchangeKey'},...]
+    const exchange = this.state.exchanges.find(exchange => {
+      return exchange.label === newValue;
+    });
+    if (exchange && exchange.key) {
+      this.props.handleExchangeNameChange(exchange.key);
+    }
   };
 
   render() {

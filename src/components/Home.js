@@ -19,6 +19,7 @@ class Home extends Component {
     let exchangesRef = fire.database().ref('exchanges');
     exchangesRef.on('value', snapshot => {
       this.setState({exchanges: snapshot.val()});
+      console.log(this.state);
     });
   }
 

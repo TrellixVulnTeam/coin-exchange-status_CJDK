@@ -1,0 +1,87 @@
+{
+  "binance": {
+    "name": "Binance",
+    "url": "https://www.binance.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bittrex": {
+    "name": "Bittrex",
+    "url": "https://bittrex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coinbase": {
+    "name": "Coinbase",
+    "url": "https://www.coinbase.com/",
+    "summary": "",
+    "statusColor": "yellow",
+    "postsCount": 0
+  },
+  "coinsmarkets": {
+    "name": "CoinsMarkets",
+    "url": "https://coins.markets/",
+    "summary": "Looking like scam, been 'fixing' servers for several weeks now. Stay away.",
+    "statusColor": "red",
+    "postsCount": 0
+  },
+  "cryptopia": {
+    "name": "Cryptopia",
+    "url": "https://www.cryptopia.co.nz/Exchange/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "gdax": {
+    "name": "GDAX",
+    "url": "https://www.gdax.com/",
+    "summary": "",
+    "statusColor": "yellow",
+    "postsCount": 0
+  },
+  "hitbtc": {
+    "name": "HitBTC",
+    "url": "https://hitbtc.com/",
+    "summary": "STAK trading to begin mid February 2018",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "koinbi": {
+    "name": "Koinbi",
+    "url": "https://koinbi.com/",
+    "summary": "wen scam?",
+    "statusColor": "red",
+    "postsCount": 0
+  },
+  "kraken": {
+    "name": "Kraken",
+    "url": "https://www.kraken.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "poloniex": {
+    "name": "Poloniex",
+    "url": "https://poloniex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "stocksexchange": {
+    "name": "Stocks.Exchange",
+    "url": "https://stocks.exchange/",
+    "summary": "wen lambo?",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "yobit": {
+    "name": "Yobit",
+    "url": "https://yobit.net/en/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  }
+}
+

@@ -9,24 +9,29 @@ import DetailsTextField from './status_form/DetailsTextField';
 import SubmitButton from './status_form/SubmitButton';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
-//import fire from '../fire';
+import fire from '../fire';
 
 const styles = theme => ({
   container: {
     display: 'flex',
     justifyContent: 'center',
     padding: `${theme.spacing.unit * 10}px 0`,
+    [theme.breakpoints.down('xs')]: {
+      padding: `${theme.spacing.unit * 2}px 0`,
+    },
   },
   card: {
-    width: '40%',
+    [theme.breakpoints.up('lg')]: {
+      margin: `0 ${theme.spacing.unit * 64}px`,
+    },
     [theme.breakpoints.up('md')]: {
-      width: '45%',
+      margin: `0 ${theme.spacing.unit * 32}px`,
     },
     [theme.breakpoints.down('sm')]: {
-      width: '65%',
+      margin: `0 ${theme.spacing.unit * 4}px`,
     },
     [theme.breakpoints.down('xs')]: {
-      width: '98.6%',
+      margin: 0,
     },
   },
   form: {
@@ -46,8 +51,8 @@ class StatusForm extends Component {
     this.handleDetailsChange = this.handleDetailsChange.bind(this);
     this.handleDelayChange = this.handleDelayChange.bind(this);
     this.state = {
-      issue: {
-        exchangeName: '',
+      post: {
+        exchangeKey: '',
         type: '',
         market: '',
         details: '',
@@ -57,43 +62,41 @@ class StatusForm extends Component {
   }
 
   addStatus = event => {
-    event.preventDefault();
-    console.log(this.state);
-    /*event.preventDefault(); // prevents form submit from reloading the page
-    fire.database().ref('status').push(this.state.issue).then(() => {
+    event.preventDefault(); // prevents form submit from reloading the page
+    fire.database().ref('posts').push(this.state.post).then(() => {
       // send to firebase
       console.log('push complete');
-    });*/
+    });
   };
 
-  handleExchangeNameChange = name => {
-    const issue = this.state.issue;
-    issue.exchangeName = name;
-    this.setState({issue: issue});
+  handleExchangeNameChange = key => {
+    const post = this.state.post;
+    post.exchangeKey = key;
+    this.setState({post: post});
   };
 
   handleFeedbackTypeChange = type => {
-    const issue = this.state.issue;
-    issue.type = type;
-    this.setState({issue: issue});
+    const post = this.state.post;
+    post.type = type;
+    this.setState({post: post});
   };
 
   handleMarketChange = value => {
-    const issue = this.state.issue;
-    issue.market = value;
-    this.setState({issue: issue});
+    const post = this.state.post;
+    post.market = value;
+    this.setState({post: post});
   };
 
   handleDetailsChange = value => {
-    const issue = this.state.issue;
-    issue.details = value;
-    this.setState({issue: issue});
+    const post = this.state.post;
+    post.details = value;
+    this.setState({post: post});
   };
 
   handleDelayChange = value => {
-    const issue = this.state.issue;
-    issue.delay = value;
-    this.setState({issue: issue});
+    const post = this.state.post;
+    post.delay = value;
+    this.setState({post: post});
   };
 
   render() {
@@ -102,14 +105,13 @@ class StatusForm extends Component {
       <div className={classes.container}>
         <Card className={classes.card}>
           <CardHeader
-            title="Add new feedback here"
+            title="Post feedback for an exchange here"
             subheader="You can do it!"
           />
           <CardContent>
             <form className={classes.form} onSubmit={this.addStatus}>
               <ExchangeNameAutosuggest
                 className={classes.root}
-                exchangeNames={this.state.exchangeNames}
                 handleExchangeNameChange={this.handleExchangeNameChange}
               />
               <TypeSelect
