@@ -1,12 +1,12 @@
 // @format
 
 import React, {Component} from 'react';
-import ExchangeNameAutosuggest from './status_form/ExchangeNameAutosuggest';
-import TypeSelect from './status_form/TypeSelect';
-import DelaySelect from './status_form/DelaySelect';
-import MarketTextField from './status_form/MarketTextField';
-import DetailsTextField from './status_form/DetailsTextField';
-import SubmitButton from './status_form/SubmitButton';
+import ExchangeNameAutosuggest from './posts_form/ExchangeNameAutosuggest';
+import TypeSelect from './posts_form/TypeSelect';
+import DelaySelect from './posts_form/DelaySelect';
+import MarketTextField from './posts_form/MarketTextField';
+import DetailsTextField from './posts_form/DetailsTextField';
+import SubmitButton from './posts_form/SubmitButton';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
@@ -42,7 +42,7 @@ const styles = theme => ({
   },
 });
 
-class StatusForm extends Component {
+class PostsForm extends Component {
   constructor(props) {
     super(props);
     this.handleExchangeNameChange = this.handleExchangeNameChange.bind(this);
@@ -131,4 +131,4 @@ class StatusForm extends Component {
   }
 }
 
-export default withStyles(styles)(StatusForm);
+export default withStyles(styles)(PostsForm);

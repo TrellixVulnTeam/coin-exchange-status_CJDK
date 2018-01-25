@@ -21,7 +21,7 @@ class Add extends Component {
     const {classes} = this.props;
     return (
       <div>
-        <Link to="/status">
+        <Link to="/posts">
           <Button
             fab
             color="primary"

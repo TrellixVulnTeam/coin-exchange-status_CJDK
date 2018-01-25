@@ -7,7 +7,7 @@ import {withStyles} from 'material-ui/styles';
 import './App.css';
 import TopBar from './components/TopBar';
 import Home from './components/Home';
-import StatusForm from './components/StatusForm';
+import PostsForm from './components/PostsForm';
 
 const styles = theme => ({
   bg: {
@@ -28,7 +28,7 @@ class App extends Component {
         <TopBar />
         <div className={[classes.container, classes.bg].join(' ')}>
           <Route path="/" component={Home} exact={true} />
-          <Route path="/status" component={StatusForm} />
+          <Route path="/posts" component={PostsForm} />
         </div>
       </div>
     );
