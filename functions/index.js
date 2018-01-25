@@ -10,7 +10,7 @@ admin.initializeApp(functions.config().firebase);
  * the function triggers whenver a new /post is created in the db
  *
  */
-exports.updateExchangePostsCount = functions.database
+exports.updateExchangePostsCountOnPostCreate = functions.database
   .ref('/posts/{id}')
   .onCreate(event => {
     /*
@@ -36,9 +36,3 @@ exports.updateExchangePostsCount = functions.database
           .update({postsCount: count});
       });
   });
-
-// add onDelete so it decrements
-//
-// add timestamps to posts?
-//
-// us once instead of on for /exchanges home so it automatically updates when back endjkj
