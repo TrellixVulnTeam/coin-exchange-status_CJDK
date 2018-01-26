@@ -2,20 +2,17 @@
 
 import React, {Component} from 'react';
 import {CardContent} from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
+import Post from './Post';
 
 class Posts extends Component {
   render() {
-    let posts = this.props.posts;
-    let postsSummaries = [];
-
-    for (const post in posts) {
-      postsSummaries.push(posts[post].details);
-    }
+    const posts = Object.values(this.props.posts); // posts come in as an object of objects, makes them an array
 
     return (
       <CardContent>
-        {postsSummaries}
+        {posts.map(post => {
+          return <Post post={post} key={Math.random()} />;
+        })}
       </CardContent>
     );
   }
