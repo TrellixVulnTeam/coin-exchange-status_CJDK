@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {CardContent} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
-class ExchangeCardCollapseContent extends Component {
+class Posts extends Component {
   render() {
     let posts = this.props.posts;
     let postsSummaries = [];
@@ -21,4 +21,4 @@ class ExchangeCardCollapseContent extends Component {
   }
 }
 
-export default ExchangeCardCollapseContent;
+export default Posts;

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
-import ExchangeCardCollapseContent from './exchange_card/ExchangeCardCollapseContent';
+import Posts from './exchange_card/Posts';
 import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
@@ -139,7 +139,7 @@ class ExchangeCard extends Component {
         {cardContent}
         {cardActions}
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <ExchangeCardCollapseContent posts={this.state.posts} />
+          <Posts posts={this.state.posts} />
         </Collapse>
       </Card>
     );
