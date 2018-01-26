@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
-import ExchangeCardCollapseContent from './ExchangeCardCollapseContent';
+import ExchangeCardCollapseContent from './exchange_card/ExchangeCardCollapseContent';
 import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
