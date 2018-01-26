@@ -36,3 +36,9 @@ exports.updateExchangePostsCountOnPostCreate = functions.database
           .update({postsCount: count});
       });
   });
+
+exports.addCreatedAtOnPostCreate = functions.database
+  .ref('/posts/{id}')
+  .onCreate(event => {
+    return event.data.ref.child('createdAt').set(Date.now());
+  });
