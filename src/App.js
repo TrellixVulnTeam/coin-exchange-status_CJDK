@@ -10,10 +10,6 @@ import Home from './components/Home';
 import PostsForm from './components/PostsForm';
 
 const styles = theme => ({
-  bg: {
-    background:
-      'linear-gradient(180deg, rgb(244, 244, 244) 0%, rgb(250, 250, 250) 100%) fixed',
-  },
   container: {
     padding: `64px ${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px`,
   },
@@ -26,7 +22,7 @@ class App extends Component {
       <div>
         <Reboot />
         <TopBar />
-        <div className={[classes.container, classes.bg].join(' ')}>
+        <div className={classes.container}>
           <Route path="/" component={Home} exact={true} />
           <Route path="/posts" component={PostsForm} />
         </div>
