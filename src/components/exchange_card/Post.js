@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import TimeAgo from 'react-timeago';
 
 const styles = theme => ({
   postContainer: {
@@ -32,7 +33,9 @@ class Post extends Component {
   render() {
     const classes = this.props.classes;
     const post = this.props.post;
-    const element = (
+    const date = new Date(post.createdAt);
+
+    return (
       <div className={classes.postContainer}>
         <Typography component="ul" className={classes.ul} color="secondary">
           <li className={classes.li}>
@@ -63,10 +66,11 @@ class Post extends Component {
         <Typography paragraph type="body1">
           {post.details}
         </Typography>
+        <Typography paragraph type="caption" align="right">
+          <TimeAgo date={post.createdAt} />
+        </Typography>
       </div>
     );
-
-    return element;
   }
 }
 
