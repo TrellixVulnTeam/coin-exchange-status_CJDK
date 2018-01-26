@@ -21,6 +21,7 @@ const styles = theme => ({
   },
   actions: {
     display: 'flex',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.025)',
   },
   expand: {
     transform: 'rotate(0deg)',
