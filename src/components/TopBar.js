@@ -2,7 +2,6 @@
 
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import MoreVert from 'material-ui-icons/MoreVert';
 import Search from 'material-ui-icons/Search';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
@@ -26,7 +25,7 @@ const styles = theme => ({
   iconContainer: {
     display: 'flex',
     flexBasis: '20%',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
 });
 
@@ -44,7 +43,6 @@ class TopBar extends React.Component {
         </Typography>
         <div className={classes.iconContainer}>
           <Search className={classes.icon} />
-          <MoreVert className={classes.icon} />
         </div>
       </AppBar>
     );
