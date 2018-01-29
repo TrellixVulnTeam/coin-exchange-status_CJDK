@@ -106,7 +106,7 @@ class PostsForm extends Component {
         <Card className={classes.card}>
           <CardHeader
             title="Post feedback for an exchange here"
-            subheader="You can do it!"
+            subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
           />
           <CardContent>
             <form className={classes.form} onSubmit={this.addStatus}>
