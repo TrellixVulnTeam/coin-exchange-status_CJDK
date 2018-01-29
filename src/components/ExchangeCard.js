@@ -144,7 +144,7 @@ class ExchangeCard extends Component {
               })}
               onClick={this.handleExpandClick}
               aria-expanded={this.state.expanded}
-              aria-label="Show more">
+              aria-label="Show all posts">
               {cardActionIcon}
             </IconButton>
           </CardActions>
