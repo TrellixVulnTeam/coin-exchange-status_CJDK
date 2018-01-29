@@ -39,6 +39,10 @@ const styles = theme => ({
     color: 'rgba(0, 0, 0)',
     margin: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px 0`,
   },
+  showAllSpan: {
+    flex: '1 0 auto',
+    textAlign: 'right',
+  },
 });
 
 class ExchangeCard extends Component {
@@ -130,14 +134,23 @@ class ExchangeCard extends Component {
       ? <FavoriteIcon />
       : <FavoriteBorderIcon />;
 
+    let showAllSpan = (
+      <Typography
+        component="span"
+        type="caption"
+        className={classes.showAllSpan}>
+        {!this.state.expanded ? 'Show all posts' : ''}
+      </Typography>
+    );
     const cardActions =
       postsCount > 0
-        ? <CardActions className={classes.actions} disableActionSpacing>
+        ? <CardActions className={classes.actions}>
             <IconButton
               onClick={this.handleFavoriteClick}
               aria-label="Add to favorites">
               {favoriteIcon}
             </IconButton>
+            {showAllSpan}
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
