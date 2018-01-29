@@ -33,7 +33,6 @@ class Post extends Component {
   render() {
     const classes = this.props.classes;
     const post = this.props.post;
-    const date = new Date(post.createdAt);
 
     return (
       <div className={classes.postContainer}>
