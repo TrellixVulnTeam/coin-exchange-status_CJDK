@@ -17,6 +17,7 @@
     "react-scripts": "1.0.17",
     "react-timeago": "^3.4.3"
   },
+  "homepage" : "https://coin-exchange-stat.firebaseapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
