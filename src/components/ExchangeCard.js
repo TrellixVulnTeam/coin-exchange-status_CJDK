@@ -9,6 +9,8 @@ import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
+import FavoriteIcon from 'material-ui-icons/Favorite';
+import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
@@ -43,7 +45,13 @@ class ExchangeCard extends Component {
   state = {
     expanded: false,
     isLoading: false,
+    favorite: false,
     posts: null,
+  };
+
+  handleFavoriteClick = () => {
+    console.log(this.state);
+    this.setState({favorite: !this.state.favorite});
   };
 
   handleExpandClick = () => {
@@ -118,9 +126,18 @@ class ExchangeCard extends Component {
       ? <CircularProgress className={classes.progress} />
       : <ExpandMoreIcon />;
 
+    let favoriteIcon = this.state.favorite
+      ? <FavoriteIcon />
+      : <FavoriteBorderIcon />;
+
     const cardActions =
       postsCount > 0
         ? <CardActions className={classes.actions} disableActionSpacing>
+            <IconButton
+              onClick={this.handleFavoriteClick}
+              aria-label="Add to favorites">
+              {favoriteIcon}
+            </IconButton>
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
