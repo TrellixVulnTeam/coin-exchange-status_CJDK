@@ -122,6 +122,10 @@ class PostsForm extends Component {
                 handleDetailsChange={this.handleDetailsChange}
               />
               <DelaySelect handleDelayChange={this.handleDelayChange} />
+              <div
+                className="g-recaptcha"
+                data-sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
+              />
               <SubmitButton />
             </form>
           </CardContent>
