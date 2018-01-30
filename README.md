@@ -1,3 +1,14 @@
+## TODOS
+- wire up reCaptcha
+- store 'likes' locally
+- style search bar
+- flesh out seed data with more exchanges
+- replace title in app bar with home icon, make it linkable
+- update notification copy
+- Launch!!
+
+(what follows is boilerplate)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
