@@ -10,6 +10,7 @@ import SubmitButton from './posts_form/SubmitButton';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
+import Script from 'react-load-script';
 
 const styles = theme => ({
   container: {
@@ -99,10 +100,18 @@ class PostsForm extends Component {
     this.setState({post: post});
   };
 
+  handleScriptLoad = () => {
+    console.log('script load');
+  };
+
   render() {
     const {classes} = this.props;
     return (
       <div className={classes.container}>
+        <Script
+          url="https://www.google.com/recaptcha/api.js"
+          onLoad={this.handleScriptLoad.bind(this)}
+        />
         <Card className={classes.card}>
           <CardHeader
             title="Post feedback for an exchange here"
