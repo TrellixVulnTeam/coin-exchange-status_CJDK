@@ -38,6 +38,10 @@ const styles = theme => ({
   form: {
     width: '100%',
   },
+  recaptcha: {
+    marginBottom: theme.spacing.unit * 4,
+    marginTop: theme.spacing.unit * 2,
+  },
   root: {
     marginBottom: theme.spacing.unit * 2,
   },
@@ -132,7 +136,7 @@ class PostsForm extends Component {
               />
               <DelaySelect handleDelayChange={this.handleDelayChange} />
               <div
-                className="g-recaptcha"
+                className={['g-recaptcha', `${classes.recaptcha}`].join(' ')}
                 data-sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
               />
               <SubmitButton />
