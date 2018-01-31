@@ -30,7 +30,7 @@ class MarketTextField extends Component {
       <TextField
         className={this.props.classes.root}
         id="market"
-        label="Market"
+        label="Any market in particular?"
         placeholder="STAK/BTC"
         value={this.state.market}
         onChange={this.handleChange('market')}

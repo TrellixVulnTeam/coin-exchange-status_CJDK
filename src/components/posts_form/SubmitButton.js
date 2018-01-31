@@ -21,6 +21,7 @@ function SubmitButton(props) {
       <input id="raised-button-file" className={classes.input} type="submit" />
       <label htmlFor="raised-button-file">
         <Button
+          disabled={props.disabled}
           raised
           component="span"
           color="primary"

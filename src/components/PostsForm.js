@@ -10,7 +10,7 @@ import SubmitButton from './posts_form/SubmitButton';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
-import ReCaptcha from './ReCaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const styles = theme => ({
   container: {
@@ -56,6 +56,7 @@ class PostsForm extends Component {
     this.handleDetailsChange = this.handleDetailsChange.bind(this);
     this.handleDelayChange = this.handleDelayChange.bind(this);
     this.state = {
+      disabled: true,
       post: {
         recaptchaToken: '',
         exchangeKey: '',
@@ -66,14 +67,6 @@ class PostsForm extends Component {
       },
     };
   }
-
-  addStatus = event => {
-    event.preventDefault(); // prevents form submit from reloading the page
-    fire.database().ref('posts').push(this.state.post).then(() => {
-      // send to firebase
-      console.log('push complete');
-    });
-  };
 
   handleExchangeNameChange = key => {
     const post = this.state.post;
@@ -105,14 +98,30 @@ class PostsForm extends Component {
     this.setState({post: post});
   };
 
-  handleRecaptchaSuccess = token => {
+  handleReCaptchaSuccess = token => {
     let {post} = this.state;
     post.recaptchaToken = token;
     this.setState({post: post});
+    this.setState({disabled: false});
+    /*
+     * TODO add cloud function that verifies the token
+     * https://developers.google.com/recaptcha/docs/verify
+     */
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.isDisabled) {
+      return;
+    }
+    fire.database().ref('posts').push(this.state.post).then(() => {
+      // redirect to root /
+    });
   };
 
   render() {
     const {classes} = this.props;
+    const {disabled} = this.state;
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -121,10 +130,7 @@ class PostsForm extends Component {
             subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
           />
           <CardContent>
-            <form
-              disabled={this.state.disabled}
-              className={classes.form}
-              onSubmit={this.addStatus}>
+            <form className={classes.form} onSubmit={this.handleSubmit}>
               <ExchangeNameAutosuggest
                 className={classes.root}
                 handleExchangeNameChange={this.handleExchangeNameChange}
@@ -137,8 +143,12 @@ class PostsForm extends Component {
                 handleDetailsChange={this.handleDetailsChange}
               />
               <DelaySelect handleDelayChange={this.handleDelayChange} />
-              <ReCaptcha recaptchaSuccess={this.handleRecaptchaSuccess} />
-              <SubmitButton />
+              <ReCAPTCHA
+                className={classes.recaptcha}
+                sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
+                onChange={this.handleReCaptchaSuccess}
+              />
+              <SubmitButton disabled={disabled} />
             </form>
           </CardContent>
         </Card>
