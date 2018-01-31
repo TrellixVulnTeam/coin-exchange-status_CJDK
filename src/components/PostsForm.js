@@ -10,7 +10,7 @@ import SubmitButton from './posts_form/SubmitButton';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
-import Script from 'react-load-script';
+import ReCaptcha from './ReCaptcha';
 
 const styles = theme => ({
   container: {
@@ -57,6 +57,7 @@ class PostsForm extends Component {
     this.handleDelayChange = this.handleDelayChange.bind(this);
     this.state = {
       post: {
+        recaptchaToken: '',
         exchangeKey: '',
         type: '',
         market: '',
@@ -104,25 +105,26 @@ class PostsForm extends Component {
     this.setState({post: post});
   };
 
-  handleScriptLoad = () => {
-    console.log('script load');
+  handleRecaptchaSuccess = token => {
+    let {post} = this.state;
+    post.recaptchaToken = token;
+    this.setState({post: post});
   };
 
   render() {
     const {classes} = this.props;
     return (
       <div className={classes.container}>
-        <Script
-          url="https://www.google.com/recaptcha/api.js"
-          onLoad={this.handleScriptLoad.bind(this)}
-        />
         <Card className={classes.card}>
           <CardHeader
             title="Post feedback for an exchange here"
             subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
           />
           <CardContent>
-            <form className={classes.form} onSubmit={this.addStatus}>
+            <form
+              disabled={this.state.disabled}
+              className={classes.form}
+              onSubmit={this.addStatus}>
               <ExchangeNameAutosuggest
                 className={classes.root}
                 handleExchangeNameChange={this.handleExchangeNameChange}
@@ -135,10 +137,7 @@ class PostsForm extends Component {
                 handleDetailsChange={this.handleDetailsChange}
               />
               <DelaySelect handleDelayChange={this.handleDelayChange} />
-              <div
-                className={['g-recaptcha', `${classes.recaptcha}`].join(' ')}
-                data-sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
-              />
+              <ReCaptcha recaptchaSuccess={this.handleRecaptchaSuccess} />
               <SubmitButton />
             </form>
           </CardContent>

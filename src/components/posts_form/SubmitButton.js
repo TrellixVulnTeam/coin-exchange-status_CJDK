@@ -16,7 +16,6 @@ const styles = theme => ({
 
 function SubmitButton(props) {
   const {classes} = props;
-
   return (
     <div>
       <input id="raised-button-file" className={classes.input} type="submit" />
