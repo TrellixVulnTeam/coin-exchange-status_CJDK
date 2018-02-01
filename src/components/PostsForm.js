@@ -11,6 +11,7 @@ import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
 import ReCAPTCHA from 'react-google-recaptcha';
+import {Redirect} from 'react-router';
 
 const styles = theme => ({
   container: {
@@ -57,6 +58,7 @@ class PostsForm extends Component {
     this.handleDelayChange = this.handleDelayChange.bind(this);
     this.state = {
       disabled: true,
+      shouldRedirect: false,
       post: {
         recaptchaToken: '',
         exchangeKey: '',
@@ -116,44 +118,45 @@ class PostsForm extends Component {
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
       // redirect to root /
+      this.setState({shouldRedirect: true});
     });
   };
 
   render() {
     const {classes} = this.props;
-    const {disabled} = this.state;
-    return (
-      <div className={classes.container}>
-        <Card className={classes.card}>
-          <CardHeader
-            title="Post feedback for an exchange here"
-            subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
-          />
-          <CardContent>
-            <form className={classes.form} onSubmit={this.handleSubmit}>
-              <ExchangeNameAutosuggest
-                className={classes.root}
-                handleExchangeNameChange={this.handleExchangeNameChange}
-              />
-              <TypeSelect
-                handleFeedbackTypeChange={this.handleFeedbackTypeChange}
-              />
-              <MarketTextField handleMarketChange={this.handleMarketChange} />
-              <DetailsTextField
-                handleDetailsChange={this.handleDetailsChange}
-              />
-              <DelaySelect handleDelayChange={this.handleDelayChange} />
-              <ReCAPTCHA
-                className={classes.recaptcha}
-                sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
-                onChange={this.handleReCaptchaSuccess}
-              />
-              <SubmitButton disabled={disabled} />
-            </form>
-          </CardContent>
-        </Card>
-      </div>
-    );
+    const {disabled, shouldRedirect} = this.state;
+    return shouldRedirect
+      ? <Redirect to="/" />
+      : <div className={classes.container}>
+          <Card className={classes.card}>
+            <CardHeader
+              title="Post feedback for an exchange here"
+              subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
+            />
+            <CardContent>
+              <form className={classes.form} onSubmit={this.handleSubmit}>
+                <ExchangeNameAutosuggest
+                  className={classes.root}
+                  handleExchangeNameChange={this.handleExchangeNameChange}
+                />
+                <TypeSelect
+                  handleFeedbackTypeChange={this.handleFeedbackTypeChange}
+                />
+                <MarketTextField handleMarketChange={this.handleMarketChange} />
+                <DetailsTextField
+                  handleDetailsChange={this.handleDetailsChange}
+                />
+                <DelaySelect handleDelayChange={this.handleDelayChange} />
+                <ReCAPTCHA
+                  className={classes.recaptcha}
+                  sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
+                  onChange={this.handleReCaptchaSuccess}
+                />
+                <SubmitButton disabled={disabled} />
+              </form>
+            </CardContent>
+          </Card>
+        </div>;
   }
 }
 
