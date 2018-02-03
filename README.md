@@ -6,7 +6,6 @@
 - replace title in app bar with home icon, make it linkable
 - update notification copy
 - suggestion / feedback email or form
-- have + add button persist / appear on search results page
 - Launch!!
 
 (what follows is boilerplate)
