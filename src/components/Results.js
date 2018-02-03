@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import ExchangeCard from './ExchangeCard';
+import Add from './Add';
 
 const styles = theme => ({
   container: {
@@ -37,6 +38,7 @@ class Results extends Component {
       <div className={classes.container}>
         {messageElement}
         {exchangeCards}
+        <Add />
       </div>
     );
   }
