@@ -4,6 +4,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
+import Home from 'material-ui-icons/Home';
 import Search from 'material-ui-icons/Search';
 import SearchBar from './SearchBar';
 import Typography from 'material-ui/Typography';
@@ -26,12 +27,20 @@ const styles = theme => ({
   },
   title: {
     display: 'flex',
-    flex: '0 0 90%',
+    flex: '0 0 80%',
+    justifyContent: 'center',
   },
   searchIcon: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-end',
+    color: 'rgba(0, 0, 0, 0.675)',
+  },
+  homeIcon: {
+    display: 'flex',
+    flex: '0 0 10%',
+    justifyContent: 'flex-start',
+    color: 'rgba(0, 0, 0, 0.675)',
   },
 });
 
@@ -47,6 +56,10 @@ class TopBar extends React.Component {
     this.setState({searching: !this.state.searching});
   };
 
+  handleHomeIconClick = event => {
+    console.log('go home');
+  };
+
   arrowBackClickCallback = event => {
     this.setState({searching: !this.state.searching});
   };
@@ -59,6 +72,12 @@ class TopBar extends React.Component {
     const {classes} = this.props;
     let elements = !this.state.searching
       ? <div className={classes.appBarContainer}>
+          <Link to="/">
+            <Home
+              className={classes.homeIcon}
+              onClick={this.handleHomeIconClick}
+            />
+          </Link>
           <Typography className={classes.title} type="title">
             Coin Exchange Status
           </Typography>
