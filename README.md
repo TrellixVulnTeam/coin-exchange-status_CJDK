@@ -1,12 +1,11 @@
 ## TODOS
-- wire up reCaptcha
 - store 'likes' locally
+- snackbar after like / unlike?
 - style search bar
 - flesh out seed data with more exchanges
 - replace title in app bar with home icon, make it linkable
 - update notification copy
 - suggestion / feedback email or form
-- redirect to / after successful post, flash notification
 - have + add button persist / appear on search results page
 - Launch!!
 
