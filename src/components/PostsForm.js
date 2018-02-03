@@ -12,6 +12,7 @@ import {withStyles} from 'material-ui/styles';
 import fire from '../fire';
 import ReCAPTCHA from 'react-google-recaptcha';
 import {Redirect} from 'react-router';
+import GlobalSnackage from '../GlobalSnackage';
 
 const styles = theme => ({
   container: {
@@ -117,6 +118,8 @@ class PostsForm extends Component {
       return;
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
+      // set snack message
+      GlobalSnackage.message = 'Success!';
       // redirect to root /
       this.setState({shouldRedirect: true});
     });
