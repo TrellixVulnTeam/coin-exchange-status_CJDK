@@ -56,10 +56,6 @@ class TopBar extends React.Component {
     this.setState({searching: !this.state.searching});
   };
 
-  handleHomeIconClick = event => {
-    console.log('go home');
-  };
-
   arrowBackClickCallback = event => {
     this.setState({searching: !this.state.searching});
   };
@@ -73,10 +69,7 @@ class TopBar extends React.Component {
     let elements = !this.state.searching
       ? <div className={classes.appBarContainer}>
           <Link to="/">
-            <Home
-              className={classes.homeIcon}
-              onClick={this.handleHomeIconClick}
-            />
+            <Home className={classes.homeIcon} />
           </Link>
           <Typography className={classes.title} type="title">
             Coin Exchange Status
