@@ -69,12 +69,12 @@ class ExchangeCard extends Component {
 
   handleFavorited = () => {
     localStorage.setFavorite(this.props.exchange.key);
-    this.setState({snackbarMessage: `Favorited ${this.props.exchange.name}!`});
+    this.setState({snackbarMessage: `Favorited ${this.props.exchange.name}`});
   };
 
   handleUnfavorited = () => {
     localStorage.removeFavorite(this.props.exchange.key);
-    this.setState({snackbarMessage: 'Unfavorited!'});
+    this.setState({snackbarMessage: `Unfavorited ${this.props.exchange.name}`});
   };
 
   handleExpandClick = () => {
