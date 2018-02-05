@@ -3,6 +3,9 @@
 - suggestion / feedback email or form
 - Launch!!
 
+### TODOS (post launch)
+- pull to refresh
+
 (what follows is boilerplate)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
