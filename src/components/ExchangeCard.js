@@ -119,7 +119,18 @@ class ExchangeCard extends Component {
 
   handleSnackbarClose = () => {
     this.setState({snackbarMessage: ''});
-  }
+  };
+
+  postsCountMessage = count => {
+    switch (count) {
+      case 0:
+        return 'No updates yet. Post one now!';
+      case 1:
+        return `${count} recent update`;
+      default:
+        return `${count} recent updates`;
+    }
+  };
 
   render() {
     const {classes} = this.props;
@@ -137,7 +148,7 @@ class ExchangeCard extends Component {
           </Avatar>
         }
         title={name}
-        subheader={postsCount + ' recent updates'}
+        subheader={this.postsCountMessage(postsCount)}
       />
     );
 
@@ -167,7 +178,10 @@ class ExchangeCard extends Component {
     );
 
     let snackbar = this.state.snackbarMessage.length
-      ? <AppSnackbar message={this.state.snackbarMessage} handleCloseCallback={this.handleSnackbarClose}  />
+      ? <AppSnackbar
+          message={this.state.snackbarMessage}
+          handleCloseCallback={this.handleSnackbarClose}
+        />
       : null;
 
     const cardActions =
@@ -198,15 +212,15 @@ class ExchangeCard extends Component {
           </CardActions>;
 
     return (
-        <Card className={classes.card}>
-          {cardHeader}
-          {cardContent}
-          {cardActions}
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-            <Posts posts={this.state.posts} />
-          </Collapse>
-          {snackbar}
-        </Card>
+      <Card className={classes.card}>
+        {cardHeader}
+        {cardContent}
+        {cardActions}
+        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Posts posts={this.state.posts} />
+        </Collapse>
+        {snackbar}
+      </Card>
     );
   }
 }
