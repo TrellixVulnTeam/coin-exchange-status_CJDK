@@ -23,7 +23,7 @@
   "coinsmarkets": {
     "name": "CoinsMarkets",
     "url": "https://coins.markets/",
-    "summary": "Looking like a scam. Been 'fixing' servers for several weeks now.",
+    "summary": "",
     "statusColor": "red",
     "postsCount": 0
   },
@@ -44,14 +44,14 @@
   "hitbtc": {
     "name": "HitBTC",
     "url": "https://hitbtc.com/",
-    "summary": "STAK trading to begin mid February 2018",
+    "summary": "",
     "statusColor": "green",
     "postsCount": 0
   },
   "koinbi": {
     "name": "Koinbi",
     "url": "https://koinbi.com/",
-    "summary": "wen scam?",
+    "summary": "",
     "statusColor": "red",
     "postsCount": 0
   },
@@ -72,7 +72,7 @@
   "stocksexchange": {
     "name": "Stocks.Exchange",
     "url": "https://stocks.exchange/",
-    "summary": "wen lambo?",
+    "summary": "",
     "statusColor": "green",
     "postsCount": 0
   },
