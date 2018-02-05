@@ -31,7 +31,7 @@ class Results extends Component {
     }
     const messageElement = searchTerm
       ? <p>
-          display results for {searchTerm} here...
+          displaying results for {searchTerm}
         </p>
       : <p>"no search term yet"</p>;
     return (
