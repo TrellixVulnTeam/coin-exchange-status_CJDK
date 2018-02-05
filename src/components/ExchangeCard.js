@@ -124,7 +124,7 @@ class ExchangeCard extends Component {
   postsCountMessage = count => {
     switch (count) {
       case 0:
-        return 'No updates yet. Post one now!';
+        return 'No updates yet';
       case 1:
         return `${count} recent update`;
       default:
