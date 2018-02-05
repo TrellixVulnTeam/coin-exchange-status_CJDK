@@ -33,9 +33,17 @@ class NotificationPaper extends Component {
           type="title">
           What is this?
         </Typography>
-        <Typography className={classes.typography} component="p" type="body1">
+        <Typography
+          className={classes.typography}
+          component="p"
+          type="body1"
+          paragraph>
           We gather and present user feedback on crypto / coin exchanges from
           people that are using them.
+        </Typography>
+        <Typography className={classes.typography} component="p" type="caption">
+          Please send feedback, suggestions, and/or questions to
+          contact@coinexchangestatus.com
         </Typography>
       </Paper>
     );

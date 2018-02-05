@@ -1,6 +1,5 @@
 ## TODOS
 - flesh out seed data with more exchanges
-- suggestion / feedback email or form
 - Launch!!
 
 (what follows is boilerplate)
