@@ -15,6 +15,7 @@ import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
 import localStorage from '../lib/localStorage';
+import AppSnackbar from './AppSnackbar';
 
 const styles = theme => ({
   card: {
@@ -56,6 +57,7 @@ class ExchangeCard extends Component {
         localStorage.getFavorites().includes(this.props.exchange.key),
       ),
       posts: null,
+      snackbarMessage: '',
     };
   }
 
@@ -67,10 +69,12 @@ class ExchangeCard extends Component {
 
   handleFavorited = () => {
     localStorage.setFavorite(this.props.exchange.key);
+    this.setState({snackbarMessage: `Favorited ${this.props.exchange.name}!`});
   };
 
   handleUnfavorited = () => {
     localStorage.removeFavorite(this.props.exchange.key);
+    this.setState({snackbarMessage: 'Unfavorited!'});
   };
 
   handleExpandClick = () => {
@@ -112,6 +116,10 @@ class ExchangeCard extends Component {
   handleWillClose = () => {
     this.setState({expanded: !this.state.expanded});
   };
+
+  handleSnackbarClose = () => {
+    this.setState({snackbarMessage: ''});
+  }
 
   render() {
     const {classes} = this.props;
@@ -157,6 +165,11 @@ class ExchangeCard extends Component {
         {!this.state.expanded ? 'Show all posts' : ''}
       </Typography>
     );
+
+    let snackbar = this.state.snackbarMessage.length
+      ? <AppSnackbar message={this.state.snackbarMessage} handleCloseCallback={this.handleSnackbarClose}  />
+      : null;
+
     const cardActions =
       postsCount > 0
         ? <CardActions className={classes.actions}>
@@ -185,14 +198,15 @@ class ExchangeCard extends Component {
           </CardActions>;
 
     return (
-      <Card className={classes.card}>
-        {cardHeader}
-        {cardContent}
-        {cardActions}
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <Posts posts={this.state.posts} />
-        </Collapse>
-      </Card>
+        <Card className={classes.card}>
+          {cardHeader}
+          {cardContent}
+          {cardActions}
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <Posts posts={this.state.posts} />
+          </Collapse>
+          {snackbar}
+        </Card>
     );
   }
 }
