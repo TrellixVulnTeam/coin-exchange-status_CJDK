@@ -176,7 +176,13 @@ class ExchangeCard extends Component {
               {cardActionIcon}
             </IconButton>
           </CardActions>
-        : null;
+        : <CardActions className={classes.actions}>
+            <IconButton
+              onClick={this.handleFavoriteClick}
+              aria-label="Add to favorites">
+              {favoriteIcon}
+            </IconButton>
+          </CardActions>;
 
     return (
       <Card className={classes.card}>

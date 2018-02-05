@@ -1,5 +1,4 @@
 ## TODOS
-- show fav icon for Exchange Card even if no posts
 - snackbar after like / unlike?
 - flesh out seed data with more exchanges
 - suggestion / feedback email or form
