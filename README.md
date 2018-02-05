@@ -1,9 +1,6 @@
 ## TODOS
-- store 'likes' locally
 - snackbar after like / unlike?
-- style search bar
 - flesh out seed data with more exchanges
-- update notification copy
 - suggestion / feedback email or form
 - Launch!!
 

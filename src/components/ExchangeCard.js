@@ -14,6 +14,7 @@ import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
+import localStorage from '../lib/localStorage';
 
 const styles = theme => ({
   card: {
@@ -46,16 +47,30 @@ const styles = theme => ({
 });
 
 class ExchangeCard extends Component {
-  state = {
-    expanded: false,
-    isLoading: false,
-    favorite: false,
-    posts: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      expanded: false,
+      isLoading: false,
+      favorite: JSON.parse(
+        localStorage.getFavorites().includes(this.props.exchange.key),
+      ),
+      posts: null,
+    };
+  }
 
   handleFavoriteClick = () => {
-    console.log(this.state);
-    this.setState({favorite: !this.state.favorite});
+    this.setState({favorite: !this.state.favorite}, () => {
+      this.state.favorite ? this.handleFavorited() : this.handleUnfavorited();
+    });
+  };
+
+  handleFavorited = () => {
+    localStorage.setFavorite(this.props.exchange.key);
+  };
+
+  handleUnfavorited = () => {
+    localStorage.removeFavorite(this.props.exchange.key);
   };
 
   handleExpandClick = () => {
