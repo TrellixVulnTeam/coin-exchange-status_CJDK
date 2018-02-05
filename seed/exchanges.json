@@ -1,7 +1,133 @@
 {
+  "acx": {
+    "name": "ACX",
+    "url": "https://acx.io/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "aex": {
+    "name": "AEX",
+    "url": "https://www.aex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "aidosmarket": {
+    "name": "Aidos Market",
+    "url": "https://aidosmarket.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "allcoin": {
+    "name": "Allcoin",
+    "url": "https://www.allcoin.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bibox": {
+    "name": "Bibox",
+    "url": "https://www.bibox.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bigone": {
+    "name": "BigONE",
+    "url": "https://big.one/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "binance": {
     "name": "Binance",
     "url": "https://www.binance.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitbank": {
+    "name": "Bitbank",
+    "url": "https://bitbank.cc/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitbay": {
+    "name": "BitBay",
+    "url": "https://bitbay.net/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitcoinindonesia": {
+    "name": "Bitcoin Indonesia",
+    "url": "https://www.bitcoin.co.id/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitfinex": {
+    "name": "Bitfinex",
+    "url": "https://www.bitfinex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitflyer": {
+    "name": "bitFlyer",
+    "url": "https://bitflyer.jp/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitgrail": {
+    "name": "BitGrail",
+    "url": "https://bitgrail.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bithumb": {
+    "name": "Bithumb",
+    "url": "https://www.bithumb.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitinka": {
+    "name": "Bitinka",
+    "url": "https://www.bitinka.com.ar/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitmex": {
+    "name": "BitMEX",
+    "url": "https://www.bitmex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitonic": {
+    "name": "Bitonic",
+    "url": "https://bitonic.nl/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitso": {
+    "name": "Bitso",
+    "url": "https://bitso.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitstamp": {
+    "name": "Bitstamp",
+    "url": "https://www.bitstamp.net/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
@@ -13,11 +139,116 @@
     "statusColor": "green",
     "postsCount": 0
   },
+  "btcalpha": {
+    "name": "BTC Alpha",
+    "url": "https://btc-alpha.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "btcc": {
+    "name": "BTCC",
+    "url": "https://exchange.btcc.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bitz": {
+    "name": "Bit-z",
+    "url": "https://www.bit-z.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bl3p": {
+    "name": "BL3P",
+    "url": "https://bl3p.eu/trade",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "btcbox": {
+    "name": "BTCBOX",
+    "url": "https://www.btcbox.co.jp/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "btcmarkets": {
+    "name": "BTC Markets",
+    "url": "https://btcmarkets.net/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "btctradeim": {
+    "name": "BtcTrade.im",
+    "url": "https://www.btctrade.im/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "btcturk": {
+    "name": "BTCTurk",
+    "url": "https://www.btcturk.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "bxthailand": {
+    "name": "BX Thailand",
+    "url": "https://bx.in.th/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "cexio": {
+    "name": "CEX.IO",
+    "url": "https://cex.io/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "coinbase": {
     "name": "Coinbase",
     "url": "https://www.coinbase.com/",
     "summary": "",
     "statusColor": "yellow",
+    "postsCount": 0
+  },
+  "coinbene": {
+    "name": "Coinbene",
+    "url": "https://coinbene.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coinegg": {
+    "name": "CoinEgg",
+    "url": "https://www.coinegg.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coinfloor": {
+    "name": "Coinfloor",
+    "url": "http://coinfloor.co.uk/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coinrail": {
+    "name": "Coinrail",
+    "url": "https://coinrail.co.kr/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coinsbank": {
+    "name": "CoinsBank",
+    "url": "https://coinsbank.com/",
+    "summary": "",
+    "statusColor": "green",
     "postsCount": 0
   },
   "coinsmarkets": {
@@ -27,9 +258,79 @@
     "statusColor": "red",
     "postsCount": 0
   },
+  "coinsquare": {
+    "name": "Coinsquare",
+    "url": "https://coinsquare.io/",
+    "summary": "",
+    "statusColor": "red",
+    "postsCount": 0
+  },
+  "coinone": {
+    "name": "Coinone",
+    "url": "https://coinone.co.kr/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "coolcoin": {
+    "name": "CoolCoin",
+    "url": "https://www.coolcoin.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "cryptopia": {
     "name": "Cryptopia",
     "url": "https://www.cryptopia.co.nz/Exchange/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "c2cx": {
+    "name": "C2CX",
+    "url": "https://www.c2cx.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "dsx": {
+    "name": "DSX",
+    "url": "https://dsx.uk/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "exmo": {
+    "name": "Exmo",
+    "url": "https://exmo.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "exx": {
+    "name": "EXX",
+    "url": "https://www.exx.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "fisco": {
+    "name": "Fisco",
+    "url": "https://fcce.jp/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "foxbit": {
+    "name": "Foxbit",
+    "url": "https://foxbit.com.br/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "gateio": {
+    "name": "Gate.io",
+    "url": "https://gate.io/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
@@ -41,9 +342,51 @@
     "statusColor": "yellow",
     "postsCount": 0
   },
+  "gemini": {
+    "name": "Gemini",
+    "url": "https://gemini.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "getbtc": {
+    "name": "GetBTC",
+    "url": "https://getbtc.org/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "gopax": {
+    "name": "GOPAX",
+    "url": "https://www.gopax.co.kr/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "hitbtc": {
     "name": "HitBTC",
     "url": "https://hitbtc.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "huobi": {
+    "name": "Huobi",
+    "url": "https://www.huobi.pro/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "independentreserve": {
+    "name": "Independent Reserve",
+    "url": "https://www.independentreserve.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "itbit": {
+    "name": "itBit",
+    "url": "https://www.itbit.com/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
@@ -55,9 +398,93 @@
     "statusColor": "red",
     "postsCount": 0
   },
+  "korbit": {
+    "name": "Korbit",
+    "url": "https://www.korbit.co.kr/",
+    "summary": "",
+    "statusColor": "red",
+    "postsCount": 0
+  },
   "kraken": {
     "name": "Kraken",
     "url": "https://www.kraken.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "kucoin": {
+    "name": "Kucoin",
+    "url": "https://www.kucoin.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "lakebtc": {
+    "name": "LakeBTC",
+    "url": "https://lakebtc.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "livecoin": {
+    "name": "Livecoin",
+    "url": "https://www.livecoin.net/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "liqui": {
+    "name": "Liqui",
+    "url": "https://liqui.io/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "luno": {
+    "name": "Luno",
+    "url": "https://www.luno.com/en/exchange",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "mercadobitcoin": {
+    "name": "Mercado Bitcoin",
+    "url": "https://www.mercadobitcoin.com.br/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "oex": {
+    "name": "OEX",
+    "url": "https://www.oex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "okcoinintl": {
+    "name": "OkCoin Intl",
+    "url": "https://www.okcoin.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "okex": {
+    "name": "OKEx",
+    "url": "https://www.okex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "negociecoins": {
+    "name": "Negocie Coins",
+    "url": "http://www.negociecoins.com.br/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "paribu": {
+    "name": "Paribu",
+    "url": "https://www.paribu.com/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
@@ -69,6 +496,20 @@
     "statusColor": "green",
     "postsCount": 0
   },
+  "quadrigacx": {
+    "name": "QuadrigaCX",
+    "url": "https://www.quadrigacx.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "quoine": {
+    "name": "Quoine",
+    "url": "https://quoinex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "stocksexchange": {
     "name": "Stocks.Exchange",
     "url": "https://stocks.exchange/",
@@ -76,9 +517,65 @@
     "statusColor": "green",
     "postsCount": 0
   },
+  "therocktrading": {
+    "name": "The Rock Trading",
+    "url": "https://therocktrading.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "tidex": {
+    "name": "Tidex",
+    "url": "https://tidex.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "topbtc": {
+    "name": "TOPBTC",
+    "url": "https://topbtc.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "upbit": {
+    "name": "Upbit",
+    "url": "https://upbit.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "wex": {
+    "name": "WEX",
+    "url": "https://wex.nz/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "xbtce": {
+    "name": "xBTCe",
+    "url": "https://www.xbtce.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "yobit": {
     "name": "Yobit",
     "url": "https://yobit.net/en/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "zaif": {
+    "name": "Zaif",
+    "url": "https://zaif.jp/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "zbcom": {
+    "name": "ZB.COM",
+    "url": "https://www.zb.com/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
