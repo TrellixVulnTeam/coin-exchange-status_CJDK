@@ -62,6 +62,13 @@
     "statusColor": "green",
     "postsCount": 0
   },
+  "bitclude": {
+    "name": "BitClude",
+    "url": "https://bitclude.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
   "bitcoinindonesia": {
     "name": "Bitcoin Indonesia",
     "url": "https://www.bitcoin.co.id/",
@@ -380,6 +387,13 @@
   "independentreserve": {
     "name": "Independent Reserve",
     "url": "https://www.independentreserve.com/",
+    "summary": "",
+    "statusColor": "green",
+    "postsCount": 0
+  },
+  "instacrypto": {
+    "name": "Instacrypto",
+    "url": "https://www.instacrypto.in/",
     "summary": "",
     "statusColor": "green",
     "postsCount": 0
