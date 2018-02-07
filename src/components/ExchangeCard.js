@@ -53,13 +53,17 @@ class ExchangeCard extends Component {
     this.state = {
       expanded: false,
       isLoading: false,
-      favorite: JSON.parse(
-        localStorage.getFavorites().includes(this.props.exchange.key),
-      ),
+      favorite: this.isFavorite(),
       posts: null,
       snackbarMessage: '',
     };
   }
+
+  isFavorite = () => {
+    const favs = localStorage.getFavorites() || [];
+    return favs.includes(this.props.exchange.key) || false;
+  };
+
 
   handleFavoriteClick = () => {
     this.setState({favorite: !this.state.favorite}, () => {
