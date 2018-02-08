@@ -22,7 +22,7 @@ function SubmitButton(props) {
       <label htmlFor="raised-button-file">
         <Button
           disabled={props.disabled}
-          raised
+          variant="raised"
           component="span"
           color="primary"
           className={classes.button}>

@@ -23,7 +23,7 @@ class Add extends Component {
       <div>
         <Link to="/posts">
           <Button
-            fab
+            variant="fab"
             color="primary"
             aria-label="add"
             className={classes.button}>
