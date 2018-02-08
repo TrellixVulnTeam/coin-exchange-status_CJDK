@@ -2,6 +2,9 @@
   "rules": {
     ".read": true,
     ".write": true,
+    "exchanges": {
+      ".indexOn": "postsCount"
+    },
     "posts": {
       ".indexOn": "exchangeKey"
     }
