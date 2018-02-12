@@ -22,13 +22,13 @@ class Results extends Component {
   render() {
     const {classes, exchanges, searchTerm} = this.props;
     let exchangeCards = [];
-    for (const exchange in exchanges) {
-      let exchangeWithKey = exchanges[exchange];
-      exchangeWithKey['key'] = exchange;
+    Object.entries(exchanges).forEach(array => {
+      let exchange = {};
+      exchange[array[0]] = array[1];
       exchangeCards.push(
-        <ExchangeCard exchange={exchangeWithKey} key={Math.random()} />,
+        <ExchangeCard exchange={exchange} key={Math.random()} />,
       );
-    }
+    });
     const messageElement = searchTerm
       ? <p>
           displaying results for {searchTerm}

@@ -61,9 +61,8 @@ class ExchangeCard extends Component {
 
   isFavorite = () => {
     const favs = localStorage.getFavorites() || [];
-    return favs.includes(this.props.exchange.key) || false;
+    return favs.includes(Object.keys(this.props.exchange)[0]) || false;
   };
-
 
   handleFavoriteClick = () => {
     this.setState({favorite: !this.state.favorite}, () => {
@@ -72,12 +71,12 @@ class ExchangeCard extends Component {
   };
 
   handleFavorited = () => {
-    localStorage.setFavorite(this.props.exchange.key);
+    localStorage.setFavorite(Object.keys(this.props.exchange)[0]);
     this.setState({snackbarMessage: `Favorited ${this.props.exchange.name}`});
   };
 
   handleUnfavorited = () => {
-    localStorage.removeFavorite(this.props.exchange.key);
+    localStorage.removeFavorite(Object.keys(this.props.exchange)[0]);
     this.setState({snackbarMessage: `Unfavorited ${this.props.exchange.name}`});
   };
 
@@ -99,7 +98,7 @@ class ExchangeCard extends Component {
      */
 
     const willExpand = !this.state.expanded;
-    const key = this.props.exchange.key;
+    const key = Object.keys(this.props.exchange)[0];
 
     willExpand ? this.handleWillExpand(key) : this.handleWillClose();
   };
@@ -139,10 +138,11 @@ class ExchangeCard extends Component {
   render() {
     const {classes} = this.props;
     const exchange = this.props.exchange;
-    const name = exchange.name;
-    const summary = exchange.summary || '';
+    const key = Object.keys(exchange)[0];
+    const name = exchange[key].name;
+    const summary = exchange[key].summary || '';
     const hasSummary = summary.length ? true : false;
-    const postsCount = exchange.postsCount;
+    const postsCount = exchange[key].postsCount;
 
     const cardHeader = (
       <CardHeader

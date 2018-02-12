@@ -18,13 +18,13 @@ class ExchangeCards extends Component {
     const {classes} = this.props;
     const exchanges = this.props.exchanges;
     let exchangeCards = [];
-    for (const exchange in exchanges) {
-      let exchangeWithKey = exchanges[exchange];
-      exchangeWithKey['key'] = exchange;
+    Object.entries(exchanges).forEach(array => {
+      let exchange = {};
+      exchange[array[0]] = array[1];
       exchangeCards.push(
-        <ExchangeCard exchange={exchangeWithKey} key={Math.random()} />,
+        <ExchangeCard exchange={exchange} key={Math.random()} />,
       );
-    }
+    });
     return (
       <div className={classes.container}>
         <NotificationPaper />
