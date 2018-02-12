@@ -17,6 +17,8 @@
     "react-google-recaptcha": "^0.9.9",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
+    "react-swipeable-views": "^0.12.12",
+    "react-swipeable-views-utils": "^0.12.11",
     "react-timeago": "^3.4.3"
   },
   "homepage": "https://coin-exchange-stat.firebaseapp.com",
