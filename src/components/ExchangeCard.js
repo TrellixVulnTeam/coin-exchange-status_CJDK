@@ -71,13 +71,19 @@ class ExchangeCard extends Component {
   };
 
   handleFavorited = () => {
-    localStorage.setFavorite(Object.keys(this.props.exchange)[0]);
-    this.setState({snackbarMessage: `Favorited ${this.props.exchange.name}`});
+    const key = Object.keys(this.props.exchange)[0];
+    localStorage.setFavorite(key);
+    this.setState({
+      snackbarMessage: `Favorited ${this.props.exchange[key].name}`,
+    });
   };
 
   handleUnfavorited = () => {
-    localStorage.removeFavorite(Object.keys(this.props.exchange)[0]);
-    this.setState({snackbarMessage: `Unfavorited ${this.props.exchange.name}`});
+    const key = Object.keys(this.props.exchange)[0];
+    localStorage.removeFavorite(key);
+    this.setState({
+      snackbarMessage: `Unfavorited ${this.props.exchange[key].name}`,
+    });
   };
 
   handleExpandClick = () => {
