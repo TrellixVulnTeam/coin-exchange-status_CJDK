@@ -21,7 +21,7 @@ class TopUserBenefits extends Component {
     const {classes} = this.props;
     return (
       <div>
-        <AutoPlaySwipeableViews interval="5000">
+        <AutoPlaySwipeableViews interval={5000}>
 	  <Slide title="Status pages for crypto exchanges" subheading="Get user-submitted feedback on your favorite exchanges" />
 	  <Slide title="Slide 2" subheading="subheading 2" />
 	  <Slide title="Slide 3" subheading="subheading 3" />
