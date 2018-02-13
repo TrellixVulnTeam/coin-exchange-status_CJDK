@@ -3,7 +3,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import SwipeableViews from 'react-swipeable-views';
 import {autoPlay} from 'react-swipeable-views-utils';
 import Slide from './top_user_benefits/Slide';
