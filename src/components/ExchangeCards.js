@@ -3,7 +3,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import ExchangeCard from './ExchangeCard';
-import NotificationPaper from './NotificationPaper';
 
 const styles = theme => ({
   container: {
@@ -27,7 +26,6 @@ class ExchangeCards extends Component {
     });
     return (
       <div className={classes.container}>
-        <NotificationPaper />
         {exchangeCards}
       </div>
     );
