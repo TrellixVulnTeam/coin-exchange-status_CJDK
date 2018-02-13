@@ -26,7 +26,7 @@ class TopUserBenefits extends Component {
 	  <Slide title="Slide 2" subheading="subheading 2" />
 	  <Slide title="Slide 3" subheading="subheading 3" />
         </AutoPlaySwipeableViews>
-        <div className={this.props.classes.buttonContainer}>
+        <div className={classes.buttonContainer}>
           <Button variant="raised" align="center">
             Get Started
           </Button>
