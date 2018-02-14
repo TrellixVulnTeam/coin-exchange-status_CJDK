@@ -15,11 +15,7 @@ class Slide extends Component {
           variant="title">
           {this.props.title}
         </Typography>
-        <Typography
-          align="center"
-          component="p"
-          paragraph={true}
-          variant="subheading">
+        <Typography align="center" component="p" variant="subheading">
           {this.props.subheading}
         </Typography>
       </div>

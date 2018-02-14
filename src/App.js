@@ -13,14 +13,15 @@ import {CircularProgress} from 'material-ui/Progress';
 import fire from './fire';
 import GlobalSnackage from './GlobalSnackage';
 import AppSnackbar from './components/AppSnackbar';
+import TopUserBenefits from './components/onboarding/TopUserBenefits';
 
 const styles = theme => ({
   container: {
-    height: 'inherit',
-    padding: `64px ${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px`,
+    height: '100vh',
+    padding: `82px ${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px`,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   progress: {
     position: 'static',
@@ -82,19 +83,36 @@ class App extends Component {
     this.setState({searchTerm: ''});
   }
 
+  isFirstRun = () => {
+    //return window.localStorage.getItem('isFirstRun') || true;
+    return true;
+  };
+
   render() {
     const classes = this.props.classes;
     const searchTerm = this.state.searchTerm;
     const exchanges = this.state.exchanges;
+
     const snackbar = GlobalSnackage.message.length
       ? <AppSnackbar
           message={GlobalSnackage.message}
           handleCloseCallback={this.handleSnackbarClose}
         />
       : null;
-    const containerContent = this.state.isLoading
-      ? <CircularProgress className={classes.progress} />
-      : <div>
+
+    let content;
+    if (this.isFirstRun()) {
+      // Show onboarding - top user benefits if First Run Experience
+      content = <TopUserBenefits />;
+    } else if (this.state.isLoading) {
+      // Show loading indicator if we're loading exchanges from the backend
+      content = <CircularProgress className={classes.progress} />;
+    } else {
+      // Everything else
+      content = (
+        <div className={this.props.classes.container}>
+          <Reboot />
+          <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
           <Route
             path="/"
             exact={true}
@@ -111,17 +129,11 @@ class App extends Component {
               />}
           />
           {snackbar}
-        </div>;
-
-    return (
-      <div>
-        <Reboot />
-        <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
-        <div className={classes.container}>
-          {containerContent}
         </div>
-      </div>
-    );
+      );
+    }
+
+    return content;
   }
 }
 
