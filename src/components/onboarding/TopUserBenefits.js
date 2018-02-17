@@ -1,7 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
-import constants from '../../constants';
+import {isFirstRun} from '../../constants';
 import {withStyles} from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import SwipeableViews from 'react-swipeable-views';
@@ -46,7 +46,6 @@ class TopUserBenefits extends Component {
   };
 
   buttonClickHandler = () => {
-    const isFirstRun = constants.isFirstRun;
     window.localStorage.setItem(isFirstRun, false);
     window.location.href = window.location.href; // refresh
   };

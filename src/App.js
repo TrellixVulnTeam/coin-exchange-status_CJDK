@@ -1,7 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
-import constants from './constants';
+import {isFirstRun} from './constants';
 import {Route} from 'react-router-dom';
 import Reboot from 'material-ui/Reboot';
 import {withStyles} from 'material-ui/styles';
@@ -85,7 +85,6 @@ class App extends Component {
   }
 
   isFirstRun = () => {
-    const isFirstRun = constants.isFirstRun;
     return window.localStorage.getItem(isFirstRun) === 'false' ? false : true;
   };
 

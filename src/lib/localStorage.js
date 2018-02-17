@@ -1,7 +1,8 @@
 // @format
 
+import {favKey} from '../constants';
+
 let localStorage = window.localStorage;
-const favKey = 'FAVORITES';
 
 Storage.prototype.setFavorite = favorite => {
   let favorites = JSON.parse(localStorage.getItem(favKey)) || [];
