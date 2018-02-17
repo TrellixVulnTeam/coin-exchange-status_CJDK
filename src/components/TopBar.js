@@ -17,9 +17,9 @@ const styles = theme => ({
     flexWrap: 'nowrap',
     justifyContent: 'space-between',
     alignItems: 'center',
-    background: 'rgba(244, 244, 244, 0.925)',
     height: 64,
     padding: `0 ${theme.spacing.unit * 2}px`,
+    background: theme.palette.primary.light,
   },
   appBarContainer: {
     display: 'flex',
@@ -29,18 +29,19 @@ const styles = theme => ({
     display: 'flex',
     flex: '0 0 80%',
     justifyContent: 'center',
+    color: theme.palette.text.secondary,
   },
   searchIcon: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-end',
-    color: 'rgba(0, 0, 0, 0.675)',
+    color: theme.palette.text.secondary,
   },
   homeIcon: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-start',
-    color: 'rgba(0, 0, 0, 0.675)',
+    color: theme.palette.text.secondary,
   },
 });
 
@@ -84,11 +85,7 @@ class TopBar extends React.Component {
         />;
 
     return (
-      <AppBar
-        className={classes.root}
-        color="default"
-        elevation={1}
-        position="fixed">
+      <AppBar className={classes.root} elevation={1} position="fixed">
         {elements}
       </AppBar>
     );

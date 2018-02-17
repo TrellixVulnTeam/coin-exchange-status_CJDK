@@ -9,7 +9,8 @@ import {withStyles} from 'material-ui/styles';
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit * 2,
-    background: 'linear-gradient(180deg, #f76b1c 0%, #CF2347 100%)',
+    background: theme.palette.secondary.main,
+    color: theme.palette.text.secondary,
     position: 'fixed',
     bottom: 0,
     right: 0,
