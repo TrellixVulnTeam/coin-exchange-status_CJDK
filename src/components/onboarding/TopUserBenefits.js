@@ -41,7 +41,6 @@ class TopUserBenefits extends Component {
   }
 
   onChangeHandler = (index, indexLatest) => {
-    console.log(index, indexLatest);
     this.setState({index});
   };
 
