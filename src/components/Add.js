@@ -10,7 +10,7 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit * 2,
     background: theme.palette.secondary.main,
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.disabled,
     position: 'fixed',
     bottom: 0,
     right: 0,
