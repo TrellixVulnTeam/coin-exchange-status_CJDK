@@ -37,7 +37,7 @@ const styles = theme => ({
     justifyContent: 'flex-end',
     color: theme.palette.text.secondary,
   },
-  homeIcon: {
+  homeIconLink: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-start',
@@ -69,8 +69,8 @@ class TopBar extends React.Component {
     const {classes} = this.props;
     let elements = !this.state.searching
       ? <div className={classes.appBarContainer}>
-          <Link to="/">
-            <Home className={classes.homeIcon} />
+          <Link to="/" className={classes.homeIconLink}>
+            <Home />
           </Link>
           <Typography className={classes.title} type="title">
             Coin Exchange Status
