@@ -63,7 +63,7 @@ class TopUserBenefits extends Component {
           />
           <Slide
             title="Help the community grow"
-            subheading="Share your experiences with others so they know what they're getting into."
+            subheading="Report back often. Each time you interact with an exchange let others know how it went by posting a posty post."
           />
         </AutoPlaySwipeableViews>
         <Button variant="raised" align="center" className={classes.button}>
