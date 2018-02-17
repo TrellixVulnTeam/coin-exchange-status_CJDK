@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import constants from '../../constants';
 import {withStyles} from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import SwipeableViews from 'react-swipeable-views';
@@ -44,6 +45,12 @@ class TopUserBenefits extends Component {
     this.setState({index});
   };
 
+  buttonClickHandler = () => {
+    const isFirstRun = constants.isFirstRun;
+    window.localStorage.setItem(isFirstRun, false);
+    window.location.href = window.location.href; // refresh
+  };
+
   render() {
     const {classes} = this.props;
     return (
@@ -66,7 +73,11 @@ class TopUserBenefits extends Component {
             subheading="Report back often. Each time you interact with an exchange let others know how it went by posting a posty post."
           />
         </AutoPlaySwipeableViews>
-        <Button variant="raised" align="center" className={classes.button}>
+        <Button
+          onClick={this.buttonClickHandler}
+          variant="raised"
+          align="center"
+          className={classes.button}>
           Get Started
         </Button>
         <Dots index={this.state.index} />
