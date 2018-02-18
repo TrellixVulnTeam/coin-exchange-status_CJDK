@@ -48,7 +48,6 @@ class Content extends Component {
   };
 
   dotsClickHandler = index => {
-    console.log(index);
     this.setState({index});
   };
 

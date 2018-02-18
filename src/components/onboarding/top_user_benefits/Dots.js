@@ -21,6 +21,12 @@ const styles = theme => ({
     fontSize: '32px',
     color: 'rgb(0, 0, 0)',
   },
+  dot: {
+    margin: `0 ${theme.spacing.unit / 4}px`,
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
 });
 
 class Dots extends Component {
@@ -38,24 +44,25 @@ class Dots extends Component {
   };
 
   render() {
+    const classes = this.props.classes;
     return (
-      <div className={this.props.classes.container}>
+      <div className={classes.container}>
         <span
           index="0"
           onClick={this.clickHandler}
-          className={this.getCssClass(0)}>
+          className={[this.getCssClass(0), classes.dot].join(' ')}>
           &bull;
         </span>
         <span
           index="1"
           onClick={this.clickHandler}
-          className={this.getCssClass(1)}>
+          className={[this.getCssClass(1), classes.dot].join(' ')}>
           &bull;
         </span>
         <span
           index="2"
           onClick={this.clickHandler}
-          className={this.getCssClass(2)}>
+          className={[this.getCssClass(2), classes.dot].join(' ')}>
           &bull;
         </span>
       </div>
