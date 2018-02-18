@@ -102,11 +102,7 @@ class App extends Component {
     let content;
     if (this.isFirstRun()) {
       // Show onboarding - top user benefits if First Run Experience
-      content = (
-        <div style={{height: 'inherit'}}>
-          <TopUserBenefits />
-        </div>
-      );
+      content = <TopUserBenefits />;
     } else if (this.state.isLoading) {
       // Show loading indicator if we're loading exchanges from the backend
       content = <CircularProgress className={classes.progress} />;

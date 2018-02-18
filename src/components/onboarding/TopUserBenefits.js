@@ -1,88 +1,90 @@
 // @format
 
 import React, {Component} from 'react';
-import {isFirstRun} from '../../constants';
 import {withStyles} from 'material-ui/styles';
+import compose from 'recompose/compose';
+import withWidth from 'material-ui/utils/withWidth';
+import Hidden from 'material-ui/Hidden';
+import Content from './top_user_benefits/Content';
+import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft';
+import KeyboardArrowRight from 'material-ui-icons/KeyboardArrowRight';
 import Button from 'material-ui/Button';
-import SwipeableViews from 'react-swipeable-views';
-import {autoPlay} from 'react-swipeable-views-utils';
-import Slide from './top_user_benefits/Slide';
-import Dots from './top_user_benefits/Dots';
-import Images from './top_user_benefits/Images';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-const styles = {
+const styles = theme => ({
   container: {
     height: 'inherit',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
+    flexDirection: 'row',
     flexWrap: 'wrap',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   },
-  swipeableContainer: {
-    marginTop: '56px',
+  desktop: {
+    flexBasis: '46%',
+    background: 'rgba(0, 0, 0, 0.025)',
+    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
+    borderRadius: '5px',
   },
-  button: {
-    display: 'block',
-    margin: '56px auto 24px',
+  navLeft: {
+    display: 'flex',
+    flexBasis: '27%',
+    justifyContent: 'flex-end',
   },
-  screen: {
-    display: 'block',
-    margin: '0 auto',
+  navRight: {
+    flexBasis: '27%',
   },
-};
+  buttons: {
+    margin: theme.spacing.unit * 6,
+  },
+  icons: {
+    color: theme.palette.text.secondary,
+  },
+});
 
 class TopUserBenefits extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-    };
-  }
-
-  onChangeHandler = (index, indexLatest) => {
-    this.setState({index});
-  };
-
-  buttonClickHandler = () => {
-    window.localStorage.setItem(isFirstRun, false);
-    window.location.href = window.location.href; // refresh
-  };
-
   render() {
     const {classes} = this.props;
     return (
       <div className={classes.container}>
-        <Images index={this.state.index} />
-        <AutoPlaySwipeableViews
-          interval={6000}
-          className={classes.swipeableContainer}
-          onChangeIndex={this.onChangeHandler}>
-          <Slide
-            title="Status pages for crypto exchanges"
-            subheading="Find out how things are running on trading platforms."
-          />
-          <Slide
-            title="Trade with confidence"
-            subheading="Read users' feedback to become aware of potential delays, pitfalls, or setbacks before using an exchange."
-          />
-          <Slide
-            title="Help the community grow"
-            subheading="Report back often. Each time you interact with an exchange let others know how it went by posting a posty post."
-          />
-        </AutoPlaySwipeableViews>
-        <Button
-          onClick={this.buttonClickHandler}
-          variant="raised"
-          align="center"
-          className={classes.button}>
-          Get Started
-        </Button>
-        <Dots index={this.state.index} />
+        {/* Hidden if screen width >= 960px, the md breakpoint */}
+        <Hidden mdUp>
+          <Content />
+        </Hidden>
+        {/* Hidden if screen with < 960px, the md breakpoint */}
+        <Hidden mdDown>
+          <div className={classes.navLeft}>
+            <Button
+              variant="fab"
+              mini
+              color="secondary"
+              aria-label="nav left"
+              className={classes.buttons}>
+              <KeyboardArrowLeft className={classes.icons} />
+            </Button>
+          </div>
+          <div className={classes.desktop}>
+            <Content />
+          </div>
+          <div className={classes.navRight}>
+            <Button
+              variant="fab"
+              mini
+              color="secondary"
+              aria-label="nav right"
+              className={classes.buttons}>
+              <KeyboardArrowRight className={classes.icons} />
+            </Button>
+          </div>
+        </Hidden>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(TopUserBenefits);
+export default compose(withStyles(styles), withWidth())(TopUserBenefits);
