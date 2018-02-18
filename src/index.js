@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
 import registerServiceWorker from './registerServiceWorker';
+import Reboot from 'material-ui/Reboot';
 
 const theme = createMuiTheme({
   palette: {
@@ -34,7 +35,9 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <BrowserRouter>
-      <App />
+      <Reboot>
+        <App />
+      </Reboot>
     </BrowserRouter>
   </MuiThemeProvider>,
   document.getElementById('root'),

@@ -3,7 +3,6 @@
 import React, {Component} from 'react';
 import {isFirstRun} from './constants';
 import {Route} from 'react-router-dom';
-import Reboot from 'material-ui/Reboot';
 import {withStyles} from 'material-ui/styles';
 import './App.css';
 import TopBar from './components/TopBar';
@@ -105,7 +104,6 @@ class App extends Component {
       // Show onboarding - top user benefits if First Run Experience
       content = (
         <div style={{height: 'inherit'}}>
-          <Reboot />
           <TopUserBenefits />
         </div>
       );
@@ -116,7 +114,6 @@ class App extends Component {
       // Everything else
       content = (
         <div className={this.props.classes.container}>
-          <Reboot />
           <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
           <Route
             path="/"
