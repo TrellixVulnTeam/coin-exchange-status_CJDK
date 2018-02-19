@@ -19,7 +19,7 @@ const styles = theme => ({
     alignItems: 'center',
     height: 64,
     padding: `0 ${theme.spacing.unit * 2}px`,
-    background: theme.palette.primary.light,
+    background: theme.palette.primary.main,
   },
   appBarContainer: {
     display: 'flex',
@@ -29,19 +29,19 @@ const styles = theme => ({
     display: 'flex',
     flex: '0 0 80%',
     justifyContent: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.light.secondary,
   },
   searchIcon: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-end',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.light.secondary,
   },
   homeIconLink: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-start',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.light.secondary,
   },
 });
 
