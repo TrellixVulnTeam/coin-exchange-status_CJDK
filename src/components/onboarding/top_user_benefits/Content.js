@@ -53,7 +53,7 @@ class Content extends Component {
           />
           <Slide
             title="Help the community grow"
-            subheading="Report back often. Each time you interact with an exchange let others know how it went by posting a posty post."
+            subheading="Report back often. Each time you interact with an exchange let others know how it went by submitting a post."
           />
         </AutoPlaySwipeableViews>
         <Button
