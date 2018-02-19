@@ -1,7 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
-import {isFirstRun} from '../../../constants';
+import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import SwipeableViews from 'react-swipeable-views';
@@ -31,36 +31,16 @@ const styles = theme => ({
 });
 
 class Content extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-    };
-  }
-
-  onChangeHandler = (index, indexLatest) => {
-    this.setState({index});
-  };
-
-  buttonClickHandler = () => {
-    window.localStorage.setItem(isFirstRun, false);
-    window.location.href = window.location.href; // refresh
-  };
-
-  dotsClickHandler = index => {
-    this.setState({index});
-  };
-
   render() {
-    const {classes} = this.props;
+    const {classes, index} = this.props;
     return (
       <div>
-        <Images index={this.state.index} />
+        <Images index={index} />
         <AutoPlaySwipeableViews
-          index={this.state.index}
+          index={index}
           interval={6000}
           className={classes.swipeableContainer}
-          onChangeIndex={this.onChangeHandler}>
+          onChangeIndex={this.props.slideChangeHandler}>
           <Slide
             title="Status pages for crypto exchanges"
             subheading="Find out how things are running on trading platforms."
@@ -75,16 +55,22 @@ class Content extends Component {
           />
         </AutoPlaySwipeableViews>
         <Button
-          onClick={this.buttonClickHandler}
+          onClick={this.props.getStartedHandler}
           variant="raised"
           align="center"
           className={classes.button}>
           Get Started
         </Button>
-        <Dots index={this.state.index} clickCallback={this.dotsClickHandler} />
+        <Dots index={index} clickHandler={this.props.dotsClickHandler} />
       </div>
     );
   }
 }
+
+Content.propTypes = {
+  dotsClickHandler: PropTypes.func.isRequired,
+  getStartedHandler: PropTypes.func.isRequired,
+  slideChangeHandler: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(Content);

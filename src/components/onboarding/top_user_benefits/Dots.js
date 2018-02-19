@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 
 const styles = theme => ({
@@ -40,7 +41,7 @@ class Dots extends Component {
 
   clickHandler = event => {
     const index = Number(event.target.getAttribute('index'));
-    this.props.clickCallback(index);
+    this.props.clickHandler(index);
   };
 
   render() {
@@ -69,5 +70,9 @@ class Dots extends Component {
     );
   }
 }
+
+Dots.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(Dots);

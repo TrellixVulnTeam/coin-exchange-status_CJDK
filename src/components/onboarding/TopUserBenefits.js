@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import {isFirstRun} from '../../constants';
 import {withStyles} from 'material-ui/styles';
 import compose from 'recompose/compose';
 import withWidth from 'material-ui/utils/withWidth';
@@ -17,8 +18,8 @@ const styles = theme => ({
     flexDirection: 'row',
     flexWrap: 'wrap',
     [theme.breakpoints.down('md')]: {
-      justifyContent: 'flex-end',
-      alignItems: 'center',
+      justifyContent: 'center',
+      alignItems: 'flex-end',
     },
     [theme.breakpoints.up('md')]: {
       justifyContent: 'center',
@@ -48,28 +49,83 @@ const styles = theme => ({
 });
 
 class TopUserBenefits extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+    };
+  }
+
+  dotsClickHandler = index => {
+    this.setState({index});
+  };
+
+  getStartedHandler = () => {
+    window.localStorage.setItem(isFirstRun, false);
+    window.location.href = window.location.href; // refresh
+  };
+
+  slideChangeHandler = index => {
+    this.setState({index});
+  };
+
+  rightNavClickHandler = () => {
+    const index = this.state.index;
+    switch (index) {
+      case 2:
+        this.setState({index: 0});
+        break;
+      default:
+        this.setState({index: this.state.index + 1});
+        break;
+    }
+  };
+
+  leftNavClickHandler = () => {
+    const index = this.state.index;
+    switch (index) {
+      case 0:
+        this.setState({index: 2});
+        break;
+      default:
+        this.setState({index: this.state.index - 1});
+        break;
+    }
+  };
+
   render() {
     const {classes} = this.props;
     return (
       <div className={classes.container}>
         {/* Hidden if screen width >= 960px, the md breakpoint */}
         <Hidden mdUp>
-          <Content />
+          <Content
+            index={this.state.index}
+            dotsClickHandler={this.dotsClickHandler}
+            getStartedHandler={this.getStartedHandler}
+            slideChangeHandler={this.slideChangeHandler}
+          />
         </Hidden>
-        {/* Hidden if screen with < 960px, the md breakpoint */}
-        <Hidden mdDown>
+        {/* Hidden if screen with is less than sm's upper max to the next breakpoint, md, which is 960px */}
+        <Hidden smDown>
           <div className={classes.navLeft}>
             <Button
               variant="fab"
               mini
               color="secondary"
               aria-label="nav left"
-              className={classes.buttons}>
+              className={classes.buttons}
+              onClick={this.leftNavClickHandler}>
               <KeyboardArrowLeft className={classes.icons} />
             </Button>
           </div>
           <div className={classes.desktop}>
-            <Content />
+            <Content
+              index={this.state.index}
+              dotsClickHandler={this.dotsClickHandler}
+              getStartedHandler={this.getStartedHandler}
+              slideChangeHandler={this.slideChangeHandler}
+            />
           </div>
           <div className={classes.navRight}>
             <Button
@@ -77,7 +133,8 @@ class TopUserBenefits extends Component {
               mini
               color="secondary"
               aria-label="nav right"
-              className={classes.buttons}>
+              className={classes.buttons}
+              onClick={this.rightNavClickHandler}>
               <KeyboardArrowRight className={classes.icons} />
             </Button>
           </div>
