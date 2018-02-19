@@ -11,15 +11,15 @@ import Reboot from 'material-ui/Reboot';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#ffffff',
-      main: '#f5f5f5',
-      dark: '#c2c2c2',
+      light: '#63a4ff',
+      main: '#1976d2',
+      dark: '#004ba0',
       contrastText: '#000000',
     },
     secondary: {
-      light: '#fdff58',
-      main: '#c6ff00',
-      dark: '#90cc00',
+      light: '#ffffff',
+      main: '#fafafa',
+      dark: '#c7c7c7',
       contrastText: '#000000',
     },
     text: {
@@ -28,6 +28,13 @@ const theme = createMuiTheme({
       disabled: 'rgba(0, 0, 0, 0.38)',
       hint: 'rgba(0, 0, 0, 0.38)',
       divider: 'rgba(0, 0, 0, 0.12)',
+      light: {
+        primary: 'rgba(255, 255, 255, 0.87)',
+        secondary: 'rgba(255, 255, 255, 0.54)',
+        disabled: 'rgba(255, 255, 255, 0.38)',
+        hint: 'rgba(255, 255, 255, 0.38)',
+        divider: 'rgba(255, 255, 255, 0.12)',
+      },
     },
   },
 });

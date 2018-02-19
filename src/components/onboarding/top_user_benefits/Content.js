@@ -19,6 +19,8 @@ const styles = theme => ({
   button: {
     display: 'block',
     margin: '56px auto 24px',
+    color: theme.palette.text.secondary,
+    background: theme.palette.text.light.primary,
     [theme.breakpoints.up('md')]: {
       position: 'relative',
       top: '60px',

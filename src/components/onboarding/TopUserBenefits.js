@@ -17,6 +17,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    background: theme.palette.primary.main,
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       alignItems: 'flex-end',
@@ -31,6 +32,7 @@ const styles = theme => ({
     background: 'rgba(0, 0, 0, 0.025)',
     padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
     borderRadius: '5px',
+    boxShadow: '2px 2px 7px 0 rgba(0, 0, 0, 0.25)',
   },
   navLeft: {
     display: 'flex',
@@ -44,7 +46,7 @@ const styles = theme => ({
     margin: theme.spacing.unit * 6,
   },
   icons: {
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.disabled,
   },
 });
 

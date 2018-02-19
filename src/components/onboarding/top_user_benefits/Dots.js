@@ -16,11 +16,11 @@ const styles = theme => ({
   },
   bull: {
     fontSize: '32px',
-    color: 'rgba(0, 0, 0, 0.5)',
+    color: theme.palette.text.light.disabled,
   },
   bullOn: {
     fontSize: '32px',
-    color: 'rgb(0, 0, 0)',
+    color: theme.palette.text.light.secondary,
   },
   dot: {
     margin: `0 ${theme.spacing.unit / 4}px`,

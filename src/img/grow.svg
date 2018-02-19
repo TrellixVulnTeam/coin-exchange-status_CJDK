@@ -5,30 +5,32 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Grow">
-            <rect id="Screen" fill="#D8D8D8" x="0" y="0" width="88" height="58" rx="2"></rect>
-            <g id="Grid" opacity="0.461050725" transform="translate(7.000000, 12.000000)" stroke="#979797" stroke-linecap="square">
-                <path d="M0.5,1.5 L72.5,1.5" id="Line" opacity="0.404495018"></path>
-                <path d="M0.5,9.5 L72.5,9.5" id="Line" opacity="0.404495018"></path>
-                <path d="M0.5,17.5 L72.5,17.5" id="Line" opacity="0.404495018"></path>
-                <path d="M0.5,25.5 L72.5,25.5" id="Line" opacity="0.404495018"></path>
-                <path d="M8.5,1.5 L8.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M16.5,1.5 L16.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M24.5,1.5 L24.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M32.5,1.5 L32.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M40.5,1.5 L40.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M48.5,1.5 L48.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M56.5,1.5 L56.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M64.5,1.5 L64.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M72.5,1.5 L72.5,28.5" id="Line" opacity="0.404495018"></path>
-                <path d="M0.5,1.5 L0.5,28.5" id="Line" opacity="0.404495018"></path>
+        <g id="Mobile-Portrait" transform="translate(-44.000000, -119.000000)">
+            <g id="Grow" transform="translate(44.000000, 119.000000)">
+                <rect id="Screen" fill="#FFFFFF" opacity="0.160665761" x="0" y="0" width="88" height="58" rx="2"></rect>
+                <g id="Grid" opacity="0.461050725" transform="translate(7.000000, 12.000000)" stroke="#FFFFFF" stroke-linecap="square">
+                    <path d="M0.5,1.5 L72.5,1.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M0.5,9.5 L72.5,9.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M0.5,17.5 L72.5,17.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M0.5,25.5 L72.5,25.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M8.5,1.5 L8.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M16.5,1.5 L16.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M24.5,1.5 L24.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M32.5,1.5 L32.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M40.5,1.5 L40.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M48.5,1.5 L48.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M56.5,1.5 L56.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M64.5,1.5 L64.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M72.5,1.5 L72.5,28.5" id="Line" opacity="0.404495018"></path>
+                    <path d="M0.5,1.5 L0.5,28.5" id="Line" opacity="0.404495018"></path>
+                </g>
+                <path d="M7.98925943,28.0107406 L19.632746,16.367254" id="Line" stroke="#FFFFFF" opacity="0.403702446" stroke-linecap="square"></path>
+                <path d="M19.5,16.5 L40.0548048,37.0548048" id="Line" stroke="#FFFFFF" opacity="0.403702446" stroke-linecap="square"></path>
+                <path d="M40.5,36.5 L48.5622577,28.4377423" id="Line" stroke="#FFFFFF" opacity="0.403702446" stroke-linecap="square"></path>
+                <path d="M48.5,28.5 L56.5,36.5" id="Line" stroke="#FFFFFF" opacity="0.403702446" stroke-linecap="square"></path>
+                <path d="M56.5,36.5 L74.5,18.5" id="Line" stroke="#FFFFFF" opacity="0.403702446" stroke-linecap="square"></path>
+                <polygon id="Triangle" stroke="#FFFFFF" fill-opacity="0.4" fill="#FFFFFF" opacity="0.403702446" transform="translate(76.000000, 17.000000) rotate(45.000000) translate(-76.000000, -17.000000) " points="76 15 78 19 74 19"></polygon>
             </g>
-            <path d="M7.98925943,28.0107406 L19.632746,16.367254" id="Line" stroke="#979797" opacity="0.524569746" stroke-linecap="square"></path>
-            <path d="M19.5,16.5 L40.0548048,37.0548048" id="Line" stroke="#979797" opacity="0.524569746" stroke-linecap="square"></path>
-            <path d="M40.5,36.5 L48.5622577,28.4377423" id="Line" stroke="#979797" opacity="0.524569746" stroke-linecap="square"></path>
-            <path d="M48.5,28.5 L56.5,36.5" id="Line" stroke="#979797" opacity="0.524569746" stroke-linecap="square"></path>
-            <path d="M56.5,36.5 L74.5,18.5" id="Line" stroke="#979797" opacity="0.524569746" stroke-linecap="square"></path>
-            <polygon id="Triangle" stroke="#979797" fill="#8E8E93" transform="translate(76.000000, 17.000000) rotate(45.000000) translate(-76.000000, -17.000000) " points="76 15 78 19 74 19"></polygon>
         </g>
     </g>
 </svg>
