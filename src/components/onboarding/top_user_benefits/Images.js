@@ -2,8 +2,8 @@
 
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import screen from '../../../img/screen.svg';
-import health from '../../../img/health.svg';
+import exchange from '../../../img/exchange.svg';
+import uptodate from '../../../img/uptodate.svg';
 import grow from '../../../img/grow.svg';
 
 const styles = {
@@ -17,13 +17,13 @@ class Images extends Component {
   getImageName = index => {
     switch (index) {
       case 0:
-        return health;
+        return uptodate;
       case 1:
-        return screen;
+        return exchange;
       case 2:
         return grow;
       default:
-        return screen;
+        return exchange;
     }
   };
 

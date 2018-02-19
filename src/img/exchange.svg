@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="58px" viewBox="0 0 88 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Exchange Screen</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Portrait" transform="translate(-44.000000, -49.000000)">
+            <g id="Exchange-Screen" transform="translate(44.000000, 49.000000)">
+                <rect id="Screen" fill="#FFFFFF" opacity="0.158288043" x="0" y="0" width="88" height="58" rx="2"></rect>
+                <g id="Grid" opacity="0.461050725" transform="translate(6.000000, 12.000000)" stroke="#FFFFFF" stroke-linecap="square">
+                    <path d="M1.5,1.5 L73.6734023,1.5" id="Line" opacity="0.4"></path>
+                    <path d="M73.5,2.5 L73.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M72.5,25.5 L2.43574378,25.5" id="Line" opacity="0.4"></path>
+                    <path d="M1.5,28.5 L1.5,2.48077634" id="Line" opacity="0.4"></path>
+                    <path d="M2.5,9.5 L72.5,9.5" id="Line" opacity="0.4"></path>
+                    <path d="M2.5,17.5 L72.5,17.5" id="Line" opacity="0.4"></path>
+                    <path d="M9.5,2.5 L9.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M17.5,2.5 L17.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M25.5,2.5 L25.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M33.5,2.5 L33.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M41.5,2.5 L41.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M49.5,2.5 L49.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M57.5,2.5 L57.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M65.5,2.5 L65.5,8.5" id="Line" opacity="0.4"></path>
+                    <path d="M9.5,10.5 L9.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M17.5,10.5 L17.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M25.5,10.5 L25.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M33.5,10.5 L33.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M41.5,10.5 L41.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M49.5,10.5 L49.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M57.5,10.5 L57.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M65.5,10.5 L65.5,16.5" id="Line" opacity="0.4"></path>
+                    <path d="M9.5,18.5 L9.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M17.5,18.5 L17.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M25.5,18.5 L25.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M33.5,18.5 L33.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M41.5,18.5 L41.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M49.5,18.5 L49.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M57.5,18.5 L57.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M65.5,18.5 L65.5,24.5" id="Line" opacity="0.4"></path>
+                    <path d="M9.5,26.5 L9.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M17.5,26.5 L17.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M25.5,26.5 L25.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M33.5,26.5 L33.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M41.5,26.5 L41.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M49.5,26.5 L49.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M57.5,26.5 L57.5,28.5" id="Line" opacity="0.4"></path>
+                    <path d="M65.5,26.5 L65.5,28.5" id="Line" opacity="0.4"></path>
+                </g>
+                <path d="M7.76464844,17.5551758 C13.7719727,18.4711914 29.3540039,31.8110352 29.3540039,31.8110352 C29.3540039,31.8110352 39.3447266,26.668457 43.4477539,28.7041016 C47.5507812,30.7397461 53.7226562,30.8256836 53.7226562,30.8256836 L60.1635742,27.7988281 L69.1987305,25.4760742 L75.1850586,26.9980469 L78.9960938,23.6376953" id="Price" stroke="#71AAE8"></path>
+                <g id="Volume" opacity="0.4" transform="translate(8.000000, 44.000000)" fill="#FFFFFF">
+                    <rect id="Rectangle-3" opacity="0.767040308" x="0" y="0" width="3" height="9"></rect>
+                    <rect id="Rectangle-3" opacity="0.584012681" x="4" y="4" width="3" height="5"></rect>
+                    <rect id="Rectangle-3" opacity="0.584012681" x="8" y="2" width="3" height="7"></rect>
+                    <rect id="Rectangle-3" opacity="0.823709239" x="12" y="4" width="3" height="5"></rect>
+                    <rect id="Rectangle-3" opacity="0.903475996" x="16" y="1" width="3" height="8"></rect>
+                    <rect id="Rectangle-3" opacity="0.9375" x="20" y="3" width="3" height="6"></rect>
+                    <rect id="Rectangle-3" opacity="0.621716486" x="24" y="2" width="3" height="7"></rect>
+                    <rect id="Rectangle-3" opacity="0.866394928" x="28" y="4" width="3" height="5"></rect>
+                    <rect id="Rectangle-3" opacity="0.842164855" x="32" y="0" width="3" height="9"></rect>
+                    <rect id="Rectangle-3" opacity="0.515511775" x="36" y="3" width="3" height="6"></rect>
+                    <rect id="Rectangle-3" opacity="0.787647192" x="40" y="1" width="3" height="8"></rect>
+                    <rect id="Rectangle-3" x="44" y="5" width="3" height="4"></rect>
+                    <rect id="Rectangle-3" opacity="0.537873641" x="48" y="0" width="3" height="9"></rect>
+                    <rect id="Rectangle-3" opacity="0.935235507" x="52" y="1" width="3" height="8"></rect>
+                    <rect id="Rectangle-3" opacity="0.850260417" x="56" y="2" width="3" height="7"></rect>
+                    <rect id="Rectangle-3" opacity="0.78272192" x="60" y="4" width="3" height="5"></rect>
+                    <rect id="Rectangle-3" opacity="0.741055254" x="64" y="0" width="3" height="9"></rect>
+                    <rect id="Rectangle-3" x="68" y="4" width="3" height="5"></rect>
+                </g>
+                <g id="Ticker-/-Symbol" opacity="0.4" transform="translate(8.000000, 4.000000)" fill="#FFFFFF">
+                    <rect id="Rectangle-4" opacity="0.495527627" x="0" y="0" width="4" height="6"></rect>
+                    <rect id="Rectangle-4" opacity="0.495527627" x="5" y="0" width="4" height="6"></rect>
+                    <rect id="Rectangle-4" opacity="0.495527627" x="10" y="0" width="4" height="6"></rect>
+                    <rect id="Rectangle-4" opacity="0.495527627" x="19" y="0" width="4" height="6"></rect>
+                    <rect id="Rectangle-4" opacity="0.495527627" x="24" y="0" width="4" height="6"></rect>
+                    <rect id="Rectangle-4" opacity="0.495527627" x="29" y="0" width="4" height="6"></rect>
+                    <path d="M15.5,5.5 L17.5,0.5" id="Line" opacity="0.495527627"></path>
+                </g>
+                <g id="Plus-/-Minus" opacity="0.4" transform="translate(66.000000, 5.000000)" stroke="#FFFFFF" stroke-linecap="square">
+                    <path d="M10.5,0.5 L10.5,4.5" id="Line" opacity="0.504472373"></path>
+                    <path d="M0.5,2.5 L3.5,2.5" id="Line" opacity="0.512171649"></path>
+                    <path d="M8.5,2.5 L9.5,2.5" id="Line" opacity="0.49365942"></path>
+                    <path d="M11.5,2.5 L12.5,2.5" id="Line" opacity="0.49365942"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
