@@ -44,9 +44,10 @@ const styles = theme => ({
   },
   buttons: {
     margin: theme.spacing.unit * 6,
+    background: theme.palette.text.light.primary,
   },
   icons: {
-    color: theme.palette.text.disabled,
+    color: theme.palette.text.secondary,
   },
 });
 
@@ -114,7 +115,6 @@ class TopUserBenefits extends Component {
             <Button
               variant="fab"
               mini
-              color="secondary"
               aria-label="nav left"
               className={classes.buttons}
               onClick={this.leftNavClickHandler}>
@@ -133,7 +133,6 @@ class TopUserBenefits extends Component {
             <Button
               variant="fab"
               mini
-              color="secondary"
               aria-label="nav right"
               className={classes.buttons}
               onClick={this.rightNavClickHandler}>
