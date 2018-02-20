@@ -28,20 +28,20 @@ const styles = theme => ({
   title: {
     display: 'flex',
     flex: '0 0 80%',
-    justifyContent: 'center',
-    color: theme.palette.text.light.secondary,
+    justifyContent: 'flex-start',
+    color: theme.palette.text.light.primary,
   },
   searchIcon: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-end',
-    color: theme.palette.text.light.secondary,
+    color: theme.palette.text.light.primary,
   },
   homeIconLink: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-start',
-    color: theme.palette.text.light.secondary,
+    color: theme.palette.text.light.primary,
   },
 });
 
@@ -72,7 +72,7 @@ class TopBar extends React.Component {
           <Link to="/" className={classes.homeIconLink}>
             <Home />
           </Link>
-          <Typography className={classes.title} type="title">
+          <Typography className={classes.title} type="title" variant="title">
             Coin Exchange Status
           </Typography>
           <Link to="/search" className={classes.searchIcon}>
