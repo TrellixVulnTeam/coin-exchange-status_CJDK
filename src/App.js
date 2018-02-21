@@ -26,6 +26,10 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+
   },
   progress: {
     position: 'static',
