@@ -11,9 +11,9 @@ import Reboot from 'material-ui/Reboot';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#63a4ff',
-      main: '#1976d2',
-      dark: '#004ba0',
+      light: '#6ec6ff',
+      main: '#2196f3',
+      dark: '#0069c0',
       contrastText: '#ffffff',
     },
     secondary: {
