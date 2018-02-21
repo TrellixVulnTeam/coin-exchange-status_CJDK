@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import Hidden from 'material-ui/Hidden';
 import {NavLink} from 'react-router-dom';
 import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider';
@@ -34,50 +35,52 @@ const styles = theme => ({
      *
      * (note: className on these elements are a string)
      */
-  }
+  },
 });
 
 class AppDrawer extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <div className={classes.drawerContainer}>
-        <div className={classes.drawerHeader}>
-          <Typography
-            component="h1"
-            variant="title"
-            className={classes.drawerH1}>
-            Coin Exchange Status
-          </Typography>
+      <Hidden smDown>
+        <div className={classes.drawerContainer}>
+          <div className={classes.drawerHeader}>
+            <Typography
+              component="h1"
+              variant="title"
+              className={classes.drawerH1}>
+              Coin Exchange Status
+            </Typography>
+          </div>
+          <Divider />
+          <List>
+            <ListItem button>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <NavLink to="/" exact className="navLink">
+                <ListItemText primary="Home" />
+              </NavLink>
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <CreateIcon />
+              </ListItemIcon>
+              <NavLink to="/posts" className="navLink">
+                <ListItemText primary="New Post" />
+              </NavLink>
+            </ListItem>
+            <ListItem button>
+              <NavLink to="/settings" className="navLink">
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Settings" />
+              </NavLink>
+            </ListItem>
+          </List>
         </div>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <NavLink to="/" exact className="navLink">
-              <ListItemText primary="Home" />
-            </NavLink>
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <CreateIcon />
-            </ListItemIcon>
-            <NavLink to="/posts" className="navLink">
-              <ListItemText primary="New Post" />
-            </NavLink>
-          </ListItem>
-          <ListItem button>
-            <NavLink to="/settings" className="navLink">
-	      <ListItemIcon>
-		<SettingsIcon />
-	      </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </NavLink>
-          </ListItem>
-        </List>
-      </div>
+      </Hidden>
     );
   }
 }
