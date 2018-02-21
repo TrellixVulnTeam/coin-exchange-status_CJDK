@@ -37,6 +37,12 @@ const theme = createMuiTheme({
       },
     },
   },
+  widths: {
+    drawer: '240px',
+  },
+  heights: {
+    topBar: '64px',
+  },
 });
 
 ReactDOM.render(

@@ -44,7 +44,7 @@ class Content extends Component {
           className={classes.swipeableContainer}
           onChangeIndex={this.props.slideChangeHandler}>
           <Slide
-            title="Stay up-to-date on crypto exchanges"
+            title="Stay up-to-date with your favorite crypto exchanges"
             subheading="Find out how things are running on trading platforms from the people that are using them."
           />
           <Slide

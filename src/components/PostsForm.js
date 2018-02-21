@@ -16,14 +16,20 @@ import GlobalSnackage from '../GlobalSnackage';
 
 const styles = theme => ({
   container: {
+    flexBasis: '100%',
     display: 'flex',
     justifyContent: 'center',
-    padding: `${theme.spacing.unit * 10}px 0`,
     [theme.breakpoints.down('xs')]: {
       padding: `${theme.spacing.unit * 2}px 0`,
     },
+    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px 0`,
+    boxShadow: `inset 1px -6px 2px ${theme.palette.text.divider}`,
   },
   card: {
+    width: '480px',
+    minWidth: '320px',
+  },
+  /*card: {
     [theme.breakpoints.up('lg')]: {
       margin: `0 ${theme.spacing.unit * 64}px`,
     },
@@ -36,7 +42,7 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       margin: 0,
     },
-  },
+  },*/
   form: {
     width: '100%',
   },

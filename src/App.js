@@ -14,19 +14,29 @@ import fire from './fire';
 import GlobalSnackage from './GlobalSnackage';
 import AppSnackbar from './components/AppSnackbar';
 import TopUserBenefits from './components/onboarding/TopUserBenefits';
+import AppDrawer from './components/AppDrawer';
+
+const drawerWidth = 240;
 
 const styles = theme => ({
-  container: {
+  content: {
     height: '100vh',
-    padding: `82px ${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px`,
+    overflow: 'scroll',
+    width: `calc(100% - ${drawerWidth}px)`,
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
   },
   progress: {
     position: 'static',
     top: '50%',
     left: '50%',
+  },
+  appFrame: {
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+    height: '100%',
   },
 });
 
@@ -109,24 +119,27 @@ class App extends Component {
     } else {
       // Everything else
       content = (
-        <div className={this.props.classes.container}>
-          <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
-          <Route
-            path="/"
-            exact={true}
-            render={() => <Home exchanges={exchanges} />}
-          />
-          <Route path="/posts" component={PostsForm} />
-          <Route
-            path="/search"
-            render={() =>
-              <Results
-                searchTerm={searchTerm}
-                exchanges={this.state.searchResults}
-                willUnmountCallback={this.resultsComponentWillUnmount}
-              />}
-          />
-          {snackbar}
+        <div className={classes.appFrame}>
+          <AppDrawer />
+          <div className={this.props.classes.content}>
+            <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
+            <Route
+              path="/"
+              exact={true}
+              render={() => <Home exchanges={exchanges} />}
+            />
+            <Route path="/posts" component={PostsForm} />
+            <Route
+              path="/search"
+              render={() =>
+                <Results
+                  searchTerm={searchTerm}
+                  exchanges={this.state.searchResults}
+                  willUnmountCallback={this.resultsComponentWillUnmount}
+                />}
+            />
+            {snackbar}
+          </div>
         </div>
       );
     }
