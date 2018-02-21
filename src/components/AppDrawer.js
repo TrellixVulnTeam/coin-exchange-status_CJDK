@@ -36,6 +36,10 @@ const styles = theme => ({
      * (note: className on these elements are a string)
      */
   },
+  drawerListItem: {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
 });
 
 class AppDrawer extends Component {
@@ -54,7 +58,7 @@ class AppDrawer extends Component {
           </div>
           <Divider />
           <List>
-            <ListItem button>
+            <ListItem button className={classes.drawerListItem}>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
@@ -62,7 +66,7 @@ class AppDrawer extends Component {
                 <ListItemText primary="Home" />
               </NavLink>
             </ListItem>
-            <ListItem button>
+            <ListItem button className={classes.drawerListItem}>
               <ListItemIcon>
                 <CreateIcon />
               </ListItemIcon>
@@ -70,7 +74,7 @@ class AppDrawer extends Component {
                 <ListItemText primary="New Post" />
               </NavLink>
             </ListItem>
-            <ListItem button>
+            <ListItem button className={classes.drawerListItem}>
               <NavLink to="/settings" className="navLink">
                 <ListItemIcon>
                   <SettingsIcon />

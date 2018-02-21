@@ -1,3 +1,7 @@
+.navLink {
+  padding: 12px 0;
+}
+
 .navLink:link, .navLink:active, .navLink:hover, .navLink:visited {
   width: 100%;
   display: flex;
