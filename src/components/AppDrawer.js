@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
@@ -27,6 +28,13 @@ const styles = theme => ({
     fontSize: '18px',
     color: theme.palette.text.secondary,
   },
+  navLink: {
+    /* see index.css
+     * these styles were easier to deal with plain 'ol css
+     *
+     * (note: className on these elements are a string)
+     */
+  }
 });
 
 class AppDrawer extends Component {
@@ -48,19 +56,25 @@ class AppDrawer extends Component {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <NavLink to="/" exact className="navLink">
+              <ListItemText primary="Home" />
+            </NavLink>
           </ListItem>
           <ListItem button>
             <ListItemIcon>
               <CreateIcon />
             </ListItemIcon>
-            <ListItemText primary="New Post" />
+            <NavLink to="/posts" className="navLink">
+              <ListItemText primary="New Post" />
+            </NavLink>
           </ListItem>
           <ListItem button>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
+            <NavLink to="/settings" className="navLink">
+	      <ListItemIcon>
+		<SettingsIcon />
+	      </ListItemIcon>
+              <ListItemText primary="Settings" />
+            </NavLink>
           </ListItem>
         </List>
       </div>
