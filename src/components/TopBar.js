@@ -5,11 +5,12 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Hidden from 'material-ui/Hidden';
 import AppBar from 'material-ui/AppBar';
-import Home from 'material-ui-icons/Home';
+import Menu from 'material-ui-icons/Menu';
 import Search from 'material-ui-icons/Search';
 import SearchBar from './SearchBar';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
+import IconButton from 'material-ui/IconButton';
 
 const styles = theme => ({
   root: {
@@ -24,11 +25,12 @@ const styles = theme => ({
   appBarContainer: {
     display: 'flex',
     flex: '0 0 100%',
+    alignItems: 'center',
   },
   title: {
     display: 'flex',
     flex: '0 0 80%',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     color: theme.palette.primary.contrastText,
   },
   searchIcon: {
@@ -37,7 +39,7 @@ const styles = theme => ({
     justifyContent: 'flex-end',
     color: theme.palette.primary.contrastText,
   },
-  homeIconLink: {
+  menuIconButton: {
     display: 'flex',
     flex: '0 0 10%',
     justifyContent: 'flex-start',
@@ -70,9 +72,12 @@ class TopBar extends React.Component {
     let elements = !this.state.searching
       ? <div className={classes.appBarContainer}>
           <Hidden mdUp>
-            <Link to="/" className={classes.homeIconLink}>
-              <Home />
-            </Link>
+            <IconButton
+              className={classes.menuIconButton}
+              aria-label="open drawer"
+              onClick={this.props.menuIconOnTouchEndHandler}>
+              <Menu />
+            </IconButton>
             <Typography className={classes.title} type="title" variant="title">
               Coin Exchange Status
             </Typography>

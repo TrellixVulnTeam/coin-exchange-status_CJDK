@@ -15,6 +15,7 @@ import GlobalSnackage from './GlobalSnackage';
 import AppSnackbar from './components/AppSnackbar';
 import TopUserBenefits from './components/onboarding/TopUserBenefits';
 import AppDrawer from './components/AppDrawer';
+import TemporaryDrawer from './components/drawers/Temporary';
 
 const drawerWidth = 240;
 
@@ -29,7 +30,6 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
-
   },
   progress: {
     position: 'static',
@@ -56,6 +56,7 @@ class App extends Component {
       exchanges: {},
       searchResults: {},
       searchTerm: '',
+      mobileDrawerOpen: false,
     };
   }
 
@@ -101,6 +102,13 @@ class App extends Component {
     return window.localStorage.getItem(isFirstRun) === 'false' ? false : true;
   };
 
+  menuIconOnTouchEndHandler = () => {
+    this.setState({mobileDrawerOpen: !this.state.mobileDrawerOpen});
+
+  mobileDrawerCloseHandler = (event) => {
+    this.setState({mobileDrawerOpen: false});
+  };
+
   render() {
     const classes = this.props.classes;
     const searchTerm = this.state.searchTerm;
@@ -125,8 +133,15 @@ class App extends Component {
       content = (
         <div className={classes.appFrame}>
           <AppDrawer />
+          <TemporaryDrawer
+            open={this.state.mobileDrawerOpen}
+            onCloseHandler={this.mobileDrawerCloseHandler}
+          />
           <div className={this.props.classes.content}>
-            <TopBar onSearchSubmitCallback={this.onSearchSubmitCallback} />
+            <TopBar
+              onSearchSubmitCallback={this.onSearchSubmitCallback}
+              menuIconOnTouchEndHandler={this.menuIconOnTouchEndHandler}
+            />
             <Route
               path="/"
               exact={true}
