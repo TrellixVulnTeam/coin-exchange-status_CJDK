@@ -104,8 +104,9 @@ class App extends Component {
 
   menuIconOnTouchEndHandler = () => {
     this.setState({mobileDrawerOpen: !this.state.mobileDrawerOpen});
+  };
 
-  mobileDrawerCloseHandler = (event) => {
+  mobileDrawerCloseHandler = event => {
     this.setState({mobileDrawerOpen: false});
   };
 
