@@ -62,7 +62,7 @@ class App extends Component {
   componentDidMount() {
     // load exchanges from db
     let exchangesRef = fire.database().ref('exchanges');
-    exchangesRef.on('value', snapshot => {
+    exchangesRef.limitToFirst(10).on('value', snapshot => {
       this.setState({exchanges: snapshot.val()});
       this.setState({isLoading: false});
     });
