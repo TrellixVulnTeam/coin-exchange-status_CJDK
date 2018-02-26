@@ -68,7 +68,11 @@ class TemporaryDrawer extends Component {
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
-              <NavLink to="/" exact className="navLink">
+              <NavLink
+                to="/"
+                exact
+                className="navLink"
+                onClick={this.props.onCloseHandler}>
                 <ListItemText primary="Home" />
               </NavLink>
             </ListItem>
@@ -76,12 +80,18 @@ class TemporaryDrawer extends Component {
               <ListItemIcon>
                 <CreateIcon />
               </ListItemIcon>
-              <NavLink to="/posts" className="navLink">
+              <NavLink
+                to="/posts"
+                className="navLink"
+                onClick={this.props.onCloseHandler}>
                 <ListItemText primary="New Post" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
-              <NavLink to="/settings" className="navLink">
+              <NavLink
+                to="/settings"
+                className="navLink"
+                onClick={this.props.onCloseHandler}>
                 <ListItemIcon>
                   <SettingsIcon />
                 </ListItemIcon>
