@@ -65,25 +65,25 @@ class TemporaryDrawer extends Component {
           <Divider />
           <List>
             <ListItem button className={classes.drawerListItem}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
               <NavLink
                 to="/"
                 exact
                 className="navLink"
                 onClick={this.props.onCloseHandler}>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
                 <ListItemText primary="Home" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
-              <ListItemIcon>
-                <CreateIcon />
-              </ListItemIcon>
               <NavLink
                 to="/posts"
                 className="navLink"
                 onClick={this.props.onCloseHandler}>
+                <ListItemIcon>
+                  <CreateIcon />
+                </ListItemIcon>
                 <ListItemText primary="New Post" />
               </NavLink>
             </ListItem>
