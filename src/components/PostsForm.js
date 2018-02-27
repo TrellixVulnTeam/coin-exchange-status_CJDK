@@ -118,7 +118,6 @@ class PostsForm extends Component {
   };
 
   getRecaptcha = opts => {
-    console.log(opts['compact']);
     const classes = this.props.classes;
     return (
       <ReCAPTCHA
@@ -157,7 +156,6 @@ class PostsForm extends Component {
                 <DelaySelect handleDelayChange={this.handleDelayChange} />
                 <Hidden smUp>
                   {/* Breakpoint up - children are hidden at or above the breakpoint. sm = 600px or larger */}
-                  {this.props.width}
                   {this.getRecaptcha({compact: true})}
                 </Hidden>
                 <Hidden xsDown>
@@ -166,7 +164,6 @@ class PostsForm extends Component {
 		    * The upper bounds of xs is 600 because that's where the sm breakpoint is defined so xsDown will
 		    * hide everything below 600.
 		  */}
-                  {this.props.width}
                   {this.getRecaptcha({compact: false})}
                 </Hidden>
                 <SubmitButton disabled={disabled} />
