@@ -35,6 +35,7 @@ const theme = createMuiTheme({
         hint: 'rgba(255, 255, 255, 0.38)',
         divider: 'rgba(255, 255, 255, 0.12)',
       },
+      white: 'rgb(255, 255, 255)',
     },
   },
   widths: {

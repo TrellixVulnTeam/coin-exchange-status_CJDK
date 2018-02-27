@@ -1,16 +1,15 @@
 // @format
 
 import React from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Hidden from 'material-ui/Hidden';
 import AppBar from 'material-ui/AppBar';
 import Menu from 'material-ui-icons/Menu';
-import Search from 'material-ui-icons/Search';
 import SearchBar from './SearchBar';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
+import SearchInput from './inputs/Search';
 
 const styles = theme => ({
   root: {
@@ -26,22 +25,17 @@ const styles = theme => ({
     display: 'flex',
     flex: '0 0 100%',
     alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   title: {
     display: 'flex',
-    flex: '0 0 80%',
+    flex: '1 1 80%',
     justifyContent: 'center',
-    color: theme.palette.primary.contrastText,
-  },
-  searchIconLink: {
-    display: 'flex',
-    flex: '1 0 10%',
-    justifyContent: 'flex-end',
     color: theme.palette.primary.contrastText,
   },
   menuIconButton: {
     display: 'flex',
-    flex: '0 0 10%',
+    flex: '1 1 10%',
     justifyContent: 'flex-start',
     color: theme.palette.primary.contrastText,
   },
@@ -78,13 +72,16 @@ class TopBar extends React.Component {
               onClick={this.props.menuIconOnTouchEndHandler}>
               <Menu />
             </IconButton>
-            <Typography className={classes.title} type="title" variant="title">
-              Coin Exchange Status
-            </Typography>
+            <Hidden xsDown>
+              <Typography
+                className={classes.title}
+                type="title"
+                variant="title">
+                Coin Exchange Status
+              </Typography>
+            </Hidden>
           </Hidden>
-          <Link to="/search" className={classes.searchIconLink}>
-            <Search onClick={this.handleSearchIconClick} />
-          </Link>
+          <SearchInput />
         </div>
       : <SearchBar
           arrowBackClickCallback={this.arrowBackClickCallback}

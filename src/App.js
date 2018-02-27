@@ -61,7 +61,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // load exchanges from db
+    /*
+     * Check to see if there's exchanges stored locally.
+     *
+     * i) If there are, use them.
+     *
+     * ii) If not, load them - all of them
+     *
+     */
     let exchangesRef = fire.database().ref('exchanges');
     exchangesRef.limitToFirst(10).on('value', snapshot => {
       this.setState({exchanges: snapshot.val()});
