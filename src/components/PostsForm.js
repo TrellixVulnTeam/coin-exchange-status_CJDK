@@ -13,6 +13,9 @@ import fire from '../fire';
 import ReCAPTCHA from 'react-google-recaptcha';
 import {Redirect} from 'react-router';
 import GlobalSnackage from '../GlobalSnackage';
+import Hidden from 'material-ui/Hidden';
+import compose from 'recompose/compose';
+import withWidth from 'material-ui/utils/withWidth';
 
 const styles = theme => ({
   container: {
@@ -131,6 +134,19 @@ class PostsForm extends Component {
     });
   };
 
+  getRecaptcha = opts => {
+    console.log(opts['compact']);
+    const classes = this.props.classes;
+    return (
+      <ReCAPTCHA
+        className={classes.recaptcha}
+        size={opts['compact'] === true ? 'compact' : 'normal'}
+        sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
+        onChange={this.handleReCaptchaSuccess}
+      />
+    );
+  };
+
   render() {
     const {classes} = this.props;
     const {disabled, shouldRedirect} = this.state;
@@ -156,11 +172,20 @@ class PostsForm extends Component {
                   handleDetailsChange={this.handleDetailsChange}
                 />
                 <DelaySelect handleDelayChange={this.handleDelayChange} />
-                <ReCAPTCHA
-                  className={classes.recaptcha}
-                  sitekey="6LcFcEMUAAAAACFtajLNCKToXY6T9TMyy1_m81LC"
-                  onChange={this.handleReCaptchaSuccess}
-                />
+                <Hidden smUp>
+                  {/* Breakpoint up - children are hidden at or above the breakpoint. sm = 600px or larger */}
+                  {this.props.width}
+                  {this.getRecaptcha({compact: true})}
+                </Hidden>
+                <Hidden xsDown>
+                  {/*
+		    * Breakpoint down - children are hidden at or below the upper bounds to the next breakpoint.
+		    * The upper bounds of xs is 600 because that's where the sm breakpoint is defined so xsDown will
+		    * hide everything below 600.
+		  */}
+                  {this.props.width}
+                  {this.getRecaptcha({compact: false})}
+                </Hidden>
                 <SubmitButton disabled={disabled} />
               </form>
             </CardContent>
@@ -169,4 +194,4 @@ class PostsForm extends Component {
   }
 }
 
-export default withStyles(styles)(PostsForm);
+export default compose(withStyles(styles), withWidth())(PostsForm);
