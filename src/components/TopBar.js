@@ -33,7 +33,7 @@ const styles = theme => ({
     justifyContent: 'center',
     color: theme.palette.primary.contrastText,
   },
-  searchIcon: {
+  searchIconLink: {
     display: 'flex',
     flex: '1 0 10%',
     justifyContent: 'flex-end',
@@ -82,7 +82,7 @@ class TopBar extends React.Component {
               Coin Exchange Status
             </Typography>
           </Hidden>
-          <Link to="/search" className={classes.searchIcon}>
+          <Link to="/search" className={classes.searchIconLink}>
             <Search onClick={this.handleSearchIconClick} />
           </Link>
         </div>
