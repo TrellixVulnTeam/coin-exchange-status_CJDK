@@ -20,32 +20,15 @@ import withWidth from 'material-ui/utils/withWidth';
 const styles = theme => ({
   container: {
     flexBasis: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    [theme.breakpoints.down('xs')]: {
-      padding: `${theme.spacing.unit * 2}px 0`,
+    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
+    boxShadow: `inset 1px 0 2px ${theme.palette.text.divider}`,
+    [theme.breakpoints.down('sm')]: {
+      boxShadow: 'none',
     },
-    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px 0`,
-    boxShadow: `inset 1px -6px 2px ${theme.palette.text.divider}`,
   },
   card: {
-    width: '480px',
-    minWidth: '320px',
+    flexBasis: '100%',
   },
-  /*card: {
-    [theme.breakpoints.up('lg')]: {
-      margin: `0 ${theme.spacing.unit * 64}px`,
-    },
-    [theme.breakpoints.up('md')]: {
-      margin: `0 ${theme.spacing.unit * 32}px`,
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: `0 ${theme.spacing.unit * 4}px`,
-    },
-    [theme.breakpoints.down('xs')]: {
-      margin: 0,
-    },
-  },*/
   form: {
     width: '100%',
   },
