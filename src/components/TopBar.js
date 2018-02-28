@@ -54,7 +54,10 @@ class TopBar extends React.Component {
 
   render() {
     const {classes} = this.props;
-
+    const searchInput =
+      window.location.pathname === '/'
+        ? <SearchInput onChangeHandler={this.searchInputOnChangeHandler} />
+        : null;
     return (
       <AppBar className={classes.root} elevation={1} position="sticky">
         <div className={classes.appBarContainer}>
@@ -74,7 +77,7 @@ class TopBar extends React.Component {
               </Typography>
             </Hidden>
           </Hidden>
-          <SearchInput onChangeHandler={this.searchInputOnChangeHandler} />
+          {searchInput}
         </div>
       </AppBar>
     );
