@@ -15,6 +15,7 @@ import AppSnackbar from './components/AppSnackbar';
 import TopUserBenefits from './components/onboarding/TopUserBenefits';
 import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
+import Settings from './components/Settings';
 
 const drawerWidth = 240;
 
@@ -148,6 +149,7 @@ class App extends Component {
               render={() => <Home exchanges={exchanges} />}
             />
             <Route path="/posts" component={PostsForm} />
+            <Route path="/settings" component={Settings} />
             {snackbar}
           </div>
         </div>
