@@ -1,9 +1,11 @@
 // @format
 
 import React, {Component} from 'react';
-import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
 import Card, {CardContent} from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import {FormControlLabel} from 'material-ui/Form';
+import Switch from 'material-ui/Switch';
 import Add from './Add';
 
 const styles = theme => ({
@@ -20,6 +22,24 @@ const styles = theme => ({
 });
 
 class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFirstRun: null,
+    };
+  }
+
+  componentWillMount = () => {
+    this.setState({
+      isFirstRun: JSON.parse(window.localStorage.getItem('ISFIRSTRUN')),
+    });
+  };
+
+  handleChange = name => event => {
+    this.setState({[name]: event.target.checked});
+    window.localStorage.setItem('ISFIRSTRUN', event.target.checked);
+  };
+
   render() {
     const {classes} = this.props;
     return (
@@ -27,6 +47,19 @@ class Settings extends Component {
         <Card>
           <CardContent>
             <Typography>Settings</Typography>
+            <Typography>Onboarding</Typography>
+            <Typography>Top User Benefits</Typography>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.state.isFirstRun}
+                  onChange={this.handleChange('isFirstRun')}
+                  value="isFirstRun"
+                  color="primary"
+                />
+              }
+              label={this.state.isFirstRun ? 'On' : 'Off'}
+            />
           </CardContent>
         </Card>
         <Add />
