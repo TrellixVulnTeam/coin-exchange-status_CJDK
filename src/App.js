@@ -110,7 +110,6 @@ class App extends Component {
 
   render() {
     const classes = this.props.classes;
-    const searchTerm = this.state.searchTerm;
     const exchanges = Object.keys(this.state.searchResults).length
       ? this.state.searchResults
       : this.state.exchanges;
