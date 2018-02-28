@@ -3,10 +3,16 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import Card, {CardContent} from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import {FormControlLabel} from 'material-ui/Form';
-import Switch from 'material-ui/Switch';
 import Add from './Add';
+import List, {
+  ListItem,
+  ListItemIcon,
+  ListItemSecondaryAction,
+  ListItemText,
+  ListSubheader,
+} from 'material-ui/List';
+import Switch from 'material-ui/Switch';
+import DirectionsWalk from 'material-ui-icons/DirectionsWalk';
 
 const styles = theme => ({
   container: {
@@ -30,9 +36,8 @@ class Settings extends Component {
   }
 
   componentWillMount = () => {
-    this.setState({
-      isFirstRun: JSON.parse(window.localStorage.getItem('ISFIRSTRUN')),
-    });
+    const isFirstRun = JSON.parse(window.localStorage.getItem('ISFIRSTRUN'));
+    this.setState({isFirstRun: isFirstRun});
   };
 
   handleChange = name => event => {
@@ -46,20 +51,20 @@ class Settings extends Component {
       <div className={classes.container}>
         <Card>
           <CardContent>
-            <Typography>Settings</Typography>
-            <Typography>Onboarding</Typography>
-            <Typography>Top User Benefits</Typography>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={this.state.isFirstRun}
-                  onChange={this.handleChange('isFirstRun')}
-                  value="isFirstRun"
-                  color="primary"
-                />
-              }
-              label={this.state.isFirstRun ? 'On' : 'Off'}
-            />
+            <List subheader={<ListSubheader>Onboarding</ListSubheader>}>
+              <ListItem>
+                <ListItemIcon>
+                  <DirectionsWalk />
+                </ListItemIcon>
+                <ListItemText primary="Top User Benefits" />
+                <ListItemSecondaryAction>
+                  <Switch
+                    onChange={this.handleChange('isFirstRun')}
+                    checked={this.state.isFirstRun}
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
+            </List>
           </CardContent>
         </Card>
         <Add />
