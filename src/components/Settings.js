@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
+import {isFirstRun} from '../constants';
 import Card, {CardContent} from 'material-ui/Card';
 import Add from './Add';
 import List, {
@@ -36,13 +37,13 @@ class Settings extends Component {
   }
 
   componentWillMount = () => {
-    const isFirstRun = JSON.parse(window.localStorage.getItem('ISFIRSTRUN'));
-    this.setState({isFirstRun: isFirstRun});
+    const bool = JSON.parse(window.localStorage.getItem(isFirstRun));
+    this.setState({isFirstRun: bool});
   };
 
   handleChange = name => event => {
     this.setState({[name]: event.target.checked});
-    window.localStorage.setItem('ISFIRSTRUN', event.target.checked);
+    window.localStorage.setItem(isFirstRun, event.target.checked);
   };
 
   render() {
