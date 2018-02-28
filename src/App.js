@@ -8,7 +8,6 @@ import './App.css';
 import TopBar from './components/TopBar';
 import Home from './components/Home';
 import PostsForm from './components/PostsForm';
-import Results from './components/Results';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from './fire';
 import GlobalSnackage from './GlobalSnackage';
@@ -47,9 +46,6 @@ const styles = theme => ({
 class App extends Component {
   constructor(props) {
     super(props);
-    this.resultsComponentWillUnmount = this.resultsComponentWillUnmount.bind(
-      this,
-    );
     this.handleSnackbarClose = this.handleSnackbarClose.bind(this);
     this.state = {
       isLoading: true,
@@ -98,13 +94,6 @@ class App extends Component {
   handleSnackbarClose = () => {
     GlobalSnackage.message = '';
   };
-
-  resultsComponentWillUnmount() {
-    // empty the search results
-    this.setState({searchResults: {}});
-    // clear the search term
-    this.setState({searchTerm: ''});
-  }
 
   isFirstRun = () => {
     return window.localStorage.getItem(isFirstRun) === 'false' ? false : true;
@@ -159,15 +148,6 @@ class App extends Component {
               render={() => <Home exchanges={exchanges} />}
             />
             <Route path="/posts" component={PostsForm} />
-            <Route
-              path="/search"
-              render={() =>
-                <Results
-                  searchTerm={searchTerm}
-                  exchanges={this.state.searchResults}
-                  willUnmountCallback={this.resultsComponentWillUnmount}
-                />}
-            />
             {snackbar}
           </div>
         </div>
