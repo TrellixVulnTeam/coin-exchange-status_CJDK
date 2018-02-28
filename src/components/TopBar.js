@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Hidden from 'material-ui/Hidden';
 import AppBar from 'material-ui/AppBar';
 import Menu from 'material-ui-icons/Menu';
-import SearchBar from './SearchBar';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
@@ -49,22 +48,16 @@ class TopBar extends React.Component {
     };
   }
 
-  handleSearchIconClick = event => {
-    this.setState({searching: !this.state.searching});
-  };
-
-  arrowBackClickCallback = event => {
-    this.setState({searching: !this.state.searching});
-  };
-
-  onSearchSubmitCallback = searchTerm => {
-    this.props.onSearchSubmitCallback(searchTerm);
+  searchInputOnChangeHandler = value => {
+    this.props.searchInputHandler(value);
   };
 
   render() {
     const {classes} = this.props;
-    let elements = !this.state.searching
-      ? <div className={classes.appBarContainer}>
+
+    return (
+      <AppBar className={classes.root} elevation={1} position="sticky">
+        <div className={classes.appBarContainer}>
           <Hidden mdUp>
             <IconButton
               className={classes.menuIconButton}
@@ -81,23 +74,15 @@ class TopBar extends React.Component {
               </Typography>
             </Hidden>
           </Hidden>
-          <SearchInput />
+          <SearchInput onChangeHandler={this.searchInputOnChangeHandler} />
         </div>
-      : <SearchBar
-          arrowBackClickCallback={this.arrowBackClickCallback}
-          onSubmitCallback={this.onSearchSubmitCallback}
-        />;
-
-    return (
-      <AppBar className={classes.root} elevation={1} position="sticky">
-        {elements}
       </AppBar>
     );
   }
 }
 
 TopBar.propTypes = {
-  onSearchSubmitCallback: PropTypes.func.isRequired,
+  searchInputHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TopBar);

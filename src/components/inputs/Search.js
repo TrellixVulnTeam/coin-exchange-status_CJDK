@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import SearchIcon from 'material-ui-icons/Search';
 import {withStyles} from 'material-ui/styles';
 
@@ -67,7 +68,12 @@ class SearchInput extends Component {
 
   onMouseOut = () => {
     this.setState({hovered: false});
-  }
+  };
+
+  onChange = event => {
+    const value = event.target.value;
+    this.props.onChangeHandler(value);
+  };
 
   render() {
     const {classes} = this.props;
@@ -75,20 +81,26 @@ class SearchInput extends Component {
       <div
         className={
           classes.container +
-          (this.state.focused ? ' ' + classes.containerFocused : '') + (this.state.hovered ? ' ' + classes.containerHovered : '')
+          (this.state.focused ? ' ' + classes.containerFocused : '') +
+          (this.state.hovered ? ' ' + classes.containerHovered : '')
         }
         onMouseOver={this.onMouseOver}
-	onMouseOut={this.onMouseOut}>
+        onMouseOut={this.onMouseOut}>
         <SearchIcon className={classes.searchIcon} />
         <input
           type="text"
           onFocus={this.onFocus}
           onBlur={this.onBlur}
+          onChange={this.onChange}
           className={classes.textInput}
         />
       </div>
     );
   }
 }
+
+SearchInput.propTypes = {
+  onChangeHandler: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(SearchInput);

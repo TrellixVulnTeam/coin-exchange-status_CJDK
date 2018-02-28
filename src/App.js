@@ -76,8 +76,9 @@ class App extends Component {
     });
   }
 
-  onSearchSubmitCallback = searchTerm => {
-    // set the search term to on state
+  searchInputHandler = searchTerm => {
+    console.log('search input handler', searchTerm);
+    // set the search term on state
     this.setState({searchTerm: searchTerm});
     // clear (previous) searchResults
     this.setState({searchResults: {}});
@@ -120,7 +121,9 @@ class App extends Component {
   render() {
     const classes = this.props.classes;
     const searchTerm = this.state.searchTerm;
-    const exchanges = this.state.exchanges;
+    const exchanges = Object.keys(this.state.searchResults).length
+      ? this.state.searchResults
+      : this.state.exchanges;
 
     const snackbar = GlobalSnackage.message.length
       ? <AppSnackbar
@@ -147,7 +150,7 @@ class App extends Component {
           />
           <div className={this.props.classes.content}>
             <TopBar
-              onSearchSubmitCallback={this.onSearchSubmitCallback}
+              searchInputHandler={this.searchInputHandler}
               menuIconOnTouchEndHandler={this.menuIconOnTouchEndHandler}
             />
             <Route
