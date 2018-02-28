@@ -25,7 +25,7 @@ const styles = theme => ({
     overflow: 'scroll',
     width: `calc(100% - ${drawerWidth}px)`,
     display: 'flex',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'flex-start',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
