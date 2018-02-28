@@ -9,6 +9,7 @@ const styles = theme => ({
   container: {
     minWidth: '360px',
     height: 'inherit',
+    overflow: 'scroll',
     padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px 0`,
     boxShadow: `inset 1px 0 2px ${theme.palette.text.divider}`,
     [theme.breakpoints.down('sm')]: {
