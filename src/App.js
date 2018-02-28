@@ -74,7 +74,6 @@ class App extends Component {
   }
 
   searchInputHandler = searchTerm => {
-    console.log('search input handler', searchTerm);
     // set the search term on state
     this.setState({searchTerm: searchTerm});
     // clear (previous) searchResults
