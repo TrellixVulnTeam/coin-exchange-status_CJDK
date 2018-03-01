@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
+import {exchangesVlistCssClass} from '../constants';
 import ExchangeCard from './ExchangeCard';
 import VirtualList from 'react-tiny-virtual-list';
 import Add from './Add';
@@ -18,6 +19,25 @@ const styles = theme => ({
 });
 
 class Exchanges extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      height: 0,
+    };
+  }
+
+  componentDidMount = () => {
+    /* dynamically calc virtual list's height by subtracting height of the
+     * top bar / header from the app container
+     */
+    const list = document.getElementsByClassName(exchangesVlistCssClass)[0];
+    const container = list.parentElement;
+    const containerHeight = container.clientHeight;
+    const header = document.getElementsByTagName('header')[0];
+    const headerHeight = header.clientHeight;
+    this.setState({height: containerHeight - headerHeight});
+  };
+
   render() {
     const {classes} = this.props;
     const exchanges = this.props.exchanges;
@@ -29,9 +49,9 @@ class Exchanges extends Component {
     });
     return (
       <VirtualList
-        className={classes.virtualList + ' exchangesVirtualList'}
+        className={classes.virtualList + ' ' + exchangesVlistCssClass}
         width="100%"
-        height={600}
+        height={this.state.height}
         itemCount={exchangeCards.length}
         itemSize={150} // Also supports variable heights (array or function getter)
         renderItem={({index, style}) =>
