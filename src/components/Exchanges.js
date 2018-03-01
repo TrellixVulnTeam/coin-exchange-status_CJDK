@@ -5,7 +5,6 @@ import {withStyles} from 'material-ui/styles';
 import {exchangesVlistCssClass} from '../constants';
 import ExchangeCard from './ExchangeCard';
 import VirtualList from 'react-tiny-virtual-list';
-import Add from './Add';
 
 const styles = theme => ({
   virtualList: {

@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {isFirstRun} from '../constants';
 import Card, {CardContent} from 'material-ui/Card';
-import Add from './Add';
 import List, {
   ListItem,
   ListItemIcon,
@@ -68,7 +67,6 @@ class Settings extends Component {
             </List>
           </CardContent>
         </Card>
-        <Add />
       </div>
     );
   }

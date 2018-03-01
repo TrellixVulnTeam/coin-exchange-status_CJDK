@@ -16,6 +16,7 @@ import TopUserBenefits from './components/onboarding/TopUserBenefits';
 import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
 import Settings from './components/Settings';
+import Add from './components/Add';
 
 const drawerWidth = 240;
 
@@ -112,6 +113,8 @@ class App extends Component {
         />
       : null;
 
+    const addButton = window.location.pathname !== '/posts' ? <Add /> : null;
+
     let content;
     if (this.isFirstRun()) {
       // Show onboarding - top user benefits if First Run Experience
@@ -141,6 +144,7 @@ class App extends Component {
             <Route path="/posts" component={PostsForm} />
             <Route path="/settings" component={Settings} />
             {snackbar}
+            {addButton}
           </div>
         </div>
       );
