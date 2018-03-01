@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom';
 import {withStyles} from 'material-ui/styles';
 import './App.css';
 import TopBar from './components/TopBar';
-import ExchangeCards from './components/ExchangeCards';
+import Exchanges from './components/Exchanges';
 import PostsForm from './components/PostsForm';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from './fire';
@@ -136,7 +136,7 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() => <ExchangeCards exchanges={exchanges} />}
+              render={() => <Exchanges exchanges={exchanges} />}
             />
             <Route path="/posts" component={PostsForm} />
             <Route path="/settings" component={Settings} />

@@ -22,3 +22,7 @@
 .navLink.active h3 {
   color: rgba(0, 0, 0, 0.87);
 }
+
+.exchangesVirtualList > div {
+  overflow: visible !important;
+}

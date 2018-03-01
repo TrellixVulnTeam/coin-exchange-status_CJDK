@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 });
 
-class ExchangeCards extends Component {
+class Exchanges extends Component {
   render() {
     const {classes} = this.props;
     const exchanges = this.props.exchanges;
@@ -29,7 +29,7 @@ class ExchangeCards extends Component {
     });
     return (
       <VirtualList
-        className={classes.virtualList}
+        className={classes.virtualList + ' exchangesVirtualList'}
         width="100%"
         height={600}
         itemCount={exchangeCards.length}
@@ -43,4 +43,4 @@ class ExchangeCards extends Component {
   }
 }
 
-export default withStyles(styles)(ExchangeCards);
+export default withStyles(styles)(Exchanges);
