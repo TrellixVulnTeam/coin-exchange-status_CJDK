@@ -23,6 +23,6 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.exchangesVirtualList > div {
+.exchanges-virtual-list > div {
   overflow: visible !important;
 }
