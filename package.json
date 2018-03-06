@@ -19,8 +19,7 @@
     "react-scripts": "1.0.17",
     "react-swipeable-views": "^0.12.12",
     "react-swipeable-views-utils": "^0.12.11",
-    "react-timeago": "^3.4.3",
-    "react-tiny-virtual-list": "^2.1.4"
+    "react-timeago": "^3.4.3"
   },
   "homepage": "https://coin-exchange-stat.firebaseapp.com",
   "scripts": {
