@@ -6164,10 +6164,6 @@ react-google-recaptcha@^0.9.9:
   dependencies:
     prop-types ">=15.5.0"
 
-react-infinite-scroll@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/react-infinite-scroll/-/react-infinite-scroll-0.1.5.tgz#18204e4a238b1a69cabd43c2b26db94a5941f81a"
-
 react-jss@^8.1.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-8.3.0.tgz#c24a562705956e891dc086402e9bc317bb5e0473"
