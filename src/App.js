@@ -52,7 +52,6 @@ class App extends Component {
     this.state = {
       isLoading: true,
       exchanges: {},
-      searchResults: {},
       searchTerm: '',
       mobileDrawerOpen: false,
     };
@@ -67,21 +66,7 @@ class App extends Component {
   }
 
   searchInputHandler = searchTerm => {
-    // set the search term on state
     this.setState({searchTerm: searchTerm});
-    // clear (previous) searchResults
-    this.setState({searchResults: {}});
-    // set up an object to hold our results
-    let results = {};
-    // filter exchanges on the search term
-    Object.entries(this.state.exchanges).map(exchange => {
-      if (exchange[0].match(searchTerm)) {
-        results[exchange[0]] = exchange[1];
-      }
-      return true;
-    });
-    // set the results to state's searchResults object
-    this.setState({searchResults: results});
   };
 
   handleSnackbarClose = () => {
@@ -102,9 +87,7 @@ class App extends Component {
 
   render() {
     const classes = this.props.classes;
-    const exchanges = Object.keys(this.state.searchResults).length
-      ? this.state.searchResults
-      : this.state.exchanges;
+    const exchanges = this.state.exchanges;
 
     const snackbar = GlobalSnackage.message.length
       ? <AppSnackbar
@@ -139,7 +122,11 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() => <Exchanges exchanges={exchanges} />}
+              render={() =>
+                <Exchanges
+                  searchTerm={this.state.searchTerm}
+                  exchanges={exchanges}
+                />}
             />
             <Route path="/posts" component={PostsForm} />
             <Route path="/settings" component={Settings} />

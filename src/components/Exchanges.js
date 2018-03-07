@@ -11,8 +11,25 @@ class Exchanges extends Component {
       hasMore: true,
       exchanges: [],
       currentExchanges: [],
+      searchResultExchanges: [],
     };
   }
+
+  handleSearch = searchTerm => {
+    let searchResultExchanges = [];
+    if (searchTerm && searchTerm.length) {
+      console.log(searchTerm);
+      Object.entries(this.state.exchanges).map(exchange => {
+        if (exchange[1].key.match(searchTerm)) {
+          searchResultExchanges.push(exchange[1]);
+        }
+        return searchResultExchanges;
+      });
+    } else {
+      console.log('no search');
+    }
+    return searchResultExchanges;
+  };
 
   componentDidMount = () => {
     /*
@@ -56,7 +73,12 @@ class Exchanges extends Component {
   };
 
   render() {
-    let currentExchanges = this.state.currentExchanges;
+    let searchResultExchanges = this.handleSearch(
+      this.props.searchTerm || null,
+    );
+    let currentExchanges = searchResultExchanges.length
+      ? searchResultExchanges
+      : this.state.currentExchanges;
     return currentExchanges
       ? <div style={{height: '100%', overflow: 'auto', padding: '32px 16px'}}>
           <InfiniteScroll
