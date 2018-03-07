@@ -13,6 +13,7 @@ import List, {
 } from 'material-ui/List';
 import Switch from 'material-ui/Switch';
 import DirectionsWalk from 'material-ui-icons/DirectionsWalk';
+import Email from 'material-ui-icons/Email';
 
 const styles = theme => ({
   container: {
@@ -24,6 +25,9 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       boxShadow: 'none',
     },
+  },
+  card: {
+    marginBottom: theme.spacing.unit * 3,
   },
 });
 
@@ -49,7 +53,7 @@ class Settings extends Component {
     const {classes} = this.props;
     return (
       <div className={classes.container}>
-        <Card>
+        <Card className={classes.card}>
           <CardContent>
             <List subheader={<ListSubheader>Onboarding</ListSubheader>}>
               <ListItem>
@@ -63,6 +67,18 @@ class Settings extends Component {
                     checked={this.state.isFirstRun}
                   />
                 </ListItemSecondaryAction>
+              </ListItem>
+            </List>
+          </CardContent>
+        </Card>
+        <Card className={classes.card}>
+          <CardContent>
+            <List subheader={<ListSubheader>Feedback</ListSubheader>}>
+              <ListItem>
+                <ListItemIcon>
+                  <Email />
+                </ListItemIcon>
+                <ListItemText primary="Send a message to contact@coinexchangestatus.com" />
               </ListItem>
             </List>
           </CardContent>
