@@ -33,7 +33,7 @@ const styles = theme => ({
     },
   },
   progress: {
-    position: 'static',
+    position: 'relative',
     top: '50%',
     left: '50%',
   },
