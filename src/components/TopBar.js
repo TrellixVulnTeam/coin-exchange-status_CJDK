@@ -52,11 +52,18 @@ class TopBar extends React.Component {
     this.props.searchInputHandler(value);
   };
 
+  searchInputOnCloseHandler = event => {
+    console.log(event, 'searchInputOnCloseHandler');
+  };
+
   render() {
     const {classes} = this.props;
     const searchInput =
       window.location.pathname === '/'
-        ? <SearchInput onChangeHandler={this.searchInputOnChangeHandler} />
+        ? <SearchInput
+            onChangeHandler={this.searchInputOnChangeHandler}
+            onCloseHandler={this.searchInputOnCloseHandler}
+          />
         : null;
     return (
       <AppBar className={classes.root} elevation={1} position="sticky">

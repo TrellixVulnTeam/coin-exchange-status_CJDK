@@ -57,6 +57,7 @@ class SearchInput extends Component {
     this.state = {
       focused: false,
       hovered: false,
+      isClosing: false,
     };
   }
 
@@ -65,7 +66,11 @@ class SearchInput extends Component {
   };
 
   onBlur = event => {
-    event.target.value = '';
+    if (this.state.isClosing) {
+      event.target.value = '';
+      this.setState({isClosing: false});
+      this.onChange(event);
+    }
     this.setState({focused: false});
   };
 
@@ -82,10 +87,17 @@ class SearchInput extends Component {
     this.props.onChangeHandler(value);
   };
 
+  closeHandler = () => {
+    this.setState({isClosing: true});
+  };
+
   render() {
     const {classes} = this.props;
     const closeIcon = this.state.focused
-      ? <CloseIcon className={classes.closeIcon} />
+      ? <CloseIcon
+          className={classes.closeIcon}
+          onMouseDown={this.closeHandler}
+        />
       : null;
     return (
       <div
@@ -112,6 +124,7 @@ class SearchInput extends Component {
 
 SearchInput.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
+  onCloseHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SearchInput);
