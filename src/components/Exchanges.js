@@ -18,7 +18,9 @@ class Exchanges extends Component {
   handleSearch = searchTerm => {
     let searchResultExchanges = [];
     if (searchTerm && searchTerm.length) {
-      console.log(searchTerm);
+      if (searchTerm.length < 2) {
+        return searchResultExchanges;
+      }
       Object.entries(this.state.exchanges).map(exchange => {
         if (exchange[1].key.match(searchTerm)) {
           searchResultExchanges.push(exchange[1]);
