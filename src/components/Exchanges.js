@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
 
+const exchangesPerPage = 10;
+
 class Exchanges extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +50,7 @@ class Exchanges extends Component {
     /* Then we set them on state and setup the initial value of currentExchanges */
     this.setState({exchanges}, () => {
       const exchanges = this.state.exchanges;
-      const currentExchanges = exchanges.slice(0, 10);
+      const currentExchanges = exchanges.slice(0, exchangesPerPage);
       this.setState({currentExchanges});
     });
   };
