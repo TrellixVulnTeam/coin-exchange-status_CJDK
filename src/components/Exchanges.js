@@ -5,7 +5,6 @@ import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
 import {exchangesPerPage} from '../constants';
 
-
 class Exchanges extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +22,9 @@ class Exchanges extends Component {
       Object.entries(this.state.exchanges).map(exchange => {
         if (exchange[1].key.match(searchTerm)) {
           searchResultExchanges.push(exchange[1]);
+        }
+        if (searchResultExchanges.length === 0) {
+          // push an empty 'no results match <search-term>,' card here
         }
         return searchResultExchanges;
       });
