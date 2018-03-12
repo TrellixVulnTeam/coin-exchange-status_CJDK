@@ -17,9 +17,6 @@ const styles = theme => ({
     borderRadius: `${theme.spacing.unit / 4}px`,
     background: theme.palette.text.light.divider,
     color: theme.palette.primary.contrastText,
-    '&:hover': {
-      cursor: 'pointer',
-    },
   },
   containerFocused: {
     width: 'auto',
