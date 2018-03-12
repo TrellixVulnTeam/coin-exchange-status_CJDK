@@ -28,6 +28,11 @@ const styles = theme => ({
   searchIcon: {
     width: '24px',
   },
+  closeIcon: {
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
   textInput: {
     width: '160px',
     transition: 'width 200ms ease-out',
@@ -79,7 +84,9 @@ class SearchInput extends Component {
 
   render() {
     const {classes} = this.props;
-    const closeIcon = this.state.focused ? <CloseIcon /> : null;
+    const closeIcon = this.state.focused
+      ? <CloseIcon className={classes.closeIcon} />
+      : null;
     return (
       <div
         className={
