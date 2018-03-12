@@ -21,7 +21,6 @@ const styles = theme => ({
   card: {
     flexBasis: '100%',
     marginBottom: theme.spacing.unit * 3,
-    borderRadius: 5,
   },
   actions: {
     display: 'flex',
