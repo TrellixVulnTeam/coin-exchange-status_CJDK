@@ -19,10 +19,7 @@ class Exchanges extends Component {
 
   handleSearch = searchTerm => {
     let searchResultExchanges = [];
-    if (searchTerm && searchTerm.length) {
-      if (searchTerm.length < 2) {
-        return searchResultExchanges;
-      }
+    if (searchTerm && searchTerm.length && searchTerm.length > 1) {
       Object.entries(this.state.exchanges).map(exchange => {
         if (exchange[1].key.match(searchTerm)) {
           searchResultExchanges.push(exchange[1]);
@@ -60,7 +57,7 @@ class Exchanges extends Component {
     const exchanges = this.state.exchanges;
     const currentExchanges = exchanges.slice(0, numberOfExchangesForThePage);
     this.setState({currentExchanges}, () => {
-      this.state.currentExchanges.length === this.state.exchanges.length
+      this.state.currentExchanges.length <= this.state.exchanges.length
         ? this.setState({hasMore: false})
         : this.setState({hasMore: true});
     });
