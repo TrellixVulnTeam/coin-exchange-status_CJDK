@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import SearchIcon from 'material-ui-icons/Search';
+import CloseIcon from 'material-ui-icons/Close';
 import {withStyles} from 'material-ui/styles';
 
 const styles = theme => ({
@@ -58,7 +59,8 @@ class SearchInput extends Component {
     this.setState({focused: true});
   };
 
-  onBlur = () => {
+  onBlur = event => {
+    event.target.value = '';
     this.setState({focused: false});
   };
 
@@ -77,6 +79,7 @@ class SearchInput extends Component {
 
   render() {
     const {classes} = this.props;
+    const closeIcon = this.state.focused ? <CloseIcon /> : null;
     return (
       <div
         className={
@@ -94,6 +97,7 @@ class SearchInput extends Component {
           onChange={this.onChange}
           className={classes.textInput}
         />
+        {closeIcon}
       </div>
     );
   }
