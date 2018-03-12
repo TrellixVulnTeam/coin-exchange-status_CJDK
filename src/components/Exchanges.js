@@ -3,8 +3,8 @@
 import React, {Component} from 'react';
 import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
+import {exchangesPerPage} from '../constants';
 
-const exchangesPerPage = 10;
 
 class Exchanges extends Component {
   constructor(props) {
