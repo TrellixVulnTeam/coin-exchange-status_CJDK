@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import ExchangeCard from './ExchangeCard';
+import NoResults from './NoResults';
 import InfiniteScroll from 'react-infinite-scroller';
 import {exchangesPerPage} from '../constants';
 
@@ -23,13 +24,16 @@ class Exchanges extends Component {
         if (exchange[1].key.match(searchTerm)) {
           searchResultExchanges.push(exchange[1]);
         }
-        if (searchResultExchanges.length === 0) {
-          // push an empty 'no results match <search-term>,' card here
-        }
         return searchResultExchanges;
       });
+      if (searchResultExchanges.length === 0) {
+        // push an empty 'no results match <search-term>,' card here
+        searchResultExchanges.push(
+          <NoResults searchTerm={searchTerm} key="no-results" />,
+        );
+      }
     } else {
-      console.log('no search');
+      // nothing to search
     }
     return searchResultExchanges;
   };
@@ -59,19 +63,18 @@ class Exchanges extends Component {
     const exchanges = this.state.exchanges;
     const currentExchanges = exchanges.slice(0, numberOfExchangesForThePage);
     this.setState({currentExchanges}, () => {
-      this.state.currentExchanges.length <= this.state.exchanges.length
-        ? this.setState({hasMore: false})
-        : this.setState({hasMore: true});
+      this.state.currentExchanges.length < this.state.exchanges.length
+        ? this.setState({hasMore: true})
+        : this.setState({hasMore: false});
     });
   };
 
   numberOfExchangesFor = page => {
-    const numberOfExchangesPerPage = 10;
     switch (page) {
       case 0:
-        return numberOfExchangesPerPage;
+        return exchangesPerPage;
       default:
-        return numberOfExchangesPerPage * page + 10;
+        return exchangesPerPage * page + exchangesPerPage;
     }
   };
 
@@ -89,11 +92,7 @@ class Exchanges extends Component {
             hasMore={this.state.hasMore}
             initialLoad={false}
             loadMore={this.loadMore}
-            loader={
-              <div className="loader" key={Math.random}>
-                loading...
-              </div>
-            }
+            loader={null}
             useWindow={false}>
             {currentExchanges}
           </InfiniteScroll>
