@@ -125,15 +125,19 @@ class ExchangeNameAutosuggest extends React.Component {
     return inputLength === 0
       ? []
       : this.state.exchanges.filter(exchange => {
-          const keep =
-            count < 5 &&
-            exchange.label.toLowerCase().slice(0, inputLength) === inputValue;
+          if (exchange && exchange.label) {
+            const keep =
+              count < 5 &&
+              exchange.label.toLowerCase().slice(0, inputLength) === inputValue;
 
-          if (keep) {
-            count += 1;
+            if (keep) {
+              count += 1;
+            }
+
+            return keep;
+          } else {
+            return [];
           }
-
-          return keep;
         });
   }
 
