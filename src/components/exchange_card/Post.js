@@ -38,34 +38,40 @@ class Post extends Component {
       <div className={classes.postContainer}>
         <Typography component="ul" className={classes.ul} color="secondary">
           <li className={classes.li}>
-            <span className={classes.span}>market:</span>
-            <Typography component="span" type="body2" className={classes.span}>
+            <Typography component="span" variant="body2" className={classes.span}>
+	      market:
+	    </Typography>
+            <Typography component="span" variant="body1" className={classes.span}>
               {post.market || 'n/a'}
             </Typography>
           </li>
           <li className={classes.li}>
-            <span className={classes.span}>regarding:</span>
-            <Typography component="span" type="body2" className={classes.span}>
+            <Typography component="span" variant="body2" className={classes.span}>
+	      regarding:
+	    </Typography>
+            <Typography component="span" variant="body1" className={classes.span}>
               {post.type}
             </Typography>
           </li>
           <li className={classes.li}>
-            <span className={classes.span}>delay:</span>
-            <Typography component="span" type="body2" className={classes.span}>
+            <Typography component="span" variant="body2" className={classes.span}>
+	      delay:
+	    </Typography>
+            <Typography component="span" variant="body1" className={classes.span}>
               {post.delay}
             </Typography>
           </li>
         </Typography>
         <Typography
           component="span"
-          color="secondary"
+	  variant="body2"
           className={classes.notes}>
           notes:
         </Typography>
-        <Typography paragraph type="body1">
+        <Typography paragraph variant="body1">
           {post.details}
         </Typography>
-        <Typography paragraph type="caption" align="right">
+        <Typography paragraph variant="caption" align="right">
           <TimeAgo date={post.createdAt} />
         </Typography>
       </div>
