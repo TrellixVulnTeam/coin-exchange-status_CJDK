@@ -106,7 +106,7 @@ class PostsForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.isDisabled) {
+    if (this.state.disabled) {
       return;
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
