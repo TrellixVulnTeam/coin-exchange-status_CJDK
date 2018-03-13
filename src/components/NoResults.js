@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Card, {CardContent} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
@@ -17,5 +18,9 @@ class NoResults extends Component {
     );
   }
 }
+
+NoResults.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+};
 
 export default NoResults;
