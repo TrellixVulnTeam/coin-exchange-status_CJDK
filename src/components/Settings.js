@@ -78,7 +78,10 @@ class Settings extends Component {
                 <ListItemIcon>
                   <Email />
                 </ListItemIcon>
-                <ListItemText primary="Send a message to contact@coinexchangestatus.com" />
+                <ListItemText
+                  primary="Send a message to:"
+                  secondary="hello@coinexchangestatus.com"
+                />
               </ListItem>
             </List>
           </CardContent>
