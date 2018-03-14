@@ -52,7 +52,7 @@ class Exchanges extends Component {
      * and turns them into an array of objects
      */
     let exchangesArray = [];
-    Object.entries(this.props.exchanges).forEach(array => {
+    Object.entries(exchanges).forEach(array => {
       let exchange = {};
       exchange[array[0]] = array[1];
       exchangesArray.push(<ExchangeCard exchange={exchange} key={array[0]} />);
