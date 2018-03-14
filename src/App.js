@@ -85,6 +85,27 @@ class App extends Component {
     this.setState({mobileDrawerOpen: false});
   };
 
+  /*handleSearch = searchTerm => {
+    let searchResultExchanges = [];
+    if (searchTerm && searchTerm.length && searchTerm.length > 1) {
+      Object.entries(this.state.exchanges).map(exchange => {
+        if (exchange[1].key.match(searchTerm)) {
+          searchResultExchanges.push(exchange[1]);
+        }
+        return searchResultExchanges;
+      });
+      if (searchResultExchanges.length === 0) {
+        // push an empty 'no results match <search-term>,' card here
+        searchResultExchanges.push(
+          <NoResults searchTerm={searchTerm} key="no-results" />,
+        );
+      }
+    } else {
+      // nothing to search
+    }
+    return searchResultExchanges;
+  };*/
+
   render() {
     const classes = this.props.classes;
     const exchanges = this.state.exchanges;

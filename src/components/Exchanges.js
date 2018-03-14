@@ -13,30 +13,8 @@ class Exchanges extends Component {
       hasMore: true,
       exchanges: [],
       currentExchanges: [],
-      searchResultExchanges: [],
     };
   }
-
-  handleSearch = searchTerm => {
-    let searchResultExchanges = [];
-    if (searchTerm && searchTerm.length && searchTerm.length > 1) {
-      Object.entries(this.state.exchanges).map(exchange => {
-        if (exchange[1].key.match(searchTerm)) {
-          searchResultExchanges.push(exchange[1]);
-        }
-        return searchResultExchanges;
-      });
-      if (searchResultExchanges.length === 0) {
-        // push an empty 'no results match <search-term>,' card here
-        searchResultExchanges.push(
-          <NoResults searchTerm={searchTerm} key="no-results" />,
-        );
-      }
-    } else {
-      // nothing to search
-    }
-    return searchResultExchanges;
-  };
 
   componentWillReceiveProps = nextProps => {
     this.prepareExchanges(nextProps.exchanges);
@@ -87,25 +65,20 @@ class Exchanges extends Component {
   };
 
   render() {
-    let searchResultExchanges = this.handleSearch(
-      this.props.searchTerm || null,
+    let currentExchanges = this.state.currentExchanges;
+    return (
+      <div style={{height: '100%', overflow: 'auto', padding: '32px 16px'}}>
+        <InfiniteScroll
+          page={0}
+          hasMore={this.state.hasMore}
+          initialLoad={false}
+          loadMore={this.loadMore}
+          loader={null}
+          useWindow={false}>
+          {currentExchanges}
+        </InfiniteScroll>
+      </div>
     );
-    let currentExchanges = searchResultExchanges.length
-      ? searchResultExchanges
-      : this.state.currentExchanges;
-    return currentExchanges
-      ? <div style={{height: '100%', overflow: 'auto', padding: '32px 16px'}}>
-          <InfiniteScroll
-            page={0}
-            hasMore={this.state.hasMore}
-            initialLoad={false}
-            loadMore={this.loadMore}
-            loader={null}
-            useWindow={false}>
-            {currentExchanges}
-          </InfiniteScroll>
-        </div>
-      : null;
   }
 }
 
