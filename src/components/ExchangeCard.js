@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
@@ -72,16 +73,19 @@ class ExchangeCard extends Component {
   handleFavorited = () => {
     const key = Object.keys(this.props.exchange)[0];
     localStorage.setFavorite(key);
-    this.setState({
-      snackbarMessage: `Favorited ${this.props.exchange[key].name}`,
-    });
+    const msg = `Favorited ${this.props.exchange[key].name}`;
+    this.setState({snackbarMessage: msg});
   };
 
   handleUnfavorited = () => {
     const key = Object.keys(this.props.exchange)[0];
     localStorage.removeFavorite(key);
-    this.setState({
-      snackbarMessage: `Unfavorited ${this.props.exchange[key].name}`,
+    const msg = `Unfavorited ${this.props.exchange[key].name}`;
+    this.setState({snackbarMessage: msg}, () => {
+      const handler = this.props.favoritesDidUpdateHandler;
+      if (handler) {
+        handler();
+      }
     });
   };
 
@@ -233,5 +237,9 @@ class ExchangeCard extends Component {
     );
   }
 }
+
+ExchangeCard.propTypes = {
+  favoritesDidUpdateHandler: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(ExchangeCard);

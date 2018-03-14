@@ -7,6 +7,7 @@ import {withStyles} from 'material-ui/styles';
 import './App.css';
 import TopBar from './components/TopBar';
 import Exchanges from './components/Exchanges';
+import Favorites from './components/Favorites';
 import PostsForm from './components/PostsForm';
 import {CircularProgress} from 'material-ui/Progress';
 import fire from './fire';
@@ -17,6 +18,7 @@ import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
 import Settings from './components/Settings';
 import Add from './components/Add';
+import localStorage from './lib/localStorage';
 
 const drawerWidth = 240;
 
@@ -83,8 +85,9 @@ class App extends Component {
   };
 
   searchInputHandler = searchTerm => {
-    this.setState({searchTerm: searchTerm});
-    this.handleSearch(searchTerm);
+    this.setState({searchTerm: searchTerm}, () => {
+      this.handleSearch(searchTerm);
+    });
   };
 
   isSearching = () => {
@@ -118,11 +121,26 @@ class App extends Component {
     this.setState({searchTerm: ''});
   };
 
+  fetchFavorites = () => {
+    const favKeys = localStorage.getFavorites();
+    let favs = {};
+    favKeys.forEach(key => {
+      favs[key] = this.state.exchanges[key];
+    });
+    return favs;
+  };
+
+  favoritesDidUpdateHandler = callback => {
+    const favs = this.fetchFavorites();
+    callback(favs);
+  };
+
   render() {
     const classes = this.props.classes;
     const exchanges = this.isSearching()
       ? this.state.searchResultExchanges
       : this.state.exchanges;
+    const favorites = this.fetchFavorites();
 
     const snackbar = GlobalSnackage.message.length
       ? <AppSnackbar
@@ -159,8 +177,19 @@ class App extends Component {
               exact={true}
               render={() =>
                 <Exchanges
+                  noContentMessage={`no results found for ${this.state
+                    .searchTerm}`}
                   exchanges={exchanges}
                   willUnmountHandler={this.exchangesComponentWillUnmountHandler}
+                />}
+            />
+            <Route
+              path="/favorites"
+              render={() =>
+                <Favorites
+                  noContentMessage="No favorites yet"
+                  exchanges={favorites}
+                  favoritesDidUpdateHandler={this.favoritesDidUpdateHandler}
                 />}
             />
             <Route path="/posts" component={PostsForm} />

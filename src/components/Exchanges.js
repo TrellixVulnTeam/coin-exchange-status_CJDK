@@ -28,7 +28,13 @@ class Exchanges extends Component {
   };
 
   componentWillUnmount = () => {
-    this.props.willUnmountHandler();
+    if (this.props.willUnmountHandler) {
+      this.props.willUnmountHandler();
+    }
+  };
+
+  favoritesDidUpdateHandler = () => {
+    // noop
   };
 
   prepareExchanges = exchanges => {
@@ -40,11 +46,22 @@ class Exchanges extends Component {
     Object.entries(exchanges).forEach(array => {
       let exchange = {};
       exchange[array[0]] = array[1];
-      exchangesArray.push(<ExchangeCard exchange={exchange} key={array[0]} />);
+      exchangesArray.push(
+        <ExchangeCard
+          exchange={exchange}
+          key={array[0]}
+          favoritesDidUpdateHandler={this.favoritesDidUpdateHandler}
+        />,
+      );
     });
 
     if (exchangesArray.length === 0) {
-      exchangesArray.push(<NoResults key="no-results" />);
+      exchangesArray.push(
+        <NoResults
+          key="no-results"
+          noContentMessage={this.props.noContentMessage}
+        />,
+      );
     }
 
     /* Then we set them on state and setup the initial value of currentExchanges */
@@ -103,7 +120,9 @@ class Exchanges extends Component {
 }
 
 Exchanges.propTypes = {
-  willUnmountHandler: PropTypes.func.isRequired,
+  willUnmountHandler: PropTypes.func,
+  noContentMessage: PropTypes.string.isRequired,
+  favoritesDidUpdateHandler: PropTypes.func,
 };
 
 export default Exchanges;

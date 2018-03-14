@@ -11,6 +11,7 @@ import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import SettingsIcon from 'material-ui-icons/Settings';
 import HomeIcon from 'material-ui-icons/Home';
 import CreateIcon from 'material-ui-icons/Create';
+import FavoriteIcon from 'material-ui-icons/Favorite';
 
 const styles = theme => ({
   drawerContainer: {
@@ -74,6 +75,14 @@ class TemporaryDrawer extends Component {
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
+              </NavLink>
+            </ListItem>
+            <ListItem button className={classes.drawerListItem}>
+              <ListItemIcon>
+                <FavoriteIcon />
+              </ListItemIcon>
+              <NavLink to="/favorites" exact className="navLink">
+                <ListItemText primary="My Favs" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
