@@ -92,20 +92,17 @@ class App extends Component {
   };
 
   handleSearch = searchTerm => {
-    if (searchTerm.length < 2) {
+    const term = searchTerm.toLowerCase();
+    if (term.length < 2) {
       return;
     }
     let searchResultExchanges = {};
-    if (searchTerm && searchTerm.length && searchTerm.length > 1) {
-      Object.entries(this.state.exchanges).map(exchange => {
-        if (exchange[0].match(searchTerm)) {
-          searchResultExchanges[exchange[0]] = exchange[1];
-        }
-        return searchResultExchanges;
-      });
-    } else {
-      // nothing to search
-    }
+    Object.entries(this.state.exchanges).map(exchange => {
+      if (exchange[0].match(term)) {
+        searchResultExchanges[exchange[0]] = exchange[1];
+      }
+      return searchResultExchanges;
+    });
     this.setState({searchResultExchanges});
   };
 
