@@ -17,6 +17,7 @@ import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
 import Settings from './components/Settings';
 import Add from './components/Add';
+import NoResults from './components/NoResults';
 
 const drawerWidth = 240;
 
@@ -53,6 +54,7 @@ class App extends Component {
       isLoading: true,
       exchanges: {},
       searchTerm: '',
+      searchResultExchanges: {},
       mobileDrawerOpen: false,
     };
   }
@@ -64,10 +66,6 @@ class App extends Component {
       this.setState({isLoading: false});
     });
   }
-
-  searchInputHandler = searchTerm => {
-    this.setState({searchTerm: searchTerm});
-  };
 
   handleSnackbarClose = () => {
     GlobalSnackage.message = '';
@@ -85,12 +83,24 @@ class App extends Component {
     this.setState({mobileDrawerOpen: false});
   };
 
-  /*handleSearch = searchTerm => {
-    let searchResultExchanges = [];
+  searchInputHandler = searchTerm => {
+    this.setState({searchTerm: searchTerm});
+    this.handleSearch(searchTerm);
+  };
+
+  isSearching = () => {
+    return this.state.searchTerm.length > 1 ? true : false;
+  };
+
+  handleSearch = searchTerm => {
+    if (searchTerm.length < 2) {
+      return;
+    }
+    let searchResultExchanges = {};
     if (searchTerm && searchTerm.length && searchTerm.length > 1) {
       Object.entries(this.state.exchanges).map(exchange => {
-        if (exchange[1].key.match(searchTerm)) {
-          searchResultExchanges.push(exchange[1]);
+        if (exchange[0].match(searchTerm)) {
+          searchResultExchanges[exchange[0]] = exchange[1];
         }
         return searchResultExchanges;
       });
@@ -103,12 +113,15 @@ class App extends Component {
     } else {
       // nothing to search
     }
-    return searchResultExchanges;
-  };*/
+    this.setState({searchResultExchanges});
+  };
 
   render() {
+    console.log('search term', this.state.searchTerm);
     const classes = this.props.classes;
-    const exchanges = this.state.exchanges;
+    const exchanges = this.isSearching()
+      ? this.state.searchResultExchanges
+      : this.state.exchanges;
 
     const snackbar = GlobalSnackage.message.length
       ? <AppSnackbar
@@ -143,11 +156,7 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() =>
-                <Exchanges
-                  searchTerm={this.state.searchTerm}
-                  exchanges={exchanges}
-                />}
+              render={() => <Exchanges exchanges={exchanges} />}
             />
             <Route path="/posts" component={PostsForm} />
             <Route path="/settings" component={Settings} />

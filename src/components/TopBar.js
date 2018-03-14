@@ -48,12 +48,12 @@ class TopBar extends React.Component {
     };
   }
 
-  searchInputOnChangeHandler = value => {
-    this.props.searchInputHandler(value);
+  componentWillUnMount = () => {
+    this.props.searchInputHandler('');
   };
 
-  searchInputOnCloseHandler = event => {
-    console.log(event, 'searchInputOnCloseHandler');
+  searchInputOnChangeHandler = value => {
+    this.props.searchInputHandler(value);
   };
 
   render() {
