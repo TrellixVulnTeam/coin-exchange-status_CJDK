@@ -155,7 +155,7 @@ class ExchangeNameAutosuggest extends React.Component {
 
   handleChange = (event, {newValue}) => {
     this.setState({
-      value: newValue,
+      value: newValue === undefined ? '' : newValue,
     });
     // newValue is the name (what's displayed) but we want to save against the exchange's key / id
     // this.state.exchanges is an array of objects like [{label: 'exchangeName', key: 'exchangeKey'},...]
