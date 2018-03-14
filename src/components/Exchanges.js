@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
 import {exchangesPerPage} from '../constants';
@@ -23,6 +24,10 @@ class Exchanges extends Component {
 
   componentWillMount = () => {
     this.prepareExchanges(this.props.exchanges);
+  };
+
+  componentWillUnmount = () => {
+    this.props.willUnmountHandler();
   };
 
   prepareExchanges = exchanges => {
@@ -91,5 +96,9 @@ class Exchanges extends Component {
     );
   }
 }
+
+Exchanges.propTypes = {
+  willUnmountHandler: PropTypes.func.isRequired,
+};
 
 export default Exchanges;

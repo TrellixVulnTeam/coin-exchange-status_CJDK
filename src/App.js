@@ -116,6 +116,18 @@ class App extends Component {
     this.setState({searchResultExchanges});
   };
 
+  exchangesComponentWillUnmountHandler = () => {
+    /*
+     * If we don't reset the search term here, if someone has searched something, and then
+     * goes to a different /route, and then comes back the set of search results that was
+     * displaying when they left will be still displayed when they return, but the top bar's
+     * search input only displays on the /exchanges route and doesn't remember it's previous
+     * term when you go back to it so there's a disconnect of the search input being empty (not
+     * active / not searching) and yet a subset of exchanges display as if one had searched
+     */
+    this.setState({searchTerm: ''});
+  };
+
   render() {
     console.log('search term', this.state.searchTerm);
     const classes = this.props.classes;
@@ -156,7 +168,11 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() => <Exchanges exchanges={exchanges} />}
+              render={() =>
+                <Exchanges
+                  exchanges={exchanges}
+                  willUnmountHandler={this.exchangesComponentWillUnmountHandler}
+                />}
             />
             <Route path="/posts" component={PostsForm} />
             <Route path="/settings" component={Settings} />
