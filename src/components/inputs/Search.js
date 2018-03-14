@@ -124,7 +124,6 @@ class SearchInput extends Component {
 
 SearchInput.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
-  onCloseHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SearchInput);
