@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
 import {exchangesPerPage} from '../constants';
+import NoResults from './NoResults';
 
 class Exchanges extends Component {
   constructor(props) {
@@ -41,6 +42,10 @@ class Exchanges extends Component {
       exchange[array[0]] = array[1];
       exchangesArray.push(<ExchangeCard exchange={exchange} key={array[0]} />);
     });
+
+    if (exchangesArray.length === 0) {
+      exchangesArray.push(<NoResults key="no-results" />);
+    }
 
     /* Then we set them on state and setup the initial value of currentExchanges */
     this.setState({exchanges: exchangesArray}, () => {

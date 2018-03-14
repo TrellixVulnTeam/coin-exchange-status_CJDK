@@ -10,9 +10,7 @@ class NoResults extends Component {
     return (
       <Card>
         <CardContent>
-          <Typography variant="body1">
-            No results found for <i>{this.props.searchTerm}</i>
-          </Typography>
+          <Typography variant="body1">No results found</Typography>
         </CardContent>
       </Card>
     );

@@ -17,7 +17,6 @@ import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
 import Settings from './components/Settings';
 import Add from './components/Add';
-import NoResults from './components/NoResults';
 
 const drawerWidth = 240;
 
@@ -104,12 +103,6 @@ class App extends Component {
         }
         return searchResultExchanges;
       });
-      if (searchResultExchanges.length === 0) {
-        // push an empty 'no results match <search-term>,' card here
-        searchResultExchanges.push(
-          <NoResults searchTerm={searchTerm} key="no-results" />,
-        );
-      }
     } else {
       // nothing to search
     }
@@ -129,7 +122,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('search term', this.state.searchTerm);
     const classes = this.props.classes;
     const exchanges = this.isSearching()
       ? this.state.searchResultExchanges
