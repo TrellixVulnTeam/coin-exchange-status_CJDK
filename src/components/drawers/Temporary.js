@@ -46,7 +46,7 @@ const styles = theme => ({
 
 class TemporaryDrawer extends Component {
   render() {
-    const {classes} = this.props;
+    const {classes, onCloseHandler} = this.props;
     return (
       <Drawer
         variant="temporary"
@@ -70,7 +70,7 @@ class TemporaryDrawer extends Component {
                 to="/"
                 exact
                 className="navLink"
-                onClick={this.props.onCloseHandler}>
+                onClick={onCloseHandler}>
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
@@ -78,18 +78,19 @@ class TemporaryDrawer extends Component {
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
-              <ListItemIcon>
-                <FavoriteIcon />
-              </ListItemIcon>
-              <NavLink to="/favorites" exact className="navLink">
+              <NavLink
+                to="/favorites"
+                exact
+                className="navLink"
+                onClick={onCloseHandler}>
+                <ListItemIcon>
+                  <FavoriteIcon />
+                </ListItemIcon>
                 <ListItemText primary="My Favs" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
-              <NavLink
-                to="/posts"
-                className="navLink"
-                onClick={this.props.onCloseHandler}>
+              <NavLink to="/posts" className="navLink" onClick={onCloseHandler}>
                 <ListItemIcon>
                   <CreateIcon />
                 </ListItemIcon>
@@ -100,7 +101,7 @@ class TemporaryDrawer extends Component {
               <NavLink
                 to="/settings"
                 className="navLink"
-                onClick={this.props.onCloseHandler}>
+                onClick={onCloseHandler}>
                 <ListItemIcon>
                   <SettingsIcon />
                 </ListItemIcon>
