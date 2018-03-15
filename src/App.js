@@ -1,8 +1,10 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import {isFirstRun} from './constants';
 import {Route} from 'react-router-dom';
+import {withRouter} from 'react-router';
 import {withStyles} from 'material-ui/styles';
 import './App.css';
 import TopBar from './components/TopBar';
@@ -58,6 +60,39 @@ class App extends Component {
       searchResultExchanges: {},
       mobileDrawerOpen: false,
     };
+  }
+
+  getPageFrom(pathname) {
+    switch (pathname) {
+      case '/':
+        return '/home';
+      default:
+        return pathname;
+    }
+  }
+
+  componentWillMount() {
+    if (window.location.protocol !== 'https:') {
+      return;
+    } else {
+      ReactGA.initialize('UA-113708505-1');
+      const pathname = this.props.location.pathname;
+      const page = this.getPageFrom(pathname);
+      ReactGA.pageview(page);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (window.location.protocol !== 'https:') {
+      return;
+    } else {
+      const currentPathname = this.props.location.pathname;
+      const nextPathname = nextProps.location.pathname;
+      if (currentPathname !== nextPathname) {
+        const page = this.getPageFrom(nextPathname);
+        ReactGA.pageview(page);
+      }
+    }
   }
 
   componentDidMount() {
@@ -205,4 +240,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(withRouter(App));
