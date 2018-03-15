@@ -50,7 +50,7 @@ class PostsForm extends Component {
     this.handleDetailsChange = this.handleDetailsChange.bind(this);
     this.handleDelayChange = this.handleDelayChange.bind(this);
     this.state = {
-      disabled: true,
+      recaptchaIsValid: false,
       shouldRedirect: false,
       post: {
         recaptchaToken: '',
@@ -97,16 +97,23 @@ class PostsForm extends Component {
     let {post} = this.state;
     post.recaptchaToken = token;
     this.setState({post: post});
-    this.setState({disabled: false});
+    this.setState({recaptchaIsValid: true});
     /*
      * TODO add cloud function that verifies the token
      * https://developers.google.com/recaptcha/docs/verify
      */
   };
 
+  isValid = () => {
+    const exchange = this.state.post.exchangeKey;
+    const exchangeIsValid = exchange.length > 0 ? true : false;
+    const recaptchaIsValid = this.state.recaptchaIsValid;
+    return exchangeIsValid && recaptchaIsValid ? true : false;
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.disabled) {
+    if (this.isValid()) {
       return;
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
@@ -131,7 +138,8 @@ class PostsForm extends Component {
 
   render() {
     const {classes} = this.props;
-    const {disabled, shouldRedirect} = this.state;
+    const {shouldRedirect} = this.state;
+    const disabled = this.isValid() ? false : true;
     return shouldRedirect
       ? <Redirect to="/" />
       : <div className={classes.container}>
