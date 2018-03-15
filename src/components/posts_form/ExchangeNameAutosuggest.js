@@ -86,6 +86,11 @@ class ExchangeNameAutosuggest extends React.Component {
     const matches = match(suggestion.label, query);
     const parts = parse(suggestion.label, matches);
 
+    if (!suggestion.label) {
+      // hack to fix a bug where an 'empty' suggestion was coming through, not sure why
+      return;
+    }
+
     return (
       <MenuItem selected={isHighlighted} component="div">
         <div>
