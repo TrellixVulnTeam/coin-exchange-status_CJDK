@@ -149,7 +149,7 @@ class App extends Component {
         />
       : null;
 
-    const addButton = window.location.pathname !== '/posts' ? <Add /> : null;
+    const addButton = window.location.pathname !== '/post' ? <Add /> : null;
 
     let content;
     if (this.isFirstRun()) {
