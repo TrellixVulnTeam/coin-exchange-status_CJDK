@@ -164,6 +164,8 @@ class ExchangeNameAutosuggest extends React.Component {
     });
     if (exchange && exchange.key) {
       this.props.handleExchangeNameChange(exchange.key);
+    } else {
+      this.props.handleExchangeNameChange('');
     }
   };
 

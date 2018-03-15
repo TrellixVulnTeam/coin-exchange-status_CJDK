@@ -113,7 +113,7 @@ class PostsForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.isValid()) {
+    if (!this.isValid()) {
       return;
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
