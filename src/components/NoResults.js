@@ -1,7 +1,6 @@
 // @format
 
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import Card, {CardContent} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
