@@ -13,6 +13,7 @@
     "react-async-script": "^0.9.1",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.2.0",
+    "react-ga": "^2.4.1",
     "react-google-recaptcha": "^0.9.9",
     "react-infinite-scroller": "^1.1.3",
     "react-router-dom": "^4.2.2",
