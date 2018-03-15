@@ -79,7 +79,7 @@ class AppDrawer extends Component {
               <ListItemIcon>
                 <CreateIcon />
               </ListItemIcon>
-              <NavLink to="/posts" className="navLink">
+              <NavLink to="/post" className="navLink">
                 <ListItemText primary="New Post" />
               </NavLink>
             </ListItem>

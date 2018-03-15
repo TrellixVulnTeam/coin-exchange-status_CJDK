@@ -192,7 +192,7 @@ class App extends Component {
                   favoritesDidUpdateHandler={this.favoritesDidUpdateHandler}
                 />}
             />
-            <Route path="/posts" component={PostsForm} />
+            <Route path="/post" component={PostsForm} />
             <Route path="/settings" component={Settings} />
             {snackbar}
             {addButton}

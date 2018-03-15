@@ -90,7 +90,7 @@ class TemporaryDrawer extends Component {
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>
-              <NavLink to="/posts" className="navLink" onClick={onCloseHandler}>
+              <NavLink to="/post" className="navLink" onClick={onCloseHandler}>
                 <ListItemIcon>
                   <CreateIcon />
                 </ListItemIcon>

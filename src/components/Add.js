@@ -20,7 +20,7 @@ class Add extends Component {
     const {classes} = this.props;
     return (
       <div>
-        <NavLink to="/posts">
+        <NavLink to="/post">
           <Button
             variant="fab"
             aria-label="add"
