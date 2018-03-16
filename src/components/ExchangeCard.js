@@ -79,7 +79,7 @@ class ExchangeCard extends Component {
     ReactGA.event({
       category: 'Favorites',
       action: 'favorited',
-      value: key,
+      label: `${key}`,
     });
   };
 
@@ -96,7 +96,7 @@ class ExchangeCard extends Component {
     ReactGA.event({
       category: 'Favorites',
       action: 'unfavorited',
-      value: key,
+      label: `${key}`,
     });
   };
 
