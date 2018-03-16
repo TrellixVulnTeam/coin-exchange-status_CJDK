@@ -134,10 +134,21 @@ class ExchangeCard extends Component {
         this.setState({expanded: !this.state.expanded});
         this.setState({isLoading: false});
       });
+    ReactGA.event({
+      category: 'Exchange Card',
+      action: 'Card Expanded',
+      label: `${exchangeKey}`,
+    });
   };
 
   handleWillClose = () => {
     this.setState({expanded: !this.state.expanded});
+    const exchangeKey = Object.keys(this.props.exchange)[0];
+    ReactGA.event({
+      category: 'Exchange Card',
+      action: 'Card Closed',
+      label: `${exchangeKey}`,
+    });
   };
 
   handleSnackbarClose = () => {
