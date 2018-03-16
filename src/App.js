@@ -75,11 +75,9 @@ class App extends Component {
     if (window.location.protocol !== 'https:') {
       return;
     } else {
-      console.log('initializing GA');
       ReactGA.initialize('UA-113708505-1');
       const pathname = this.props.location.pathname;
       const page = this.getPageFrom(pathname);
-      console.log(`pageview - ${page}`);
       ReactGA.pageview(page);
     }
   }
@@ -92,7 +90,6 @@ class App extends Component {
       const nextPathname = nextProps.location.pathname;
       if (currentPathname !== nextPathname) {
         const page = this.getPageFrom(nextPathname);
-        console.log(`pageview - ${page}`);
         ReactGA.pageview(page);
       }
     }
