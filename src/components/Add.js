@@ -20,8 +20,8 @@ const styles = theme => ({
 class Add extends Component {
   clickHandler = () => {
     ReactGA.event({
-      category: 'FAB',
-      action: 'Click',
+      category: 'Navigation',
+      action: 'FAB Click',
       label: `${getPageFrom(window.location.pathname)}`, // FAB appears on all pages except /post
     });
   };
