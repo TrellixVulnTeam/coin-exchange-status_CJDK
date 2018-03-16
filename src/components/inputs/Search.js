@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import SearchIcon from 'material-ui-icons/Search';
 import CloseIcon from 'material-ui-icons/Close';
@@ -63,6 +64,10 @@ class SearchInput extends Component {
 
   onFocus = () => {
     this.setState({focused: true});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Input Was Focused',
+    });
   };
 
   onBlur = event => {
@@ -72,14 +77,26 @@ class SearchInput extends Component {
       this.onChange(event);
     }
     this.setState({focused: false});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Input Was Blurred',
+    });
   };
 
   onMouseOver = () => {
     this.setState({hovered: true});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Was Moused Over',
+    });
   };
 
   onMouseOut = () => {
     this.setState({hovered: false});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Was Moused Out',
+    });
   };
 
   onChange = event => {
@@ -89,6 +106,11 @@ class SearchInput extends Component {
 
   closeHandler = () => {
     this.setState({isClosing: true});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Close',
+      label: 'Icon clicked to close search',
+    });
   };
 
   render() {

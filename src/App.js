@@ -134,6 +134,11 @@ class App extends Component {
       return searchResultExchanges;
     });
     this.setState({searchResultExchanges});
+    ReactGA.event({
+      category: 'Search',
+      action: 'Is Searching',
+      label: `${this.state.searchTerm}`,
+    });
   };
 
   exchangesComponentWillUnmountHandler = () => {
