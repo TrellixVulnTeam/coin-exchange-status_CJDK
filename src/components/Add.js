@@ -1,6 +1,8 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
+import getPageFrom from '../lib/utils';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
 import {NavLink} from 'react-router-dom';
@@ -16,12 +18,21 @@ const styles = theme => ({
 });
 
 class Add extends Component {
+  clickHandler = () => {
+    ReactGA.event({
+      category: 'FAB',
+      action: 'Click',
+      label: `${getPageFrom(window.location.pathname)}`, // FAB appears on all pages except /post
+    });
+  };
+
   render() {
     const {classes} = this.props;
     return (
       <div>
         <NavLink to="/post">
           <Button
+            onClick={this.clickHandler}
             variant="fab"
             aria-label="add"
             className={classes.button}
