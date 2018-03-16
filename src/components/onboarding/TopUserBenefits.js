@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import {isFirstRun} from '../../constants';
 import {withStyles} from 'material-ui/styles';
 import compose from 'recompose/compose';
@@ -61,15 +62,29 @@ class TopUserBenefits extends Component {
 
   dotsClickHandler = index => {
     this.setState({index});
+    ReactGA.event({
+      category: 'Onboarding',
+      action: 'Clicked Dot',
+      value: index,
+    });
   };
 
   getStartedHandler = () => {
     window.localStorage.setItem(isFirstRun, false);
     window.location.href = window.location.href; // refresh
+    ReactGA.event({
+      category: 'Onboarding',
+      action: 'Clicked Get Started button',
+    });
   };
 
   slideChangeHandler = index => {
     this.setState({index});
+    ReactGA.event({
+      category: 'Onboarding',
+      action: 'Slide Change',
+      value: index,
+    });
   };
 
   rightNavClickHandler = () => {
@@ -82,6 +97,10 @@ class TopUserBenefits extends Component {
         this.setState({index: this.state.index + 1});
         break;
     }
+    ReactGA.event({
+      category: 'Onboarding',
+      action: 'Clicked Right Arrow',
+    });
   };
 
   leftNavClickHandler = () => {
@@ -94,6 +113,10 @@ class TopUserBenefits extends Component {
         this.setState({index: this.state.index - 1});
         break;
     }
+    ReactGA.event({
+      category: 'Onboarding',
+      action: 'Clicked Left Arrow',
+    });
   };
 
   render() {
