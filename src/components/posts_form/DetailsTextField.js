@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import {withStyles} from 'material-ui/styles';
@@ -25,6 +26,14 @@ class DetailsTextField extends Component {
     this.props.handleDetailsChange(value);
   };
 
+  handleBlur = () => {
+    ReactGA.event({
+      category: 'New Post',
+      action: 'Details TextField onBlur',
+      label: this.state.details,
+    });
+  };
+
   render() {
     return (
       <TextField
@@ -36,6 +45,7 @@ class DetailsTextField extends Component {
         rowsMax={4}
         value={this.state.details}
         onChange={this.handleChange('details')}
+        onBlur={this.handleBlur}
       />
     );
   }

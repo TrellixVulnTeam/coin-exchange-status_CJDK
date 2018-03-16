@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import {withStyles} from 'material-ui/styles';
@@ -25,6 +26,14 @@ class MarketTextField extends Component {
     this.props.handleMarketChange(value);
   };
 
+  handleBlur = () => {
+    ReactGA.event({
+      category: 'New Post',
+      action: 'Market TextField onBlur',
+      label: this.state.market,
+    });
+  };
+
   render() {
     return (
       <TextField
@@ -34,6 +43,7 @@ class MarketTextField extends Component {
         placeholder="STAK/BTC"
         value={this.state.market}
         onChange={this.handleChange('market')}
+        onBlur={this.handleBlur}
       />
     );
   }

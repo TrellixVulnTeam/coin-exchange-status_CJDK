@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import ExchangeNameAutosuggest from './posts_form/ExchangeNameAutosuggest';
 import TypeSelect from './posts_form/TypeSelect';
 import DelaySelect from './posts_form/DelaySelect';
@@ -67,12 +68,24 @@ class PostsForm extends Component {
     const post = this.state.post;
     post.exchangeKey = key;
     this.setState({post: post});
+    if (key.length) {
+      ReactGA.event({
+        category: 'New Post',
+        action: 'Value Selected For Exchange',
+        label: key,
+      });
+    }
   };
 
   handleFeedbackTypeChange = type => {
     const post = this.state.post;
     post.type = type;
     this.setState({post: post});
+    ReactGA.event({
+      category: 'New Post',
+      action: 'Value Selected For Feedback Type',
+      label: type,
+    });
   };
 
   handleMarketChange = value => {
@@ -91,6 +104,11 @@ class PostsForm extends Component {
     const post = this.state.post;
     post.delay = value;
     this.setState({post: post});
+    ReactGA.event({
+      category: 'New Post',
+      action: 'Value Selected For Delay',
+      label: value,
+    });
   };
 
   handleReCaptchaSuccess = token => {
@@ -114,6 +132,10 @@ class PostsForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (!this.isValid()) {
+      ReactGA.event({
+        category: 'New Post',
+        action: 'Clicked Submit While Disabled',
+      });
       return;
     }
     fire.database().ref('posts').push(this.state.post).then(() => {
@@ -121,6 +143,10 @@ class PostsForm extends Component {
       GlobalSnackage.message = 'Success!';
       // redirect to root /
       this.setState({shouldRedirect: true});
+      ReactGA.event({
+        category: 'New Post',
+        action: 'Created Successfully',
+      });
     });
   };
 

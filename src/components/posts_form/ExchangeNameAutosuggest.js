@@ -1,6 +1,7 @@
 // @format
 
 import React from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import match from 'autosuggest-highlight/match';
@@ -123,6 +124,11 @@ class ExchangeNameAutosuggest extends React.Component {
   }
 
   getSuggestions(value) {
+    ReactGA.event({
+      category: 'New Post',
+      action: 'Value Entered For Exchange Name AutoSuggest',
+      label: value,
+    });
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
     let count = 0;
