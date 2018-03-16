@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import ReactGA from 'react-ga';
-import getPageFrom from '../lib/utils';
+import {getPageFrom} from '../lib/utils';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
 import {NavLink} from 'react-router-dom';

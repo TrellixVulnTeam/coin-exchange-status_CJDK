@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import ReactGA from 'react-ga';
+import {getPageFrom} from './lib/utils';
 import {isFirstRun} from './constants';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
@@ -62,24 +63,13 @@ class App extends Component {
     };
   }
 
-  getPageFrom(pathname) {
-    switch (pathname) {
-      case '/':
-        return window.localStorage.getItem(isFirstRun)
-          ? '/onboarding/top-user-benefits'
-          : '/home';
-      default:
-        return pathname;
-    }
-  }
-
   componentWillMount() {
     if (window.location.protocol !== 'https:') {
       return;
     } else {
       ReactGA.initialize('UA-113708505-1', {debug: true});
       const pathname = this.props.location.pathname;
-      const page = this.getPageFrom(pathname);
+      const page = getPageFrom(pathname);
       ReactGA.pageview(page);
     }
   }
@@ -91,7 +81,7 @@ class App extends Component {
       const currentPathname = this.props.location.pathname;
       const nextPathname = nextProps.location.pathname;
       if (currentPathname !== nextPathname) {
-        const page = this.getPageFrom(nextPathname);
+        const page = getPageFrom(nextPathname);
         ReactGA.pageview(page);
       }
     }
