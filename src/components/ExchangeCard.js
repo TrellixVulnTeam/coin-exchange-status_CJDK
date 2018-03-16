@@ -1,6 +1,7 @@
 // @format
 
 import React, {Component} from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
@@ -75,6 +76,11 @@ class ExchangeCard extends Component {
     localStorage.setFavorite(key);
     const msg = `Favorited ${this.props.exchange[key].name}`;
     this.setState({snackbarMessage: msg});
+    ReactGA.event({
+      category: 'Favorites',
+      action: 'favorited',
+      value: key,
+    });
   };
 
   handleUnfavorited = () => {
@@ -86,6 +92,11 @@ class ExchangeCard extends Component {
       if (handler) {
         handler();
       }
+    });
+    ReactGA.event({
+      category: 'Favorites',
+      action: 'unfavorited',
+      value: key,
     });
   };
 
