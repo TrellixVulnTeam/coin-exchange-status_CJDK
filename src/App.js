@@ -75,7 +75,7 @@ class App extends Component {
     if (window.location.protocol !== 'https:') {
       return;
     } else {
-      ReactGA.initialize('UA-113708505-1');
+      ReactGA.initialize('UA-113708505-1', {debug: true});
       const pathname = this.props.location.pathname;
       const page = this.getPageFrom(pathname);
       ReactGA.pageview(page);
