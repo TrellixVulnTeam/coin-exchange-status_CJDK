@@ -105,6 +105,11 @@ class App extends Component {
 
   menuIconOnTouchEndHandler = () => {
     this.setState({mobileDrawerOpen: !this.state.mobileDrawerOpen});
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Menu Icon Touched',
+      label: 'Mobile',
+    });
   };
 
   mobileDrawerCloseHandler = event => {
