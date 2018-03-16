@@ -65,7 +65,9 @@ class App extends Component {
   getPageFrom(pathname) {
     switch (pathname) {
       case '/':
-        return '/home';
+        return window.localStorage.getItem(isFirstRun)
+          ? '/onboarding/top-user-benefits'
+          : '/home';
       default:
         return pathname;
     }
