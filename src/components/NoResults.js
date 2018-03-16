@@ -6,10 +6,6 @@ import Card, {CardContent} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
 class NoResults extends Component {
-  componentWillReceiveProps = nextProps => {
-    console.log(nextProps);
-  };
-
   render() {
     return (
       <Card>
