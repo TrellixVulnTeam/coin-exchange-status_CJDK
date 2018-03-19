@@ -160,6 +160,9 @@ class App extends Component {
 
   fetchFavorites = () => {
     const favKeys = localStorage.getFavorites();
+    if (!favKeys) {
+      return {};
+    }
     let favs = {};
     favKeys.forEach(key => {
       favs[key] = this.state.exchanges[key];
