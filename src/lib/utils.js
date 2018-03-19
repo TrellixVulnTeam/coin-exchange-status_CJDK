@@ -6,7 +6,7 @@ import localStorage from './localStorage';
 const getPageFrom = pathname => {
   switch (pathname) {
     case '/':
-      return localStorage.getItem(isFirstRun)
+      return localStorage.getItem(isFirstRun) === 'true'
         ? '/onboarding/top-user-benefits'
         : '/home';
     default:
