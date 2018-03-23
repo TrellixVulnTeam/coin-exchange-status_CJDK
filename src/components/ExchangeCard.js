@@ -7,6 +7,7 @@ import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
 import Posts from './exchange_card/Posts';
+import Sentiment from './exchange_card/Sentiment';
 import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
@@ -57,7 +58,18 @@ class ExchangeCard extends Component {
       favorite: this.isFavorite(),
       posts: null,
       snackbarMessage: '',
+      sentiment: {},
     };
+  }
+
+  componentDidMount() {
+    const twitterUsername = Object.values(this.props.exchange)[0]['twitter'];
+    let db = fire.database();
+    let sentimentsRef = db.ref(`sentiments/${twitterUsername}`);
+    sentimentsRef.on('value', snapshot => {
+      const sentiment = snapshot.val();
+      this.setState({sentiment: sentiment});
+    });
   }
 
   isFavorite = () => {
@@ -171,37 +183,34 @@ class ExchangeCard extends Component {
     const exchange = this.props.exchange;
     const key = Object.keys(exchange)[0];
     const name = exchange[key].name;
-    const summary = exchange[key].summary || '';
-    const hasSummary = summary.length ? true : false;
     const postsCount = exchange[key].postsCount;
+    const sentiment = this.state.sentiment;
 
     const cardHeader = (
       <CardHeader
-        avatar={
-          <Avatar aria-label="Avatar">
-            {name}
-          </Avatar>
-        }
+        avatar={<Avatar aria-label="Avatar">{name}</Avatar>}
         title={name}
         subheader={this.postsCountMessage(postsCount)}
       />
     );
 
-    const cardContent = hasSummary
-      ? <CardContent>
-          <Typography component="p">
-            {summary}
-          </Typography>
-        </CardContent>
-      : null;
+    const cardContent = true ? (
+      <CardContent>
+        <Sentiment sentiment={sentiment} />
+      </CardContent>
+    ) : null;
 
-    let cardActionIcon = this.state.isLoading
-      ? <CircularProgress className={classes.progress} />
-      : <ExpandMoreIcon />;
+    let cardActionIcon = this.state.isLoading ? (
+      <CircularProgress className={classes.progress} />
+    ) : (
+      <ExpandMoreIcon />
+    );
 
-    let favoriteIcon = this.state.favorite
-      ? <FavoriteIcon />
-      : <FavoriteBorderIcon />;
+    let favoriteIcon = this.state.favorite ? (
+      <FavoriteIcon />
+    ) : (
+      <FavoriteBorderIcon />
+    );
 
     let showAllSpan = (
       <Typography
@@ -212,39 +221,41 @@ class ExchangeCard extends Component {
       </Typography>
     );
 
-    let snackbar = this.state.snackbarMessage.length
-      ? <AppSnackbar
-          message={this.state.snackbarMessage}
-          handleCloseCallback={this.handleSnackbarClose}
-        />
-      : null;
+    let snackbar = this.state.snackbarMessage.length ? (
+      <AppSnackbar
+        message={this.state.snackbarMessage}
+        handleCloseCallback={this.handleSnackbarClose}
+      />
+    ) : null;
 
     const cardActions =
-      postsCount > 0
-        ? <CardActions className={classes.actions}>
-            <IconButton
-              onClick={this.handleFavoriteClick}
-              aria-label="Add to favorites">
-              {favoriteIcon}
-            </IconButton>
-            {showAllSpan}
-            <IconButton
-              className={classnames(classes.expand, {
-                [classes.expandOpen]: this.state.expanded,
-              })}
-              onClick={this.handleExpandClick}
-              aria-expanded={this.state.expanded}
-              aria-label="Show all posts">
-              {cardActionIcon}
-            </IconButton>
-          </CardActions>
-        : <CardActions className={classes.actions}>
-            <IconButton
-              onClick={this.handleFavoriteClick}
-              aria-label="Add to favorites">
-              {favoriteIcon}
-            </IconButton>
-          </CardActions>;
+      postsCount > 0 ? (
+        <CardActions className={classes.actions}>
+          <IconButton
+            onClick={this.handleFavoriteClick}
+            aria-label="Add to favorites">
+            {favoriteIcon}
+          </IconButton>
+          {showAllSpan}
+          <IconButton
+            className={classnames(classes.expand, {
+              [classes.expandOpen]: this.state.expanded,
+            })}
+            onClick={this.handleExpandClick}
+            aria-expanded={this.state.expanded}
+            aria-label="Show all posts">
+            {cardActionIcon}
+          </IconButton>
+        </CardActions>
+      ) : (
+        <CardActions className={classes.actions}>
+          <IconButton
+            onClick={this.handleFavoriteClick}
+            aria-label="Add to favorites">
+            {favoriteIcon}
+          </IconButton>
+        </CardActions>
+      );
 
     return (
       <Card className={classes.card}>
