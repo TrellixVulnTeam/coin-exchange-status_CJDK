@@ -35,6 +35,9 @@ class Sentimeter extends Component {
   }
 
   componentWillReceiveProps = nextProps => {
+    if (nextProps.sentiment === this.props.sentiment) {
+      return;
+    }
     const {score, magnitude} = nextProps.sentiment;
     const mappedScore = this.getMappedScore(score, -1, 1, 0, 1);
     const magnitudeAdjustedScore = this.adjustScoreForMagnitude(mappedScore, magnitude);
