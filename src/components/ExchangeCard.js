@@ -7,7 +7,6 @@ import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
 import Posts from './exchange_card/Posts';
-import Sentiment from './exchange_card/Sentiment';
 import Collapse from 'material-ui/transitions/Collapse';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
@@ -198,7 +197,6 @@ class ExchangeCard extends Component {
 
     const cardContent = true ? (
       <CardContent>
-        <Sentiment sentiment={sentiment} />
         <Sentimeter sentiment={sentiment} />
       </CardContent>
     ) : null;
