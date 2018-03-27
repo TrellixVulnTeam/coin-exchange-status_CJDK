@@ -19,9 +19,11 @@ import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
 import localStorage from '../lib/localStorage';
 import AppSnackbar from './AppSnackbar';
+import Sentimeter from './exchange_card/Sentimeter';
 
 const styles = theme => ({
   card: {
+    position: 'relative',
     flexBasis: '100%',
     marginBottom: theme.spacing.unit * 3,
   },
@@ -70,7 +72,7 @@ class ExchangeCard extends Component {
       const sentiment = snapshot.val();
       this.setState({sentiment: sentiment});
     });
-  }
+  };
 
   isFavorite = () => {
     const favs = localStorage.getFavorites() || [];
@@ -184,7 +186,7 @@ class ExchangeCard extends Component {
     const key = Object.keys(exchange)[0];
     const name = exchange[key].name;
     const postsCount = exchange[key].postsCount;
-    const sentiment = this.state.sentiment;
+    const {sentiment} = this.state;
 
     const cardHeader = (
       <CardHeader
@@ -197,6 +199,7 @@ class ExchangeCard extends Component {
     const cardContent = true ? (
       <CardContent>
         <Sentiment sentiment={sentiment} />
+        <Sentimeter sentiment={sentiment} />
       </CardContent>
     ) : null;
 

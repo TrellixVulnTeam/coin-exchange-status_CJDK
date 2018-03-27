@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography';
 
 class Sentiment extends Component {
   render() {
-    const sentiment = this.props.sentiment;
+    const {sentiment} = this.props;
     const score = sentiment ? sentiment.score : 'no score';
     const magnitude = sentiment ? sentiment.magnitude : 'no mag';
     return (
