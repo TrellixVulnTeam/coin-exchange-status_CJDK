@@ -25,6 +25,7 @@ import {
   mappedAndAdjustedScore,
   getLinearGradient,
 } from '../lib/sentiment';
+import {value2Percent} from '../lib/utils';
 
 const styles = theme => ({
   card: {
@@ -189,6 +190,10 @@ class ExchangeCard extends Component {
     }
   };
 
+  subheaderMessage = score => {
+    return `Sentiment: ${value2Percent(score)}/100`;
+  };
+
   render() {
     const {classes} = this.props;
     const exchange = this.props.exchange;
@@ -201,7 +206,7 @@ class ExchangeCard extends Component {
       <CardHeader
         avatar={<Avatar aria-label="Avatar">{name}</Avatar>}
         title={name}
-        subheader={this.postsCountMessage(postsCount)}
+        subheader={this.subheaderMessage(score)}
       />
     );
 
