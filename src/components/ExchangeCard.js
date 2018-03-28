@@ -32,9 +32,13 @@ const styles = theme => ({
     flexBasis: '100%',
     marginBottom: theme.spacing.unit * 3,
   },
+  summary: {
+    paddingLeft: theme.spacing.unit * 7,
+  },
   actions: {
     display: 'flex',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+    borderTop: '1px solid rgba(0, 0, 0, 0.025)',
+    background: 'rgba(0, 0, 0, 0.025)',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -212,7 +216,9 @@ class ExchangeCard extends Component {
 
     const cardContent = true ? (
       <CardContent>
-        <Typography paragraph>add summary message here...</Typography>
+        <Typography paragraph className={classes.summary}>
+          add summary message here...
+        </Typography>
       </CardContent>
     ) : null;
 
