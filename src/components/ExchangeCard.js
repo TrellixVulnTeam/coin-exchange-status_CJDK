@@ -22,7 +22,7 @@ import Sentimeter from './exchange_card/Sentimeter';
 import * as d3 from 'd3';
 import {
   getFillColorFromScore,
-  humanReadableScore,
+  mappedAndAdjustedScore,
   getLinearGradient,
 } from '../lib/sentiment';
 
@@ -76,7 +76,7 @@ class ExchangeCard extends Component {
     let sentimentsRef = db.ref(`sentiments/${twitterUsername}`);
     sentimentsRef.on('value', snapshot => {
       const sentiment = snapshot.val();
-      const score = humanReadableScore(sentiment);
+      const score = mappedAndAdjustedScore(sentiment);
       const fillColor = getFillColorFromScore(d3, score);
       this.setState({fillColor});
       this.setState({score: score});

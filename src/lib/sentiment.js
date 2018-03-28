@@ -62,7 +62,7 @@ const magnitudeAdjustedScore = (score, magnitude) => {
 
 // Takes a sentiment value as returned from gcloud's nlp sentiment
 // analysis endpoint and turns it into a meaningful value for the UI
-const humanReadableScore = sentiment => {
+const mappedAndAdjustedScore = sentiment => {
   const {score, magnitude} = sentiment;
   const mappedScore = getMappedScore(score, -1, 1, 0, 1);
   const magAdjustedScore = magnitudeAdjustedScore(mappedScore, magnitude);
@@ -73,6 +73,6 @@ export {
   getFillColorFromScore,
   getMappedScore,
   magnitudeAdjustedScore,
-  humanReadableScore,
+  mappedAndAdjustedScore,
   getLinearGradient,
 };
