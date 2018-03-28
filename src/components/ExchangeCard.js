@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
+import ExchangeCardAvatar from './exchange_card/Avatar';
 import Posts from './exchange_card/Posts';
 import Collapse from 'material-ui/transitions/Collapse';
-import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import FavoriteIcon from 'material-ui-icons/Favorite';
@@ -18,7 +18,6 @@ import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
 import localStorage from '../lib/localStorage';
 import AppSnackbar from './AppSnackbar';
-import Sentimeter from './exchange_card/Sentimeter';
 import * as d3 from 'd3';
 import {
   getFillColorFromScore,
@@ -201,10 +200,11 @@ class ExchangeCard extends Component {
     const name = exchange[key].name;
     const postsCount = exchange[key].postsCount;
     const {score, fillColor} = this.state;
+    let exchangeCardAvatar = <ExchangeCardAvatar name={name} score={score} />;
 
     const cardHeader = (
       <CardHeader
-        avatar={<Avatar aria-label="Avatar">{name}</Avatar>}
+        avatar={exchangeCardAvatar}
         title={name}
         subheader={this.subheaderMessage(score)}
       />
@@ -212,7 +212,7 @@ class ExchangeCard extends Component {
 
     const cardContent = true ? (
       <CardContent>
-        <Sentimeter score={score} fillColor={fillColor} />
+        <Typography paragraph>add summary message here...</Typography>
       </CardContent>
     ) : null;
 

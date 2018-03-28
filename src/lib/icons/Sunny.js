@@ -1,7 +1,6 @@
 // @format
 
-import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import React from 'react';
 import SvgIcon from 'material-ui/SvgIcon';
 
 function SunnyIcon(props) {
