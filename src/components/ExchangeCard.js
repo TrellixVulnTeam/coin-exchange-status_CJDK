@@ -19,6 +19,12 @@ import fire from '../fire';
 import localStorage from '../lib/localStorage';
 import AppSnackbar from './AppSnackbar';
 import Sentimeter from './exchange_card/Sentimeter';
+import * as d3 from 'd3';
+import {
+  getFillColorFromScore,
+  humanReadableScore,
+  getLinearGradient,
+} from '../lib/sentiment';
 
 const styles = theme => ({
   card: {
@@ -59,7 +65,8 @@ class ExchangeCard extends Component {
       favorite: this.isFavorite(),
       posts: null,
       snackbarMessage: '',
-      sentiment: {},
+      score: 0,
+      fillColor: 'rgba(255, 255, 255, 0)',
     };
   }
 
@@ -69,9 +76,12 @@ class ExchangeCard extends Component {
     let sentimentsRef = db.ref(`sentiments/${twitterUsername}`);
     sentimentsRef.on('value', snapshot => {
       const sentiment = snapshot.val();
-      this.setState({sentiment: sentiment});
+      const score = humanReadableScore(sentiment);
+      const fillColor = getFillColorFromScore(d3, score);
+      this.setState({fillColor});
+      this.setState({score: score});
     });
-  };
+  }
 
   isFavorite = () => {
     const favs = localStorage.getFavorites() || [];
@@ -185,7 +195,7 @@ class ExchangeCard extends Component {
     const key = Object.keys(exchange)[0];
     const name = exchange[key].name;
     const postsCount = exchange[key].postsCount;
-    const {sentiment} = this.state;
+    const {score, fillColor} = this.state;
 
     const cardHeader = (
       <CardHeader
@@ -197,7 +207,7 @@ class ExchangeCard extends Component {
 
     const cardContent = true ? (
       <CardContent>
-        <Sentimeter sentiment={sentiment} />
+        <Sentimeter score={score} fillColor={fillColor} />
       </CardContent>
     ) : null;
 
@@ -259,7 +269,11 @@ class ExchangeCard extends Component {
       );
 
     return (
-      <Card className={classes.card}>
+      <Card
+        className={classes.card}
+        style={{
+          background: getLinearGradient(),
+        }}>
         {cardHeader}
         {cardContent}
         {cardActions}

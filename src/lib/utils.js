@@ -14,4 +14,8 @@ const getPageFrom = pathname => {
   }
 };
 
-export {getPageFrom};
+const value2Percent = value => {
+  return Math.round(value * 100);
+};
+
+export {getPageFrom, value2Percent};

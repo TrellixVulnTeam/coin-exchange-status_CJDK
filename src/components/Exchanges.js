@@ -1,11 +1,24 @@
 // @format
 
 import React, {Component} from 'react';
+import {withStyles} from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import ExchangeCard from './ExchangeCard';
 import InfiniteScroll from 'react-infinite-scroller';
 import {exchangesPerPage} from '../constants';
 import NoResults from './NoResults';
+
+const styles = theme => ({
+  exchangesContainer: {
+    height: '100%',
+    overflow: 'auto',
+    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px`,
+  },
+  infiniteScrollContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+});
 
 class Exchanges extends Component {
   constructor(props) {
@@ -103,9 +116,11 @@ class Exchanges extends Component {
 
   render() {
     let currentExchanges = this.state.currentExchanges;
+    const {classes} = this.props;
     return (
-      <div style={{height: '100%', overflow: 'auto', padding: '32px 16px'}}>
+      <div className={classes.exchangesContainer}>
         <InfiniteScroll
+          className={classes.infiniteScrollContainer}
           pageStart={this.state.page}
           hasMore={this.state.hasMore}
           initialLoad={false}
@@ -125,4 +140,4 @@ Exchanges.propTypes = {
   favoritesDidUpdateHandler: PropTypes.func,
 };
 
-export default Exchanges;
+export default withStyles(styles)(Exchanges);
