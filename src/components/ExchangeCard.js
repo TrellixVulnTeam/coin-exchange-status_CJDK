@@ -203,7 +203,7 @@ class ExchangeCard extends Component {
     const key = Object.keys(exchange)[0];
     const name = exchange[key].name;
     const postsCount = exchange[key].postsCount;
-    const {score, fillColor} = this.state;
+    const {score} = this.state;
     let exchangeCardAvatar = <ExchangeCardAvatar name={name} score={score} />;
 
     const cardHeader = (
