@@ -11,6 +11,7 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import HomeIcon from 'material-ui-icons/Home';
 import CreateIcon from 'material-ui-icons/Create';
 import FavoriteIcon from 'material-ui-icons/Favorite';
+import QuestionAnswerIcon from 'material-ui-icons/QuestionAnswer';
 
 const styles = theme => ({
   drawerContainer: {
@@ -81,6 +82,14 @@ class AppDrawer extends Component {
               </ListItemIcon>
               <NavLink to="/post" className="navLink">
                 <ListItemText primary="New Post" />
+              </NavLink>
+            </ListItem>
+            <ListItem button className={classes.drawerListItem}>
+              <ListItemIcon>
+                <QuestionAnswerIcon />
+              </ListItemIcon>
+              <NavLink to="/faq" className="navLink">
+                <ListItemText primary="FAQ" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>

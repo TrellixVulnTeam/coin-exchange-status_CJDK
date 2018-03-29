@@ -13,7 +13,7 @@ import List, {
 } from 'material-ui/List';
 import Switch from 'material-ui/Switch';
 import DirectionsWalk from 'material-ui-icons/DirectionsWalk';
-import Email from 'material-ui-icons/Email';
+import FeedbackCard from './settings/FeedbackCard';
 
 const styles = theme => ({
   container: {
@@ -71,21 +71,7 @@ class Settings extends Component {
             </List>
           </CardContent>
         </Card>
-        <Card className={classes.card}>
-          <CardContent>
-            <List subheader={<ListSubheader>Feedback</ListSubheader>}>
-              <ListItem>
-                <ListItemIcon>
-                  <Email />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Send a message to:"
-                  secondary="hello@coinexchangestatus.com"
-                />
-              </ListItem>
-            </List>
-          </CardContent>
-        </Card>
+        <FeedbackCard />
       </div>
     );
   }

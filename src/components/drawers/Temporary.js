@@ -12,6 +12,7 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import HomeIcon from 'material-ui-icons/Home';
 import CreateIcon from 'material-ui-icons/Create';
 import FavoriteIcon from 'material-ui-icons/Favorite';
+import QuestionAnswerIcon from 'material-ui-icons/QuestionAnswer';
 
 const styles = theme => ({
   drawerContainer: {
@@ -95,6 +96,14 @@ class TemporaryDrawer extends Component {
                   <CreateIcon />
                 </ListItemIcon>
                 <ListItemText primary="New Post" />
+              </NavLink>
+            </ListItem>
+            <ListItem button className={classes.drawerListItem}>
+              <NavLink to="/faq" className="navLink" onClick={onCloseHandler}>
+                <ListItemIcon>
+                  <QuestionAnswerIcon />
+                </ListItemIcon>
+                <ListItemText primary="FAQ" />
               </NavLink>
             </ListItem>
             <ListItem button className={classes.drawerListItem}>

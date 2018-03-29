@@ -20,6 +20,7 @@ import TopUserBenefits from './components/onboarding/TopUserBenefits';
 import AppDrawer from './components/AppDrawer';
 import TemporaryDrawer from './components/drawers/Temporary';
 import Settings from './components/Settings';
+import Faq from './components/Faq';
 import Add from './components/Add';
 import localStorage from './lib/localStorage';
 
@@ -182,12 +183,12 @@ class App extends Component {
       : this.state.exchanges;
     const favorites = this.fetchFavorites();
 
-    const snackbar = GlobalSnackage.message.length
-      ? <AppSnackbar
-          message={GlobalSnackage.message}
-          handleCloseCallback={this.handleSnackbarClose}
-        />
-      : null;
+    const snackbar = GlobalSnackage.message.length ? (
+      <AppSnackbar
+        message={GlobalSnackage.message}
+        handleCloseCallback={this.handleSnackbarClose}
+      />
+    ) : null;
 
     const addButton = window.location.pathname !== '/post' ? <Add /> : null;
 
@@ -215,25 +216,29 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() =>
+              render={() => (
                 <Exchanges
-                  noContentMessage={`no results found for ${this.state
-                    .searchTerm}`}
+                  noContentMessage={`no results found for ${
+                    this.state.searchTerm
+                  }`}
                   exchanges={exchanges}
                   willUnmountHandler={this.exchangesComponentWillUnmountHandler}
-                />}
+                />
+              )}
             />
             <Route
               path="/favorites"
-              render={() =>
+              render={() => (
                 <Favorites
                   noContentMessage="No favorites yet"
                   exchanges={favorites}
                   favoritesDidUpdateHandler={this.favoritesDidUpdateHandler}
-                />}
+                />
+              )}
             />
             <Route path="/post" component={PostsForm} />
             <Route path="/settings" component={Settings} />
+            <Route path="/faq" component={Faq} />
             {snackbar}
             {addButton}
           </div>
