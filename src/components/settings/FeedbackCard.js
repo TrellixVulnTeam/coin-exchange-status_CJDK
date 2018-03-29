@@ -7,7 +7,6 @@ import Email from 'material-ui-icons/Email';
 import List, {
   ListItem,
   ListItemIcon,
-  ListItemSecondaryAction,
   ListItemText,
   ListSubheader,
 } from 'material-ui/List';

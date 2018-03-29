@@ -4,13 +4,7 @@ import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import Card, {CardContent} from 'material-ui/Card';
 import FeedbackCard from './settings/FeedbackCard';
-import List, {
-  ListItem,
-  ListItemIcon,
-  ListItemSecondaryAction,
-  ListItemText,
-  ListSubheader,
-} from 'material-ui/List';
+import List, {ListItem, ListItemText, ListSubheader} from 'material-ui/List';
 
 const styles = theme => ({
   container: {
