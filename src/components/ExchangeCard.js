@@ -206,6 +206,13 @@ class ExchangeCard extends Component {
     const {score} = this.state;
     let exchangeCardAvatar = <ExchangeCardAvatar name={name} score={score} />;
 
+    const updatesMessage = postsCount < 2 ? '1 post' : `${postsCount} posts`;
+
+    const summary =
+      postsCount === 0
+        ? `No posts submitted for ${name} yet, be the first!`
+        : updatesMessage;
+
     const cardHeader = (
       <CardHeader
         avatar={exchangeCardAvatar}
@@ -216,8 +223,8 @@ class ExchangeCard extends Component {
 
     const cardContent = true ? (
       <CardContent>
-        <Typography paragraph className={classes.summary}>
-          add summary message here...
+        <Typography paragraph variant="body1" className={classes.summary}>
+          {summary}
         </Typography>
       </CardContent>
     ) : null;
