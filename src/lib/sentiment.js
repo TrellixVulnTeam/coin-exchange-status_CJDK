@@ -9,36 +9,8 @@ const getStatusColorFromScore = score => {
   if (score >= 0.7) return green[300];
 };
 
-const getFillColorFromScore = (d3, score) => {
-  if (typeof d3.interpolateRdYlGn !== 'function') {
-    throw D3Exception(d3);
-  }
-
-  if (score < 0 || score > 1) {
-    throw ScoreRangeException();
-  }
-
-  /*
-   * interpolatedRdYlGn(t) - pass it a number [0,1] and it
-   * returns an rgb value (string) from the RdYlGn diverging
-   * color scheme.
-   */
-  return d3.interpolateRdYlGn(score);
-};
-
 const getLinearGradient = () => {
   return 'linear-gradient(#fff, #fff)';
-};
-
-const D3Exception = obj => {
-  return `Expected ${obj} to implement interpolateRdYlGn but it does not. Make sure you're passing an instance of D3`;
-};
-
-const ScoreRangeException = score => {
-  return (
-    'The value of score passed to getFillColorFromScore was expected to be gte 0 and lte1 but it was ' +
-    score
-  );
 };
 
 /* 
@@ -80,7 +52,6 @@ const mappedAndAdjustedScore = sentiment => {
 
 export {
   getStatusColorFromScore,
-  getFillColorFromScore,
   getMappedScore,
   magnitudeAdjustedScore,
   mappedAndAdjustedScore,

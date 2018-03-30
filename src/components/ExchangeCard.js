@@ -71,7 +71,6 @@ class ExchangeCard extends Component {
       posts: null,
       snackbarMessage: '',
       score: 0,
-      fillColor: 'rgba(255, 255, 255, 0)',
     };
   }
 
@@ -82,8 +81,6 @@ class ExchangeCard extends Component {
     sentimentsRef.on('value', snapshot => {
       const sentiment = snapshot.val();
       const score = mappedAndAdjustedScore(sentiment);
-      const fillColor = getFillColorFromScore(d3, score);
-      this.setState({fillColor});
       this.setState({score: score});
     });
   }
