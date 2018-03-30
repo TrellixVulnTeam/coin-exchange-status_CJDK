@@ -138,16 +138,24 @@ class PostsForm extends Component {
       });
       return;
     }
-    fire.database().ref('posts').push(this.state.post).then(() => {
-      // set snack message
-      GlobalSnackage.message = 'Success!';
-      // redirect to root /
-      this.setState({shouldRedirect: true});
-      ReactGA.event({
-        category: 'New Post',
-        action: 'Created Successfully',
+    fire
+      .database()
+      .ref('posts')
+      .push(this.state.post)
+      .then(() => {
+        // set snack message
+        GlobalSnackage.message = 'Success!';
+        // redirect to root /
+        this.setState({shouldRedirect: true});
+        ReactGA.event({
+          category: 'New Post',
+          action: 'Created Successfully',
+        });
+        ReactGA.ga('event', 'conversion', {
+          send_to: 'AW-844097649/UFXuCJ2z6H8Q8dC_kgM',
+          event_callback: null,
+        });
       });
-    });
   };
 
   getRecaptcha = opts => {
@@ -166,45 +174,47 @@ class PostsForm extends Component {
     const {classes} = this.props;
     const {shouldRedirect} = this.state;
     const disabled = this.isValid() ? false : true;
-    return shouldRedirect
-      ? <Redirect to="/" />
-      : <div className={classes.container}>
-          <Card className={classes.card}>
-            <CardHeader
-              title="Post feedback for an exchange here"
-              subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
-            />
-            <CardContent>
-              <form className={classes.form} onSubmit={this.handleSubmit}>
-                <ExchangeNameAutosuggest
-                  className={classes.root}
-                  handleExchangeNameChange={this.handleExchangeNameChange}
-                />
-                <TypeSelect
-                  handleFeedbackTypeChange={this.handleFeedbackTypeChange}
-                />
-                <MarketTextField handleMarketChange={this.handleMarketChange} />
-                <DetailsTextField
-                  handleDetailsChange={this.handleDetailsChange}
-                />
-                <DelaySelect handleDelayChange={this.handleDelayChange} />
-                <Hidden smUp>
-                  {/* Breakpoint up - children are hidden at or above the breakpoint. sm = 600px or larger */}
-                  {this.getRecaptcha({compact: true})}
-                </Hidden>
-                <Hidden xsDown>
-                  {/*
+    return shouldRedirect ? (
+      <Redirect to="/" />
+    ) : (
+      <div className={classes.container}>
+        <Card className={classes.card}>
+          <CardHeader
+            title="Post feedback for an exchange here"
+            subheader="You must select an exchange. All other fields are optional but keep in mind, the more information provided, the better."
+          />
+          <CardContent>
+            <form className={classes.form} onSubmit={this.handleSubmit}>
+              <ExchangeNameAutosuggest
+                className={classes.root}
+                handleExchangeNameChange={this.handleExchangeNameChange}
+              />
+              <TypeSelect
+                handleFeedbackTypeChange={this.handleFeedbackTypeChange}
+              />
+              <MarketTextField handleMarketChange={this.handleMarketChange} />
+              <DetailsTextField
+                handleDetailsChange={this.handleDetailsChange}
+              />
+              <DelaySelect handleDelayChange={this.handleDelayChange} />
+              <Hidden smUp>
+                {/* Breakpoint up - children are hidden at or above the breakpoint. sm = 600px or larger */}
+                {this.getRecaptcha({compact: true})}
+              </Hidden>
+              <Hidden xsDown>
+                {/*
 		    * Breakpoint down - children are hidden at or below the upper bounds to the next breakpoint.
 		    * The upper bounds of xs is 600 because that's where the sm breakpoint is defined so xsDown will
 		    * hide everything below 600.
 		  */}
-                  {this.getRecaptcha({compact: false})}
-                </Hidden>
-                <SubmitButton disabled={disabled} />
-              </form>
-            </CardContent>
-          </Card>
-        </div>;
+                {this.getRecaptcha({compact: false})}
+              </Hidden>
+              <SubmitButton disabled={disabled} />
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 }
 
