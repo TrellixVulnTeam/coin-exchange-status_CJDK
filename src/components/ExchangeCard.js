@@ -18,12 +18,9 @@ import {CircularProgress} from 'material-ui/Progress';
 import fire from '../fire';
 import localStorage from '../lib/localStorage';
 import AppSnackbar from './AppSnackbar';
-import * as d3 from 'd3';
 import {
   getStatusColorFromScore,
-  getFillColorFromScore,
   mappedAndAdjustedScore,
-  getLinearGradient,
 } from '../lib/sentiment';
 import {value2Percent} from '../lib/utils';
 
