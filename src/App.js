@@ -69,6 +69,7 @@ class App extends Component {
       return;
     } else {
       ReactGA.initialize('UA-113708505-1', {debug: true});
+      ReactGA.ga('config', 'AW-844097649');
       const pathname = this.props.location.pathname;
       const page = getPageFrom(pathname);
       ReactGA.pageview(page);
