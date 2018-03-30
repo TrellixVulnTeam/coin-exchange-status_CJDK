@@ -9,10 +9,6 @@ const getStatusColorFromScore = score => {
   if (score >= 0.7) return green[300];
 };
 
-const getLinearGradient = () => {
-  return 'linear-gradient(#fff, #fff)';
-};
-
 /* 
  * Maps a a number from one range to another 
  *
@@ -55,5 +51,4 @@ export {
   getMappedScore,
   magnitudeAdjustedScore,
   mappedAndAdjustedScore,
-  getLinearGradient,
 };

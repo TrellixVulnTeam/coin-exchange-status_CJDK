@@ -287,11 +287,7 @@ class ExchangeCard extends Component {
       );
 
     return (
-      <Card
-        className={classes.card}
-        style={{
-          background: getLinearGradient(),
-        }}>
+      <Card className={classes.card}>
         {cardHeader}
         {cardContent}
         {cardActions}
