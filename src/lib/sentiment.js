@@ -1,4 +1,13 @@
 // @format
+import red from 'material-ui/colors/red';
+import green from 'material-ui/colors/green';
+import yellow from 'material-ui/colors/yellow';
+
+const getStatusColorFromScore = score => {
+  if (score < 0.35) return red[300];
+  if (score < 0.7) return yellow[300];
+  if (score >= 0.7) return green[300];
+};
 
 const getFillColorFromScore = (d3, score) => {
   if (typeof d3.interpolateRdYlGn !== 'function') {
@@ -70,6 +79,7 @@ const mappedAndAdjustedScore = sentiment => {
 };
 
 export {
+  getStatusColorFromScore,
   getFillColorFromScore,
   getMappedScore,
   magnitudeAdjustedScore,

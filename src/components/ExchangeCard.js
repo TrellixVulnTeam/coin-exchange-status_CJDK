@@ -20,6 +20,7 @@ import localStorage from '../lib/localStorage';
 import AppSnackbar from './AppSnackbar';
 import * as d3 from 'd3';
 import {
+  getStatusColorFromScore,
   getFillColorFromScore,
   mappedAndAdjustedScore,
   getLinearGradient,
@@ -205,6 +206,7 @@ class ExchangeCard extends Component {
     const postsCount = exchange[key].postsCount;
     const {score} = this.state;
     let exchangeCardAvatar = <ExchangeCardAvatar name={name} score={score} />;
+    const statusColor = getStatusColorFromScore(score);
 
     const updatesMessage = postsCount < 2 ? '1 post' : `${postsCount} posts`;
 
@@ -218,6 +220,7 @@ class ExchangeCard extends Component {
         avatar={exchangeCardAvatar}
         title={name}
         subheader={this.subheaderMessage(score)}
+        style={{borderTop: `2px solid ${statusColor}`}}
       />
     );
 
